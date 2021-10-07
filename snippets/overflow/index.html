@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="styles.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    
+      <!-- Heading  -->
+  <section id="first-panel">
+    <div class="container">
+      <div class="row my-5">
+        <div class="col-md-12 text-center">
+          <h1 class="mb-4"><strong>The Photo Scanning Process</strong></h1>
+          <h3>The process is straightforward and we are here to help with any questions you may have</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- First Panel -->
+  <section id="first-panel">
+    <div class="container">
+      <div class="row my-5">
+        <div class="col-md-9">
+          <div class="row">
+
+            <div class="card mb-3">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="https://via.placeholder.com/150" class="card-img">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h2 class="card-title"><strong>Get in Contact</strong></h2>
+                    <p class="card-text">Give us a call to start the process. We will be there to answer questions you may have and give you some tips on packaging and organising</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="row no-gutters">
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h2 class="card-title"><strong>Send us your photos and/or VHS tapes</strong></h2>
+                    <p class="card-text">Have a look and organise your old photographs into sizes. To get a rough price, simply count or try and guess how many photos you need scanned. If you are sending videos, roughly guess how many hours of footage there is. You can use our easy calculators to work out a rough cost.<br>
+                    Carefully package your photographs and videos send your parcel to us via a recorded delivery service such as DHL or UPS. We will confirm receipt of your package. Please read our packing tips</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <img src="https://via.placeholder.com/150" class="card-img">
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="<?php echo URLROOT; ?>/public/img/3.jpg" class="card-img">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h2 class="card-title"><strong>We scan and convert them</strong></h2>
+                    <p class="card-text">Your photos will be scanned, rotated and saved to digital format (600dpi resolution as standard). VHS are converted to digital files (.mp4 as standard). You will be contacted with confirmation of the total number of photos scanned and Length of videos converted and given options of how to pay.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="row no-gutters">
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h2 class="card-title"><strong>You receive a download link</strong></h2>
+                    <p class="card-text">As soon as the conversion process is finished you will be emailed a link so that you can enjoy your videos and photos immediately. </p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <img src="https://via.placeholder.com/150" class="card-img">
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="https://via.placeholder.com/150" class="card-img">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h2 class="card-title"><strong>We return your originals and digital media</strong></h2>
+                    <p class="card-text">Your photographs and videos will be sent back to you via a trusted courier service along with DVD discs and USB sticks if you require them.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-3">
+              <div class="row no-gutters">
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h2 class="card-title"><strong>You enjoy sharing with family and friends</strong></h2>
+                    <p class="card-text">This is the best part! Now you have your photos and videos in a digital format you have so many possibilities. You can get them printed onto canvas, t-shirts, share with family, post to social media and so on…. Or maybe you just like the peace of mind knowing your precious memories are now safe.</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <img src="https://via.placeholder.com/150" class="card-img">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-3 sticky-top">
+          <div id="calculator ">
+            <div class="card text-center">
+              <h5 class="card-header heading">Get a Quote!</h5>
+              <div class="card-body mt-4">
+
+                <form id="cost-form">
+                  <div class="form-group">
+                    <input type="number" class="form-control" id="amount" required placeholder="Enter Amount">        
+                  </div>
+                  <button type="submit" class="btn btn-lightblue mb-4">Calculate</button>
+                </form>
+
+                <div id="loading">
+                  <img src="" alt="">
+                </div>
+
+                <div id="results" class="pt-4">
+                  <h5>Results</h5>
+                  <h2 id="total-payment">£0.00</h2>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

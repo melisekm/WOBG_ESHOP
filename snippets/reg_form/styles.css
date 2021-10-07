@@ -37,12 +37,14 @@ body {
     margin: 25px 0px;
  
 }
+
+/* od minwidth 992 zacni zobrazovat border */
 @media only screen and (min-width: 992px) {
     .has-border{
         border-left: 2px solid white;
     }
 }
-
+/* do max width 992 davaj padding 25px */
 @media only screen and (max-width: 992px) {
     .padding-md{
         margin-top: 25px;
