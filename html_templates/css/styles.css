@@ -43,7 +43,7 @@ body{
 }
 
 .cart-basket {
-    font-size: 18px;
+    font-size: 15px;
     position: relative;
     top: 7px;
     padding-left: 8px;
@@ -52,6 +52,19 @@ body{
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
 }
+
+/*Navbar end*/
+
+/*Landing page*/
+
+.btn-xl{
+    padding: 10px 20px;
+    font-size: 36px;
+    border-radius: 10px;
+}
+
+
+/*Footer*/
 
 
 section {
@@ -70,13 +83,15 @@ section {
 
 #footerlist {
     line-height: 2rem;
-    background-color: black;
+    background-color: rgba(109, 109, 109, 0.84);
     color: white;
 }
 
 #footerBottom {
-    margin-top: 100px;
+    /*margin-top: 100px;*/
     background-color: #000000;
     padding: 20px 0px;
     color: white;
 }
+
+/*Footer end*/
