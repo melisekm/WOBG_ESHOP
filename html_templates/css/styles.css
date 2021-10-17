@@ -17,7 +17,7 @@ body{
     color: rgba(255, 255, 255, 0.75);
 }
 .nav-item,.navbar-brand{
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
 
 }
@@ -33,7 +33,7 @@ body{
 }
 #searchGroup {
     padding-left: 35px;
-    font-size:24px
+    font-size:18px
 }
 
 .search-wrapper {
@@ -46,15 +46,37 @@ body{
     font-size: 18px;
     position: relative;
     top: 7px;
-    padding-left: 3px;
-    padding-right: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
     color: #fff;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
 }
 
 
+section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
 
+#footerlist a {
+    color: white;
+}
 
+#footerlist h4 {
+    padding-bottom: 0.5rem;
+    color: white;
+}
 
+#footerlist {
+    line-height: 2rem;
+    background-color: black;
+    color: white;
+}
 
+#footerBottom {
+    margin-top: 100px;
+    background-color: #000000;
+    padding: 20px 0px;
+    color: white;
+}
