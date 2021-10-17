@@ -2,6 +2,18 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+.test{
+    /*border: 1px solid black;*/
+    /*height: 200px;*/
+}
+
+
+/*TODO doriesit*/
+/*button:hover,a:hover,*/
+/*button:focus,a:focus {*/
+/*    color: rgba(255, 255, 255, 0.75);*/
+/*}*/
+
 
 /* Navbar */
 .form-white.input-group>.form-control:focus {
@@ -56,16 +68,6 @@ body{
 
 /*Navbar end*/
 
-/*Landing page*/
-
-.btn-xl{
-    padding: 10px 20px;
-    font-size: 36px;
-    border-radius: 10px;
-}
-
-/*Landing page end*/
-
 /*Footer*/
 section {
     padding-top: 3rem;
@@ -83,14 +85,36 @@ section {
 
 #footerlist {
     line-height: 2rem;
-    background-color: rgba(109, 109, 109, 0.84);
+    /*background-color: rgba(109, 109, 109, 0.84);*/
     color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
 }
 
 #footerBottom {
-    background-color: #000000;
+    /*background-color: #000000;*/
     padding: 20px;
     color: white;
 }
 /*sticky footer https://stackoverflow.com/a/40854221/12348001*/
 /*Footer end*/
+
+/*Landing page*/
+
+.btn-xl{
+    padding: 10px 20px;
+    font-size: 36px;
+    border-radius: 10px;
+}
+
+/*TODO resiznut to? ale toto to pokazi.*/
+/*.carousel{*/
+/*    width:40vw;*/
+/*}*/
+
+/*Landing page end*/
+
+
+
+/*popular games*/
+
+/*popular games end*/
