@@ -1,6 +1,4 @@
 // Live Search
-// getting all required elements
-
 //zalozene na https://www.codingnepalweb.com/search-bar-autocomplete-search-suggestions-javascript/
 const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
@@ -15,7 +13,6 @@ fetch('js/suggestions.json')
     .catch(error => console.log(error));
 // if user press any key and release
 inputBox.onkeyup = (e) => {
-
     let userData = e.target.value; //user enetered data
     let suggestionsList = [];
     if (userData.length >= MIN_LENGTH_TO_SEARCH) {
@@ -36,8 +33,7 @@ inputBox.onkeyup = (e) => {
     }
 }
 
-
-function showSuggestions(list) {
+const showSuggestions = (list) => {
     const search = `<hr/><a href="https://www.google.sk"><li>Search for "${inputBox.value}" &gt;</li></a>`;
     if (list.length === 1) {
         return search;
@@ -49,3 +45,8 @@ function showSuggestions(list) {
     return list.join('');
 }
 
+// https://stackoverflow.com/a/64866081/12348001
+inputBox.addEventListener('search', () => {
+    suggBox.innerHTML = "";
+    searchWrapper.classList.remove("active");
+});
