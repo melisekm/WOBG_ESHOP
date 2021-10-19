@@ -45,8 +45,22 @@ const showSuggestions = (list) => {
     return list.join('');
 }
 
-// https://stackoverflow.com/a/64866081/12348001
 inputBox.addEventListener('search', () => {
     suggBox.innerHTML = "";
     searchWrapper.classList.remove("active");
 });
+
+//Prodcut catalog slider
+// https://stackoverflow.com/a/64866081/12348001
+const minTag = document.getElementById("priceMin")
+const maxTag = document.getElementById("priceMax")
+const priceRange = new Slider('#priceRange', {"tooltip": "hide"});
+const priceRangeElement = priceRange.getElement()
+minTag.innerHTML = priceRange.getValue()[0] + "$"
+maxTag.innerHTML = priceRange.getValue()[1] + "$"
+
+priceRangeElement.slide = (e) => {
+    const [low, high] = priceRange.getValue()
+    minTag.innerHTML = low + "$"
+    maxTag.innerHTML = high + "$"
+}
