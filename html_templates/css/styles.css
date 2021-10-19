@@ -16,10 +16,10 @@ body {
 
 
 /* Navbar */
-.form-white.input-group > .form-control:focus {
-    border-color: #fff;
-    box-shadow: inset 0 0 0 1px #fff;
-}
+/*.form-white.input-group > .form-control:focus {*/
+/*    border-color: #fff;*/
+/*    box-shadow: inset 0 0 0 1px #fff;*/
+/*}*/
 
 .navbar-dark .navbar-nav .nav-link {
     color: #fff;
@@ -37,25 +37,117 @@ body {
 }
 
 /*https://stackoverflow.com/a/53684309/12348001*/
-.fa-search {
-    color: black;
-    position: absolute;
-    left: 3px;
-    z-index: 3;
-    /* Vertically center the icon in the input */
-    top: calc(50% - 0.5em);
-}
+/*.fa-search {*/
+/*    color: black;*/
+/*    !*position: absolute;*!*/
+/*    left: 3px;*/
+/*    !*z-index: 3;*!*/
+/*    !* Vertically center the icon in the input *!*/
+/*    top: calc(50% - 0.5em);*/
+/*}*/
 
 #searchGroup {
-    padding-left: 35px;
-    font-size: 18px
+    padding-left: 40px;
+    font-size: 18px;
+
+}
+
+.search-wrapper .search-input {
+    /*background: #fff;*/
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+}
+
+.search-input input {
+    /*height: 55px;*/
+    width: 100%;
+    /*outline: none;*/
+    /*border: none;*/
+    /*border-radius: 5px;*/
+    /*padding: 0 60px 0 20px;*/
+    /*font-size: 18px;*/
+    /*padding-left: 450px;*/
+    font-size: 18px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-input.active input {
+    border-radius: 5px 5px 0 0;
+}
+
+.search-input .autocom-box {
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    max-height: 350px;
+    overflow-y: auto;
+
+}
+
+.search-input.active .autocom-box {
+    padding: 10px 8px;
+    opacity: 1;
+    pointer-events: auto;
+    border-radius: 10px;
+
+
+    position: absolute;
+    top: 100%;
+    z-index: 999;
+    color: white;
+    width: 100%;
+
+}
+
+.autocom-box li strong {
+    cursor: default;
+    padding: 8px 12px;
+
+}
+
+.autocom-box a li {
+    list-style: none;
+    padding: 8px 12px;
+    display: none;
+    width: 100%;
+    cursor: pointer;
+}
+.autocom-box a {
+    color: white;
+}
+
+.search-input.active .autocom-box li {
+    display: block;
+}
+
+.autocom-box a li:hover {
+    background: rgba(255, 255, 255, 0.31);
+}
+
+.search-input .icon {
+    position: absolute;
+    /*z-index: 999;*/
+    /*LOL FIXME IDFK*/
+    right: 410px;
+    top: -4px;
+    /*height: 55px;*/
+    /*width: 55px;*/
+    /*text-align: center;*/
+    line-height: 55px;
+    font-size: 20px;
+    color: black;
+
 }
 
 .search-wrapper {
     position: relative;
     width: 450px;
-    text-align: center;
+    /*text-align: center;*/
 }
+
+/*Search end*/
 
 .cart-basket {
     font-size: 15px;
@@ -96,6 +188,13 @@ body {
         font-size: 18px;
         border-radius: 10px;
     }
+
+    /*FIXME TO ULCELO*/
+    /*.search-wrapper {*/
+    /*    position: relative;*/
+    /*    width: 350px;*/
+    /*    !*text-align: center;*!*/
+    /*}*/
 }
 
 @media (min-width: 768px) {
@@ -135,7 +234,6 @@ body {
 /*    font-size: 24px;*/
 /*    border-radius: 10px;*/
 /*}*/
-
 
 
 /*TODO resiznut to? ale toto to pokazi.*/
