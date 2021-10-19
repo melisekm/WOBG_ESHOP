@@ -221,6 +221,16 @@ body {
     }
 }
 
+.btn-browse-back {
+    padding: 10px 20px;
+    font-size: 28px;
+    border-radius: 10px;
+}
+
+.empty_cart {
+    padding-top: 100px;
+}
+
 .form-rounded {
     border-radius: 1rem;
     border-color: #1762A7;
