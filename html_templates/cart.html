@@ -12,6 +12,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="css/styles.css">
     <title>WOBG E-Shop</title>
@@ -68,8 +69,55 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="card">
+    <div class="row">
+        <p class="fs-4 mt-3">Cart</p>
+        <div class="col-md-12 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col-6 text-muted">Product</div>
+                    <div class="col-1 text-muted">Price</div>
+                    <div class="col-2 text-muted">Quantity</div>
+                    <div class="col-2 text-muted">Total</div>
+                </div>
+            </div>
+            <div class="row border-top border-bottom">
+                <div class="row main align-items-center">
+                    <div class="col-3"><img class="img-fluid" src="img/teta.jpg" alt=""></div>
+                    <div class="col-3"> Ticket to Ride </div>
+                    <div class="col">&dollar; 49.99 </div>
+                    <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
+                    <div class="col">&dollar; 49.99 </div>
+                    <div class="col"> <i class="fa fa-trash-o"></i></div>
+                </div>
 
+            </div>
+            <div class="row border-bottom">
+                <div class="row main align-items-center">
+                    <div class="col-3"><img class="img-fluid" src="img/teta.jpg" alt=""></div>
+                    <div class="col-3"> Magic: The Gathering...</div>
+                    <div class="col">&dollar; 3.49 </div>
+                    <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
+                    <div class="col">&dollar; 6.98 </div>
+                    <div class="col"> <i class="fa fa-trash-o"></i></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col mt-4 fs-4 text-end">Total: 56.97 &dollar; </div>
+            </div>
+
+            <div class="back-to-shop">
+                <button type="button" class="btn rounded btn-dark fs-4">
+                Back to shop
+                </button>
+                <button type="button" class="btn rounded btn-dark fs-4 btn-checkout">
+                    Checkout
+                </button>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <!-- Footer -->
