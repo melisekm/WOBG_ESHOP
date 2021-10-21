@@ -9,6 +9,15 @@ a {
 }
 
 
+.white-link {
+    color: white;
+    text-decoration: underline;
+}
+
+.white-link:hover {
+    color: #0a58ca;
+}
+
 /* Navbar */
 /*Nejake zvyraznen na hover?*/
 /*.form-white.input-group > .form-control:focus {*/
