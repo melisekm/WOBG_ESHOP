@@ -8,10 +8,6 @@ a {
 
 }
 
-.row, col {
-    /*border: 1px solid black;*/
-    /*height: 3000px;*/
-}
 
 /* Navbar */
 /*Nejake zvyraznen na hover?*/
@@ -45,15 +41,6 @@ a {
     border-radius: 50%;
 }
 
-/*https://stackoverflow.com/a/53684309/12348001*/
-/*.fa-search {*/
-/*    color: black;*/
-/*    !*position: absolute;*!*/
-/*    left: 3px;*/
-/*    !*z-index: 3;*!*/
-/*    !* Vertically center the icon in the input *!*/
-/*    top: calc(50% - 0.5em);*/
-/*}*/
 
 /*Search*/
 
@@ -186,12 +173,6 @@ div .footerBig a:hover {
         border-radius: 10px;
     }
 
-    /*FIXME TO ULCELO*/
-    /*.search-wrapper {*/
-    /*    position: relative;*/
-    /*    width: 350px;*/
-    /*    !*text-align: center;*!*/
-    /*}*/
 }
 
 @media (min-width: 768px) {
@@ -280,13 +261,6 @@ div .footerBig a:hover {
 
 /*Sign in a Sign up end*/
 
-/*Cart*/
-.empty_cart {
-    padding-top: 100px;
-}
-
-/*Cart end*/
-
 
 /*Product catalog*/
 
@@ -362,5 +336,34 @@ div .footerBig a:hover {
     -webkit-box-orient: vertical;
 }
 
-
 /*Product catalog end*/
+
+
+/* Cart */
+.card {
+    margin: auto;
+    max-width: 1000px;
+    width: 100%;
+    /*box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    border-radius: 1rem;
+    border: transparent
+}
+
+.close {
+    margin-left: auto;
+    font-size: 0.7rem
+}
+
+.back-to-shop {
+    margin-top: 2rem
+}
+
+.btn-checkout  {
+    float:right;
+}
+
+.empty_cart {
+    padding-top: 100px;
+}
+
+/* Cart end */
