@@ -1,0 +1,21 @@
+.card {
+    margin: auto;
+    max-width: 1000px;
+    width: 100%;
+    /*box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    border-radius: 1rem;
+    border: transparent
+}
+
+.close { /* Not used */
+    margin-left: auto;
+    font-size: 0.7rem
+}
+
+.back-to-shop {
+    margin-top: 2rem
+}
+
+.btn-checkout {
+    float: right;
+}

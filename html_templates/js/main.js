@@ -6,11 +6,7 @@ const suggBox = searchWrapper.querySelector(".autocom-box");
 const resultsTag = `<li><strong>Results</strong></li><hr>`;
 const MAX_SEARCH_RESULTS = 5;
 const MIN_LENGTH_TO_SEARCH = 3;
-let suggestions;
-fetch('js/suggestions.json')
-    .then(response => response.json())
-    .then(data => suggestions = data["suggestions"])
-    .catch(error => console.log(error));
+
 // if user press any key and release
 inputBox.onkeyup = (e) => {
     let userData = e.target.value; //user enetered data
@@ -50,26 +46,3 @@ inputBox.addEventListener('search', () => {
     searchWrapper.classList.remove("active");
 });
 
-//Prodcut catalog slider
-//https://github.com/seiyria/bootstrap-slider
-const minTag = document.getElementById("priceMin")
-const maxTag = document.getElementById("priceMax")
-const priceRange = new Slider('#priceRange', {"tooltip": "hide"});
-const priceRangeElement = priceRange.getElement()
-minTag.innerHTML = priceRange.getValue()[0] + "$"
-maxTag.innerHTML = priceRange.getValue()[1] + "$"
-
-const updatePriceSliderValues = () => {
-    const [low, high] = priceRange.getValue()
-    minTag.innerHTML = low + "$"
-    maxTag.innerHTML = high + "$"
-}
-
-priceRangeElement.slide = (e) => {
-    updatePriceSliderValues()
-}
-
-priceRangeElement.change = (e) => {
-    updatePriceSliderValues()
-
-}

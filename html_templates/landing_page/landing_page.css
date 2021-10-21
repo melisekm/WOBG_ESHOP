@@ -1,0 +1,44 @@
+@media (max-width: 768px) {
+    .btn-browse {
+        padding: 10px 20px;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .btn-browse {
+        padding: 10px 20px;
+        font-size: 24px;
+        border-radius: 10px;
+    }
+}
+
+@media (min-width: 992px) {
+    .btn-browse {
+        padding: 10px 20px;
+        font-size: 28px;
+        border-radius: 10px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .btn-browse {
+        padding: 10px 20px;
+        font-size: 36px;
+        border-radius: 10px;
+    }
+}
+
+.btn-browse-back {
+    padding: 10px 20px;
+    font-size: 28px;
+    border-radius: 10px;
+}
+
+
+/*TODO resiznut to? ale toto to pokazi.*/
+/*.carousel{*/
+/*    width:40vw;*/
+/*}*/

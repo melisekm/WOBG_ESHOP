@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="profile.css">
+
     <title>WOBG E-Shop</title>
 </head>
 
@@ -22,8 +24,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark" role="navigation">
     <div class="container">
-        <a class="navbar-brand" href="landing_page.html">
-            <img src="img/cubes.svg" alt="logo">
+        <a class="navbar-brand" href="../landing_page.html">
+            <img src="../img/cubes.svg" alt="logo">
             <span class="mx-3 ps-1">wobg.com</span>
         </a>
 
@@ -52,17 +54,18 @@
 
             <ul class="navbar-nav nav-fill w-100">
                 <li class="nav-item">
-                    <a class="nav-link" href="landing_page.html">Board games</a>
+                    <a class="nav-link" href="../product_catalog/product_catalog.html">Board games</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link cart " href="empty_cart.html"><i class="fas fa-shopping-cart fa-lg"></i><span
+                    <a class="nav-link cart " href="../cart/empty_cart.html"><i
+                            class="fas fa-shopping-cart fa-lg"></i><span
                             class="cart-basket  text-white">0</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Sign in</a>
+                    <a class="nav-link" href="../profile/login.html">Sign in</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="register.html">Sign up</a>
+                    <a class="nav-link" href="../profile/register.html">Sign up</a>
                 </li>
             </ul>
         </div>
@@ -70,8 +73,71 @@
 </nav>
 
 <div class="container">
+    <div class="row">
+        <!-- zobraz col len na large+ -->
+        <div class="col-lg">
+            <div class="container d-flex justify-content-center">
+                <div id="rectangle">
 
+                    <div class="form-row">
+                        <div class="col text-center">
+                            <h1>Sign Up </h1>
+                        </div>
+                    </div>
+
+                    <div class="container dark">
+                        <div class="form-group ">
+                            <label for="emailReg" class="bigF form-label ">E-mail:</label>
+                            <input id="emailReg" type="text" class="form-control  form-rounded"
+                                   placeholder="">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="passwordReg" class="bigF form-label ">Password:</label>
+                            <input id="passwordReg" type="text" class="form-control  form-rounded"
+                                   placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPasswordReg" class="bigF form-label ">Confirm password:</label>
+                            <input id="confirmPasswordReg" type="text" class="form-control  form-rounded"
+                                   placeholder="">
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                I agree with <a href="">Privacy policy</a> and <a href="">Terms of use</a>
+                            </label>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col text-center">
+                                <button class="btn nice_btn_col btn-default">Create Account</button>
+                            </div>
+                        </div>
+
+                        <hr class="border rounded border-white border-3">
+
+                        <!--                        <div class="row ">-->
+                        <!--                            <p>-->
+                        <!--                                Already have an account? <a href="login.html">Sign in</a>-->
+                        <!--                            </p>-->
+                        <!--                        </div>-->
+                        <div class="mt-4">
+                            <div class="d-flex justify-content-center">
+                                Already have an account? <a href="login.html"> Sign In</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
+
 <!-- Footer -->
 <footer class="mt-auto text-white bg-dark">
     <div class="container">
@@ -79,7 +145,7 @@
             <div class="row row-cols-1 row-cols-sm-2  row-cols-lg-4">
 
                 <div class="col order-lg-1 order-1 text-center">
-                    <img src="img/cubes.svg" alt="logo">
+                    <img src="../img/cubes.svg" alt="logo">
                     <p class="fs-4">World of Board Games</p>
                 </div>
 
@@ -118,6 +184,7 @@
 
 </body>
 
-<script src="js/main.js" type="module"></script>
+<script src="../js/main.js"></script>
+<script src="../js/suggestions.js"></script>
 
 </html>
