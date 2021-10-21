@@ -51,7 +51,7 @@ inputBox.addEventListener('search', () => {
 });
 
 //Prodcut catalog slider
-// https://stackoverflow.com/a/64866081/12348001
+//https://github.com/seiyria/bootstrap-slider
 const minTag = document.getElementById("priceMin")
 const maxTag = document.getElementById("priceMax")
 const priceRange = new Slider('#priceRange', {"tooltip": "hide"});
@@ -59,8 +59,17 @@ const priceRangeElement = priceRange.getElement()
 minTag.innerHTML = priceRange.getValue()[0] + "$"
 maxTag.innerHTML = priceRange.getValue()[1] + "$"
 
-priceRangeElement.slide = (e) => {
+const updatePriceSliderValues = () => {
     const [low, high] = priceRange.getValue()
     minTag.innerHTML = low + "$"
     maxTag.innerHTML = high + "$"
+}
+
+priceRangeElement.slide = (e) => {
+    updatePriceSliderValues()
+}
+
+priceRangeElement.change = (e) => {
+    updatePriceSliderValues()
+
 }

@@ -22,6 +22,7 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
     <link rel="stylesheet" href="css/styles.css">
     <title>WOBG E-Shop</title>
 </head>
@@ -126,11 +127,10 @@
 
                             </div>
 
-                            <hr class="filterSpacer">
                             <div class="row">
 
                                 <div class="col-10">
-
+                                    <hr class="filterSpacer">
                                     <div class="form-label fs-4 font-weight-bold">
                                         <label for="minimumAge">
                                             Minimum Age
@@ -219,13 +219,352 @@
 
             </aside>
         </div>
-        <div class="col-lg-9 py-lg-0 py-5">
-            <div class="test">
+        <div class="col-lg-9 py-lg-0 order-links">
+            <ul class="nav nav-pills mb-3 d-none d-xl-flex" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link link-dark active" id="pills-recommended-tab"
+                       data-bs-toggle="pill"
+                       data-bs-target="#pills-recommended" type="button" role="tab"
+                       aria-controls="pills-recommended"
+                       aria-selected="true">Recommended
+                    </a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link link-dark" id="pills-topsellers-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-topsellers" type="button" role="tab"
+                            aria-controls="pills-topsellers" aria-selected="false">Top Sellers
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link link-dark" id="pills-mostrecent-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-mostrecent" type="button" role="tab"
+                            aria-controls="pills-mostrecent" aria-selected="false">Most Recent
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link link-dark" id="pills-highestprice-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-highestprice" type="button" role="tab"
+                            aria-controls="pills-highestprice" aria-selected="false">Highest Price
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link link-dark" id="pills-lowestprice-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-lowestprice" type="button" role="tab"
+                            aria-controls="pills-lowestprice" aria-selected="false">Lowest Price
+                    </button>
+                </li>
+            </ul>
+
+            <div class="d-xl-none my-3">
+                <select class="form-select" aria-label="Default select example">
+                    <option value="recommended">Order by Recommended</option>
+                    <option value="sop_sellers">Order by Top Sellers</option>
+                    <option value="most_recent">Order by Most Recent</option>
+                    <option value="highest_price">Order by Highest Price</option>
+                    <option value="lowest_price">Order by Lowest Price</option>
+                </select>
+            </div>
+            <div class="tab-content .d-block ps-xl-3" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-recommended" role="tabpanel"
+                     aria-labelledby="pills-recommended-tab">
+                    <div class="row">
+                        <div class="col-md-4 py-3">
+                            <a href="product_page.html">
+                                <div class="ratio ratio-16x9">
+                                    <img src="img/teta.jpg" class="img-fluid" alt="product 1">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <div class="row pt-3 ">
+                                <div class="col-8">
+                                    <a href="product_page.html">
+                                        <p class="fs-5 font-weight-bold text-truncate">Ticket to Ride:
+                                            Europe
+                                            Edition</p>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <div class="col text-end">
+                                        <p class="fs-5 text-weight-bold text-end">49.99$</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-none d-sm-block">
+                                <div class="col-8">
+                                    <p class="description">Lorem ipsum dolorLorem ipsum drem ipsum dolorLorem
+                                        irem ipsum dolorLorem irem ipsum dolorLorem iolor sit aLorem ipsum dolor
+                                        sit aLorem ipsum dolor sit a sit amet, Lorem ipsum dolor sit aLorem
+                                        ipsum dolor sit aLorem ipsum dolor sit aconsectetur adipiscing elit. Ut
+                                        laoreet,
+                                        sapien quis finibus posuere, justo sapien placerat diam</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8 d-none d-sm-block">
+                                    <p class="text-muted">10+ | 30 min | 2-8</p>
+                                </div>
+                                <div class="col text-end">
+                                    <button class="btn btn-dark w-100">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-2 border rounded border-dark border-2">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 py-3">
+                            <a href="product_page.html">
+                                <div class="ratio ratio-16x9">
+                                    <img src="img/dave-photoz-FdTmaUlEr4A-unsplash.jpg" class="img-fluid"
+                                         alt="product 1">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <div class="row pt-3 ">
+                                <div class="col-8">
+                                    <a href="product_page.html">
+                                        <p class="fs-5 font-weight-bold text-truncate">Ticket to Ride:
+                                            Europe
+                                            Edition</p>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <div class="col text-end">
+                                        <p class="fs-5 text-weight-bold text-end">49.99$</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-none d-sm-block">
+                                <div class="col-8">
+                                    <p class="description">Lorem ipsum dolorLorem ipsum drem ipsum dolorLorem
+                                        irem ipsum dolorLorem irem ipsum dolorLorem iolor sit aLorem ipsum dolor
+                                        sit aLorem ipsum dolor sit a sit amet, Lorem ipsum dolor sit aLorem
+                                        ipsum dolor sit aLorem ipsum dolor sit aconsectetur adipiscing elit. Ut
+                                        laoreet,
+                                        sapien quis finibus posuere, justo sapien placerat diam</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8 d-none d-sm-block">
+                                    <p class="text-muted">10+ | 30 min | 2-8</p>
+                                </div>
+                                <div class="col text-end">
+                                    <button class="btn btn-dark w-100">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-2 border rounded border-dark border-2">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 py-3">
+                            <a href="product_page.html">
+                                <div class="ratio ratio-16x9">
+                                    <img src="img/teta.jpg" class="img-fluid" alt="product 1">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <div class="row pt-3 ">
+                                <div class="col-8">
+                                    <a href="product_page.html">
+                                        <p class="fs-5 font-weight-bold text-truncate">Ticket to Ride:
+                                            Europe
+                                            Edition</p>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <div class="col text-end">
+                                        <p class="fs-5 text-weight-bold text-end">49.99$</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-none d-sm-block">
+                                <div class="col-8">
+                                    <p class="description">Lorem ipsum dolorLorem ipsum drem ipsum dolorLorem
+                                        irem ipsum dolorLorem irem ipsum dolorLorem iolor sit aLorem ipsum dolor
+                                        sit aLorem ipsum dolor sit a sit amet, Lorem ipsum dolor sit aLorem
+                                        ipsum dolor sit aLorem ipsum dolor sit aconsectetur adipiscing elit. Ut
+                                        laoreet,
+                                        sapien quis finibus posuere, justo sapien placerat diam</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8 d-none d-sm-block">
+                                    <p class="text-muted">10+ | 30 min | 2-8</p>
+                                </div>
+                                <div class="col text-end">
+                                    <button class="btn btn-dark w-100">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-2 border rounded border-dark border-2">
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="pills-topsellers" role="tabpanel"
+                     aria-labelledby="pills-topsellers-tab">
+                    <div class="row">
+                        <div class="col-md-4 py-3">
+                            <a href="product_page.html">
+                                <div class="ratio ratio-16x9">
+
+                                    <img src="img/nik-korba-3WceTBlUoMs-unsplash.jpg" class="img-fluid" alt="product 1">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <div class="row pt-3 ">
+                                <div class="col-8">
+                                    <a href="product_page.html">
+                                        <p class="fs-5 font-weight-bold text-truncate">Ticket to Ride:
+                                            Europe
+                                            Edition</p>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <div class="col text-end">
+                                        <p class="fs-5 text-weight-bold text-end">49.99$</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-none d-sm-block">
+                                <div class="col-8">
+                                    <p class="description">Lorem ipsum dolorLorem ipsum drem ipsum dolorLorem
+                                        irem ipsum dolorLorem irem ipsum dolorLorem iolor sit aLorem ipsum dolor
+                                        sit aLorem ipsum dolor sit a sit amet, Lorem ipsum dolor sit aLorem
+                                        ipsum dolor sit aLorem ipsum dolor sit aconsectetur adipiscing elit. Ut
+                                        laoreet,
+                                        sapien quis finibus posuere, justo sapien placerat diam</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8 d-none d-sm-block">
+                                    <p class="text-muted">10+ | 30 min | 2-8</p>
+                                </div>
+                                <div class="col text-end">
+                                    <button class="btn btn-dark w-100">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-2 border rounded border-dark border-2">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 py-3">
+                            <a href="product_page.html">
+                                <div class="ratio ratio-16x9">
+                                    <img src="img/teta.jpg" class="img-fluid" alt="product 1">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <div class="row pt-3 ">
+                                <div class="col-8">
+                                    <a href="product_page.html">
+                                        <p class="fs-5 font-weight-bold text-truncate">Ticket to Ride:
+                                            Europe
+                                            Edition</p>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <div class="col text-end">
+                                        <p class="fs-5 text-weight-bold text-end">49.99$</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-none d-sm-block">
+                                <div class="col-8">
+                                    <p class="description">Lorem ipsum dolorLorem ipsum drem ipsum dolorLorem
+                                        irem ipsum dolorLorem irem ipsum dolorLorem iolor sit aLorem ipsum dolor
+                                        sit aLorem ipsum dolor sit a sit amet, Lorem ipsum dolor sit aLorem
+                                        ipsum dolor sit aLorem ipsum dolor sit aconsectetur adipiscing elit. Ut
+                                        laoreet,
+                                        sapien quis finibus posuere, justo sapien placerat diam</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8 d-none d-sm-block">
+                                    <p class="text-muted">10+ | 30 min | 2-8</p>
+                                </div>
+                                <div class="col text-end">
+                                    <button class="btn btn-dark w-100">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-2 border rounded border-dark border-2">
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="pills-mostrecent" role="tabpanel"
+                     aria-labelledby="pills-mostrecent-tab">
+                    <div class="row">
+                        <div class="col-md-4 py-3">
+                            <a href="product_page.html">
+                                <div class="ratio ratio-16x9">
+                                    <img src="img/aksel-fristrup-w7eaCH6ShR4-unsplash.jpg" class="img-fluid"
+                                         alt="product 1">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <div class="row pt-3 ">
+                                <div class="col-8">
+                                    <a href="product_page.html">
+                                        <p class="fs-5 font-weight-bold text-truncate">Ticket to Ride:
+                                            Europe
+                                            Edition</p>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <div class="col text-end">
+                                        <p class="fs-5 text-weight-bold text-end">49.99$</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-none d-sm-block">
+                                <div class="col-8">
+                                    <p class="description">Lorem ipsum dolorLorem ipsum drem ipsum dolorLorem
+                                        irem ipsum dolorLorem irem ipsum dolorLorem iolor sit aLorem ipsum dolor
+                                        sit aLorem ipsum dolor sit a sit amet, Lorem ipsum dolor sit aLorem
+                                        ipsum dolor sit aLorem ipsum dolor sit aconsectetur adipiscing elit. Ut
+                                        laoreet,
+                                        sapien quis finibus posuere, justo sapien placerat diam</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8 d-none d-sm-block">
+                                    <p class="text-muted">10+ | 30 min | 2-8</p>
+                                </div>
+                                <div class="col text-end">
+                                    <button class="btn btn-dark w-100">
+                                        Add to cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-2 border rounded border-dark border-2">
+                    </div>
+                </div>
+            </div>
+
+<!--            visible everywhere-->
+            <div class="d-block ps-xl-3">
+
             </div>
         </div>
-
     </div>
 </div>
+
 <!-- Footer -->
 <footer class="mt-auto text-white bg-dark">
     <div class="container">
