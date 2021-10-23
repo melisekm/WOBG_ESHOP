@@ -57,7 +57,8 @@
                     <a class="nav-link" href="../product_catalog/product_catalog.html">Board games</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link cart " href="../cart/empty_cart.html"><i class="fas fa-shopping-cart fa-lg"></i><span
+                    <a class="nav-link cart " href="../cart/empty_cart.html"><i
+                            class="fas fa-shopping-cart fa-lg"></i><span
                             class="cart-basket  text-white">0</span></a>
                 </li>
                 <li class="nav-item">
@@ -71,55 +72,115 @@
     </div>
 </nav>
 
-<div class="card">
-    <div class="row">
-        <p class="fs-4 mt-3">Cart</p>
-        <div class="col-md-12 cart">
-            <div class="title">
-                <div class="row">
-                    <div class="col-6 text-muted">Product</div>
-                    <div class="col-1 text-muted">Price</div>
-                    <div class="col-2 text-muted">Quantity</div>
-                    <div class="col-2 text-muted">Total</div>
-                </div>
-            </div>
-            <div class="row border-top border-bottom">
-                <div class="row main align-items-center">
-                    <div class="col-3"><img class="img-fluid" src="../img/teta.jpg" alt=""></div>
-                    <div class="col-3"> Ticket to Ride </div>
-                    <div class="col">&dollar; 49.99 </div>
-                    <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
-                    <div class="col">&dollar; 49.99 </div>
-                    <div class="col text-end"> <i class="fas fa-trash-alt"></i></div>
-                </div>
-
-            </div>
-            <div class="row border-bottom">
-                <div class="row main align-items-center">
-                    <div class="col-3"><img class="img-fluid" src="../img/teta.jpg" alt=""></div>
-                    <div class="col-3"> Magic: The Gathering...</div>
-                    <div class="col">&dollar; 3.49 </div>
-                    <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
-                    <div class="col">&dollar; 6.98 </div>
-                    <div class="col text-end"> <i class="fas fa-trash-alt"></i></div>
-                </div>
+<div class="container">
+    <p class="fs-4 mt-3">Cart</p>
+    <div class="row text-muted text-center border-bottom">
+        <div class="col">
+            Price
+        </div>
+        <div class="col">
+            Quantity
+        </div>
+        <div class="col">
+            Total
+        </div>
+    </div>
+    <div>
+        <div class="row ps-4 align-items-center my-2">
+            <div class="col-4">
+                <img class="img-fluid" src="../img/teta.jpg" alt="">
             </div>
 
-            <div class="row">
-                <div class="col mt-4 fs-4 text-end">Total: 56.97 &dollar; </div>
+            <div class="col-6 ps-4">
+                221B Baker Street: The Master Detective Game. Game of the year edition
             </div>
 
-            <div class="back-to-shop">
-                <a href="../product_catalog/product_catalog.html">
-                    <button type="button" class="btn rounded btn-dark fs-4"> Back to shop </button>
-                </a>
-                <a href="#">
-                    <button type="button" class="btn rounded btn-dark fs-4 btn-checkout"> Checkout </button>
-                </a>
+            <div class="col text-end">
+                <i class="fas fa-trash-alt"></i>
             </div>
         </div>
+        <div class="row text-center py-2 border-bottom">
+            <div class="col">
+                49.99&dollar;
+            </div>
+            <div class="col">
+                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+            </div>
+            <div class="col">
+                49.99&dollar;
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="row ps-4 align-items-center my-2">
+            <div class="col-4">
+                <img class="img-fluid" src="../img/teta.jpg" alt="">
+            </div>
+
+            <div class="col-6 ps-4">
+                Ticket to Ride
+            </div>
+
+            <div class="col text-end">
+                <i class="fas fa-trash-alt"></i>
+            </div>
+        </div>
+        <div class="row text-center py-2 border-bottom">
+            <div class="col">
+                49.99&dollar;
+            </div>
+            <div class="col">
+                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+            </div>
+            <div class="col">
+                49.99&dollar;
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="row ps-4 align-items-center my-2">
+            <div class="col-4">
+                <img class="img-fluid" src="../img/teta.jpg" alt="">
+            </div>
+
+            <div class="col-6 ps-4">
+                Dead of Winter: A Cross Roads Game
+            </div>
+
+            <div class="col text-end">
+                <i class="fas fa-trash-alt"></i>
+            </div>
+        </div>
+        <div class="row text-center py-2 border-bottom">
+            <div class="col">
+                49.99&dollar;
+            </div>
+            <div class="col">
+                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+            </div>
+            <div class="col">
+                49.99&dollar;
+            </div>
+        </div>
+    </div>
+
+
+    <div class="fs-4 mt-3 text-end">
+        Total: 56.97 &dollar;
+    </div>
+    <div class="row mt-2">
+        <div class="col ps-4">
+            <a class="btn btn-back-to-shop rounded btn-dark" href="../product_catalog/product_catalog.html">Back to
+                shop</a>
+        </div>
+        <div class="col text-end">
+            <p><a class="btn rounded btn-dark btn-back-to-shop" href="#">Checkout </a></p>
+        </div>
+
 
     </div>
+
+
 </div>
 
 <!-- Footer -->
@@ -166,9 +227,8 @@
     </div>
 </footer>
 
-</body>
-
 <script src="../js/main.js"></script>
 <script src="../js/suggestions.js"></script>
+</body>
 
 </html>

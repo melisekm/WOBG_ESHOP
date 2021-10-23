@@ -1,21 +1,29 @@
-.card {
-    margin: auto;
-    max-width: 1000px;
-    width: 100%;
-    /*box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
-    border-radius: 1rem;
-    border: transparent
+.btn-back-to-browsing {
+    padding: 10px 20px;
+    font-size: 28px;
+    border-radius: 10px;
+}
+@media (max-width: 768px) {
+    .btn-back-to-browsing, .btn-back-to-shop {
+        font-size: 14px;
+    }
+
 }
 
-.close { /* Not used */
-    margin-left: auto;
-    font-size: 0.7rem
+@media (min-width: 768px) {
+    .btn-back-to-browsing, .btn-back-to-shop {
+        font-size: 24px;
+    }
 }
 
-.back-to-shop {
-    margin-top: 2rem
+@media (min-width: 992px) {
+    .btn-back-to-browsing {
+        font-size: 28px;
+    }
 }
 
-.btn-checkout {
-    float: right;
+@media (min-width: 1200px) {
+    .btn-back-to-browsing {
+        font-size: 36px;
+    }
 }
