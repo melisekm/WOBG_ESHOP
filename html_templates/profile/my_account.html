@@ -15,7 +15,6 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../product_catalog/product_catalog.css">
     <link rel="stylesheet" href="profile.css">
     <title>WOBG E-Shop</title>
 
@@ -63,7 +62,7 @@
                             class="cart-basket  text-white">0</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../profile/login.html">My Account</a>
+                    <a class="nav-link" href="../profile/my_account.html">My Account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../profile/register.html">Logout</a>
@@ -72,201 +71,181 @@
         </div>
     </div>
 </nav>
-<div class="col order-links">
-    <div class="container">
-        <div class="row my-5">
-            <ul class="nav nav-pills mb-3 d-xl-flex" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link link-dark active" id="pills-recommended-tab"
-                       data-bs-toggle="pill"
-                       data-bs-target="#pills-recommended" type="button" role="tab"
-                       aria-controls="pills-recommended"
-                       aria-selected="true">Personal Details
-                    </a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link link-dark" id="pills-topsellers-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-topsellers" type="button" role="tab"
-                            aria-controls="pills-topsellers" aria-selected="false">My Orders
-                    </button>
-                </li>
-            </ul>
+<div class="container my-5 order-links">
 
-            <div class="tab-content ps-xl-3" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-recommended" role="tabpanel"
-                     aria-labelledby="pills-recommended-tab">
-                    <div class="container">
-                        <p class="fs-4 text-center mb-5">Personal Details</p>
-                        <div class="row gx-5">
-                            <div class="col-lg-4 col-md-12">
+    <ul class="nav nav-pills mb-3 d-xl-flex" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link link-dark active" id="pills-personal-details-tab"
+               data-bs-toggle="pill"
+               data-bs-target="#pills-personal-details" type="button" role="tab"
+               aria-controls="pills-personal-details"
+               aria-selected="true">Personal Details
+            </a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link link-dark" id="pills-my-orders-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-my-orders" type="button" role="tab"
+                    aria-controls="pills-my-orders" aria-selected="false">My Orders
+            </button>
+        </li>
+    </ul>
 
-                                <div class="row">
-                                    <label for="emailPersonalDetails" class="bigF form-label ">E-mail</label>
-                                    <input id="emailPersonalDetails" type="text" class="form-control"
-                                           placeholder="">
-                                </div>
+    <div class="tab-content ps-xl-3" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-personal-details" role="tabpanel"
+             aria-labelledby="pills-personal-details-tab">
+            <p class="fs-4 text-center mb-5">Personal Details</p>
 
-                                <div class="row mt-1">
-                                    <label for="phoneNumber" class="bigF form-label ">Phone number</label>
-                                    <input id="phoneNumber" type="text" class="form-control"
-                                           placeholder="">
-                                </div>
+            <div class="row px-3 gx-5">
+                <div class="col-lg-4 col">
 
-                                <div class="row mt-3">
-                                    <button class="btn btn-dark form-control">Save Changes</button>
-                                </div>
-                                <hr class="border rounded border-dark border-3 mt-4">
-                                <div class="row mt-4">
-                                    <button class="btn btn-dark form-control">Change password</button>
-                                </div>
+                    <label for="emailPersonalDetails" class="fs-5 form-label ">E-mail</label>
+                    <input id="emailPersonalDetails" type="text" class="form-control"
+                           placeholder="">
 
+                    <label for="phoneNumber" class="fs-5 mt-1 form-label ">Phone number</label>
+                    <input id="phoneNumber" type="text" class="form-control"
+                           placeholder="">
 
-                            </div>
+                    <button class="btn mt-3 btn-dark form-control">Save Changes</button>
+                    <hr class="border rounded border-dark border-3 my-4">
+                    <button class="btn btn-dark form-control">Change password</button>
+                </div>
 
-                            <div class="col-lg-4 col-md-6">
-
-                                <div class="form-group">
-                                    <label for="TextareaAddress" class="bigF form-label ">Address</label>
-                                    <textarea class="form-control rounded-2" id="TextareaAddress" rows="5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="form-group">
+                        <label for="TextareaAddress" class="fs-5 form-label mt-md-0 mt-3">Address</label>
+                        <textarea disabled class="form-control rounded-2" id="TextareaAddress" rows="5">
 John Smith
 2978 Main St
 MN 23876
 US
-                                    </textarea>
-                                </div>
+                        </textarea>
+                    </div>
+                    <div class="mt-2">
+                        <button class="btn btn-outline-dark form-control">Edit</button>
+                    </div>
 
-                                <div class="mt-2">
-                                    <button class="btn btn-outline-dark form-control">Edit</button>
-                                </div>
+                    <!-- V pripade ze nema vyplnene-->
+                    <!-- <div>-->
+                    <!-- <button class="btn btn-outline-dark btn-new-address">Add a new address</button>-->
+                    <!-- </div>-->
+                </div>
+            </div>
+        </div>
 
-                            </div>
 
-                            <div class="col-lg-4 col-md-6">
-                                <div class="row mt-4 pt-2">
-                                    <button class="btn btn-outline-dark btn-new-address">+ Add a new address</button>
-                                </div>
-                            </div>
+        <div class="tab-pane fade" id="pills-my-orders" role="tabpanel" aria-labelledby="pills-my-orders-tab">
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                aria-controls="panelsStayOpen-collapseOne">
+                            Accordion Item #1
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                         aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                            <strong>This is the first item's accordion body.</strong> It is shown by default,
+                            until the collapse plugin adds the appropriate classes that we use to style each
+                            element. These classes control the overall appearance, as well as the showing and
+                            hiding via CSS transitions. You can modify any of this with custom CSS or overriding
+                            our default variables. It's also worth noting that just about any HTML can go within
+                            the <code>.accordion-body</code>, though the transition does limit overflow.
                         </div>
                     </div>
                 </div>
-
-                <div class="tab-pane fade" id="pills-topsellers" role="tabpanel"
-                     aria-labelledby="pills-topsellers-tab">
-
-                    <div class="accordion" id="accordionPanelsStayOpenExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                                        aria-controls="panelsStayOpen-collapseOne">
-                                    Accordion Item #1
-                                </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                                 aria-labelledby="panelsStayOpen-headingOne">
-                                <div class="accordion-body">
-                                    <strong>This is the first item's accordion body.</strong> It is shown by default,
-                                    until the collapse plugin adds the appropriate classes that we use to style each
-                                    element. These classes control the overall appearance, as well as the showing and
-                                    hiding via CSS transitions. You can modify any of this with custom CSS or overriding
-                                    our default variables. It's also worth noting that just about any HTML can go within
-                                    the <code>.accordion-body</code>, though the transition does limit overflow.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                                        aria-controls="panelsStayOpen-collapseTwo">
-                                    Accordion Item #2
-                                </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-                                 aria-labelledby="panelsStayOpen-headingTwo">
-                                <div class="accordion-body">
-                                    <strong>This is the second item's accordion body.</strong> It is hidden by default,
-                                    until the collapse plugin adds the appropriate classes that we use to style each
-                                    element. These classes control the overall appearance, as well as the showing and
-                                    hiding via CSS transitions. You can modify any of this with custom CSS or overriding
-                                    our default variables. It's also worth noting that just about any HTML can go within
-                                    the <code>.accordion-body</code>, though the transition does limit overflow.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                                        aria-controls="panelsStayOpen-collapseThree">
-                                    Accordion Item #3
-                                </button>
-                            </h2>
-                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
-                                 aria-labelledby="panelsStayOpen-headingThree">
-                                <div class="accordion-body">
-                                    <strong>This is the third item's accordion body.</strong> It is hidden by default,
-                                    until the collapse plugin adds the appropriate classes that we use to style each
-                                    element. These classes control the overall appearance, as well as the showing and
-                                    hiding via CSS transitions. You can modify any of this with custom CSS or overriding
-                                    our default variables. It's also worth noting that just about any HTML can go within
-                                    the <code>.accordion-body</code>, though the transition does limit overflow.
-                                </div>
-                            </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseTwo">
+                            Accordion Item #2
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                         aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body">
+                            <strong>This is the second item's accordion body.</strong> It is hidden by default,
+                            until the collapse plugin adds the appropriate classes that we use to style each
+                            element. These classes control the overall appearance, as well as the showing and
+                            hiding via CSS transitions. You can modify any of this with custom CSS or overriding
+                            our default variables. It's also worth noting that just about any HTML can go within
+                            the <code>.accordion-body</code>, though the transition does limit overflow.
                         </div>
                     </div>
-
-
                 </div>
-
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                aria-controls="panelsStayOpen-collapseThree">
+                            Accordion Item #3
+                        </button>
+                    </h2>
+                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                         aria-labelledby="panelsStayOpen-headingThree">
+                        <div class="accordion-body">
+                            <strong>This is the third item's accordion body.</strong> It is hidden by default,
+                            until the collapse plugin adds the appropriate classes that we use to style each
+                            element. These classes control the overall appearance, as well as the showing and
+                            hiding via CSS transitions. You can modify any of this with custom CSS or overriding
+                            our default variables. It's also worth noting that just about any HTML can go within
+                            the <code>.accordion-body</code>, though the transition does limit overflow.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+</div>
 
-    <!-- Footer -->
-    <footer class="mt-auto text-white bg-dark">
-        <div class="container">
-            <div class="footerBig py-5">
-                <div class="row row-cols-1 row-cols-sm-2  row-cols-lg-4">
 
-                    <div class="col order-lg-1 order-1 text-center">
-                        <img src="../img/cubes.svg" alt="logo">
-                        <p class="fs-4">World of Board Games</p>
-                    </div>
+<!-- Footer -->
+<footer class="mt-auto text-white bg-dark">
+    <div class="container">
+        <div class="footerBig py-5">
+            <div class="row row-cols-1 row-cols-sm-2  row-cols-lg-4">
 
-                    <div class="col order-lg-3 order-sm-2 order-3 text-center text-lg-start">
-                        <ul>
-                            <li><a href="">About Us</a></li>
-                            <li><a href="">FAQ</a></li>
-                            <li><a href=""> Contact Us </a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col order-lg-2 rder-sm-3 order-2 text-center text-lg-start">
-                        <p class="fs-5">Mon-Fri 9:00 - 16:00</p>
-                        <p class="fs-5">+421987654321</p>
-                        <p class="fs-5">shop@wobg.com</p>
-                    </div>
-
-                    <div class="col order-lg-4 order-4 text-center text-lg-start">
-                        <ul>
-                            <li><a href="">Privacy Policy</a></li>
-                            <li><a href="">How To Shop</a></li>
-                            <li><a href="">Delivery & Shipping </a></li>
-                        </ul>
-                    </div>
+                <div class="col order-lg-1 order-1 text-center">
+                    <img src="../img/cubes.svg" alt="logo">
+                    <p class="fs-4">World of Board Games</p>
                 </div>
-            </div>
-            <div class="footerSmall p-3">
-                <div class="row">
-                    <div class="col">
-                        (C) 2021 World of Board Games shop@wobg.com
-                    </div>
+
+                <div class="col order-lg-3 order-sm-2 order-3 text-center text-lg-start">
+                    <ul>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">FAQ</a></li>
+                        <li><a href=""> Contact Us </a></li>
+                    </ul>
+                </div>
+
+                <div class="col order-lg-2 rder-sm-3 order-2 text-center text-lg-start">
+                    <p class="fs-5">Mon-Fri 9:00 - 16:00</p>
+                    <p class="fs-5">+421987654321</p>
+                    <p class="fs-5">shop@wobg.com</p>
+                </div>
+
+                <div class="col order-lg-4 order-4 text-center text-lg-start">
+                    <ul>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">How To Shop</a></li>
+                        <li><a href="">Delivery & Shipping </a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </footer>
+        <div class="footerSmall p-3">
+            <div class="row">
+                <div class="col">
+                    (C) 2021 World of Board Games shop@wobg.com
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 

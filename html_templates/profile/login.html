@@ -73,53 +73,43 @@
 </nav>
 
 <div class="container">
-    <div class="row">
-        <!-- zobraz col len na large+ -->
-        <div class="col-lg">
-            <div class="container d-flex justify-content-center">
+    <div class="row justify-content-center">
+        <div class="col-xl-7">
+            <div class="background-rectangle px-5 py-4 mt-4 mb-5 text-white">
+                <div class="row">
+                    <div class="col text-center">
+                        <p class="fs-1">Sign In </p>
+                    </div>
+                </div>
 
-                <div id="rectangle">
+                <div class="container">
+                    <div class="mb-3">
+                        <label for="emailLogin" class="fs-5 form-label ">E-mail:</label>
+                        <input id="emailLogin" type="text" class="form-control  form-rounded"
+                               placeholder="">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="passwordLogin" class="fs-5 form-label ">Password:</label>
+                        <input id="passwordLogin" type="text" class="form-control  form-rounded"
+                               placeholder="">
+                    </div>
+
+                    <p>
+                        <a class="white-link" href="">Forgot your password?</a>
+                    </p>
+
 
                     <div class="row">
                         <div class="col text-center">
-                            <h1>Sign In </h1>
+                            <a href="my_account.html">
+                                <button class="btn mt-3 btn-confirm btn-default">Sign In</button>
+                            </a>
                         </div>
                     </div>
 
-                    <div class="container dark">
-                        <div class="mb-3">
-                            <label for="emailLogoin" class="bigF form-label ">E-mail:</label>
-                            <input id="emailLogoin" type="text" class="form-control  form-rounded"
-                                   placeholder="">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="passwordLogin" class="bigF form-label ">Password:</label>
-                            <input id="passwordLogin" type="text" class="form-control  form-rounded"
-                                   placeholder="">
-                        </div>
-
-                        <div class="row">
-                            <p>
-                                <a class="white-link" href="">Forgot your password?</a>
-                            </p>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col text-center">
-                                <button class="btn nice_btn_col btn-default">Sign In</button>
-                            </div>
-                        </div>
-
-                        <hr class="border rounded border-white border-3">
-
-                        <div class="row ">
-                            <p>
-                                New customer? <a class="white-link"  href="register.html">Create a new account</a>
-                            </p>
-                        </div>
-
+                    <div class="mt-4 pt-4 border-top text-center">
+                        New customer? <a class="white-link" href="register.html">Create a new account</a>
                     </div>
                 </div>
             </div>

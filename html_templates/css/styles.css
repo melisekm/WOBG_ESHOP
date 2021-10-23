@@ -160,7 +160,14 @@ a {
 @media (min-width: 992px) {
     .search-wrapper {
         position: relative;
-        width: 60vh;
+        width: 50vh;
+    }
+}
+
+@media (min-width: 1200px) {
+    .search-wrapper {
+        position: relative;
+        width: 50vh;
     }
 }
 
@@ -194,3 +201,20 @@ div .footerBig a:hover {
 
 /*sticky footer https://stackoverflow.com/a/40854221/12348001*/
 /*Footer end*/
+
+/*Tab Pills*/
+
+.order-links .link-dark:hover {
+    color: #0a58ca;
+}
+
+
+.nav-pills .nav-link.active {
+    background-color: white;
+    color: black;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    padding-bottom: 0;
+}
+
+/*Tab Pills end*/
