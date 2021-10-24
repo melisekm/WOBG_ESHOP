@@ -58,12 +58,12 @@
 }
 
 
-.page-link{
+.pagination .page-link{
     border:none;
     color: black;
 }
 
-.page-item.active .page-link{
+.pagination .page-item.active .page-link{
 background: none;
     color: black;
     text-decoration: underline;

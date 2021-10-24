@@ -235,3 +235,22 @@ div .footer-big a:hover {
 }
 
 /*Tab Pills end*/
+
+
+
+.quantity .page-link {
+    border: none;
+    color: black;
+}
+
+.quantity .page-link:focus {
+    box-shadow: none;
+}
+
+.quantity li {
+    width: 45px;
+}
+
+.quantity input {
+    width: 35px;
+}
