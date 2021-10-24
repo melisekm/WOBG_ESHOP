@@ -21,10 +21,6 @@
     .btn-back-to-browsing {
         font-size: 28px;
     }
-
-    .border-lg-bottom {
-        border-bottom: 1px solid #dee2e6;
-    }
 }
 
 @media (min-width: 1200px) {

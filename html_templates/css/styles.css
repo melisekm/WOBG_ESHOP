@@ -22,6 +22,10 @@ a {
     color: #0a58ca;
 }
 
+.black-link {
+    text-decoration: underline;
+}
+
 /* Navbar */
 /*Nejake zvyraznen na hover?*/
 /*.form-white.input-group > .form-control:focus {*/
@@ -156,11 +160,9 @@ a {
         position: relative;
         width: 35vh;
     }
-
-    /*.footer-text-res{*/
-    /*    font-size: 1rem;*/
-    /*}*/
-
+    .border-sm-bottom{
+        border-bottom: 1px solid #dee2e6;
+    }
 }
 
 @media (min-width: 768px) {
@@ -174,6 +176,9 @@ a {
     .search-wrapper {
         position: relative;
         width: 50vh;
+    }
+    .border-lg-bottom {
+        border-bottom: 1px solid #dee2e6;
     }
 }
 
