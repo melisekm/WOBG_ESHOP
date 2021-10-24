@@ -8,3 +8,6 @@
     }
 }
 
+.sticky-top{
+    align-self: flex-start;
+}
