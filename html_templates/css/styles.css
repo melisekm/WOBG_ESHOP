@@ -146,11 +146,20 @@ a {
 
 }
 
+/*.footer-text-res{*/
+/*    font-size: 1.25rem;*/
+/*}*/
+
+
 @media (max-width: 768px) {
     .search-wrapper {
         position: relative;
         width: 35vh;
     }
+
+    /*.footer-text-res{*/
+    /*    font-size: 1rem;*/
+    /*}*/
 
 }
 
@@ -186,20 +195,19 @@ a {
 /*Navbar end*/
 
 /*Footer*/
-div .footerBig a {
+div .footer-big a {
     color: white;
 }
 
-div .footerBig a:hover {
+div .footer-big a:hover {
     color: #0a58ca;
 }
 
-.footerBig {
+.footer-big {
     line-height: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.footerBig ul {
+.footer-big ul {
     list-style-type: none;
 }
 

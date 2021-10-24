@@ -15,13 +15,14 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="product_page.css">
 
     <title>WOBG E-Shop</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 <!-- Navbar -->
-<nav class="navbar navbar-expand-xl navbar-dark bg-dark" role="navigation">
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="../landing_page.html">
             <img src="../img/cubes.svg" alt="logo">
@@ -42,7 +43,7 @@
                             <a href="" target="_blank" hidden></a>
 
                             <input id="searchGroup" type="search" class="form-control rounded-pill"
-                                   placeholder="Search..." aria-label="Search" aria-describedby="search-addon">
+                                   placeholder="Search..." aria-label="Search">
                             <div class="autocom-box bg-dark">
                                 <!-- here list are inserted from javascript -->
                             </div>
@@ -56,7 +57,8 @@
                     <a class="nav-link" href="../product_catalog/product_catalog.html">Board games</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link cart " href="../cart/empty_cart.html"><i class="fas fa-shopping-cart fa-lg"></i><span
+                    <a class="nav-link cart " href="../cart/empty_cart.html"><i
+                            class="fas fa-shopping-cart fa-lg"></i><span
                             class="cart-basket  text-white">0</span></a>
                 </li>
                 <li class="nav-item">
@@ -77,26 +79,29 @@
 <!-- Footer -->
 <footer class="mt-auto text-white bg-dark">
     <div class="container">
-        <div class="footerBig py-5">
+        <div class="footer-big border-bottom py-2 py-md-5">
             <div class="row row-cols-1 row-cols-sm-2  row-cols-lg-4">
-
                 <div class="col order-lg-1 order-1 text-center">
-                    <img src="../img/cubes.svg" alt="logo">
-                    <p class="fs-4">World of Board Games</p>
+                    <ul>
+                        <li><img src="../img/cubes.svg" alt="logo"></li>
+                        <li class="fs-4 mt-2">World of Board Games</li>
+                    </ul>
                 </div>
 
                 <div class="col order-lg-3 order-sm-2 order-3 text-center text-lg-start">
                     <ul>
                         <li><a href="">About Us</a></li>
                         <li><a href="">FAQ</a></li>
-                        <li><a href=""> Contact Us </a></li>
+                        <li><a href=""> Contact Us</a></li>
                     </ul>
                 </div>
 
-                <div class="col order-lg-2 rder-sm-3 order-2 text-center text-lg-start">
-                    <p class="fs-5">Mon-Fri 9:00 - 16:00</p>
-                    <p class="fs-5">+421987654321</p>
-                    <p class="fs-5">shop@wobg.com</p>
+                <div class="col order-lg-2 order-sm-3 order-2 text-center text-lg-start footer-text-res">
+                    <ul>
+                        <li>Mon-Fri 9:00 - 16:00</li>
+                        <li>+421987654321</li>
+                        <li>shop@wobg.com</li>
+                    </ul>
                 </div>
 
                 <div class="col order-lg-4 order-4 text-center text-lg-start">
@@ -108,19 +113,14 @@
                 </div>
             </div>
         </div>
-        <div class="footerSmall p-3">
-            <div class="row">
-                <div class="col">
-                    (C) 2021 World of Board Games shop@wobg.com
-                </div>
-            </div>
+        <div class="p-3">
+            (C) 2021 World of Board Games shop@wobg.com
         </div>
     </div>
 </footer>
 
-</body>
-
 <script src="../js/main.js"></script>
 <script src="../js/suggestions.js"></script>
+</body>
 
 </html>
