@@ -3,6 +3,7 @@
     font-size: 28px;
     border-radius: 10px;
 }
+
 @media (max-width: 768px) {
     .btn-back-to-browsing, .btn-back-to-shop {
         font-size: 14px;
@@ -19,6 +20,10 @@
 @media (min-width: 992px) {
     .btn-back-to-browsing {
         font-size: 28px;
+    }
+
+    .border-lg-bottom {
+        border-bottom: 1px solid #dee2e6;
     }
 }
 
