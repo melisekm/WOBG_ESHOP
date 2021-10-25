@@ -15,14 +15,13 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="profile.css">
 
     <title>WOBG E-Shop</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 <!-- Navbar -->
-<nav class="navbar navbar-expand-xl navbar-dark bg-dark" role="navigation">
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="../landing_page.html">
             <img src="../img/cubes.svg" alt="logo">
@@ -43,7 +42,7 @@
                             <a href="" target="_blank" hidden></a>
 
                             <input id="searchGroup" type="search" class="form-control rounded-pill"
-                                   placeholder="Search..." aria-label="Search" aria-describedby="search-addon">
+                                   placeholder="Search..." aria-label="Search">
                             <div class="autocom-box bg-dark">
                                 <!-- here list are inserted from javascript -->
                             </div>
@@ -73,75 +72,7 @@
 </nav>
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-xl-7">
-            <div class="background-rectangle px-5 py-4 mt-4 mb-5 text-white">
-                <div class="row">
-                    <div class="col text-center">
-                        <p class="fs-1">Sign In </p>
-                    </div>
-                </div>
 
-                <div class="container">
-                    <div class="mb-3">
-                        <label for="emailLogin" class="fs-5 form-label ">E-mail:</label>
-                        <input id="emailLogin" type="text" class="form-control  form-rounded"
-                               placeholder="">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="passwordLogin" class="fs-5 form-label ">Password:</label>
-                        <input id="passwordLogin" type="text" class="form-control  form-rounded"
-                               placeholder="">
-                    </div>
-
-                    <a class="white-link " href="#" data-toggle="modal" data-target="#modalLoginForm" >Forgot
-                        your password?</a>
-                    <!-- Modal -->
-
-                    <div class="modal fade modalLoginForm" id="modalLoginForm" tabindex="-1" role="dialog"
-                         aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title mx-auto">Reset Password</h5>
-                                    <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="md-form md-outline">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <input type="email" id="modalLoginForm-email" class="form-control">
-                                        <label data-error="wrong" data-success="right" for="modalLoginForm-email">Your
-                                            email</label>
-                                    </div>
-                                </div>
-                                <div class="modal-footer d-flex justify-content-center">
-                                    <button class="btn btn-primary">Send</button>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col text-center">
-                            <a href="my_account.html">
-                                <button class="btn mt-3 btn-confirm btn-default">Sign In</button>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="mt-4 pt-4 border-top text-center">
-                        New customer? <a class="white-link" href="register.html">Create a new account</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
 </div>
 
 <!-- Footer -->
@@ -185,7 +116,7 @@
             (C) 2021 World of Board Games shop@wobg.com
         </div>
     </div>
-
+</footer>
 
 <script src="../js/main.js"></script>
 <script src="../js/suggestions.js"></script>
