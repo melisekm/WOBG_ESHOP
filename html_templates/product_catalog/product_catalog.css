@@ -68,3 +68,7 @@ background: none;
     color: black;
     text-decoration: underline;
 }
+
+select {
+    text-align-last: center;
+}

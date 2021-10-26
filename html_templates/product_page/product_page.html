@@ -82,9 +82,9 @@
         </ol>
     </nav>
     <div class="row">
-        <div class="col-lg">
+        <div class="col-lg order-2 order-lg-1">
             <img class="img-fluid" src="../img/dave-photoz-FdTmaUlEr4A-unsplash.jpg" alt="product image">
-            <!--        Po kliknuti sa otvori na full?-->
+            <!--        Po kliknuti sa otvori na full-->
             <div class="row align-items-center my-2">
                 <div class="col-1">
                     <a href="#">
@@ -119,24 +119,25 @@
             </div>
         </div>
 
-        <div class="col-lg">
-            <p class="fw-bold fs-2"> 221B Baker Street: The Master Detective Game. Game of the year edition</p>
-            <p> Publisher: Days of wonder </p>
-            <p class="text-muted"> 8+ | 30-60 min | 2-5 | Family Games </p>
-            <p class="fw-bold fs-2">49.99&dollar;</p>
-
-            <ul class="pagination quantity" aria-label="Quantity selector">
-                <li class="page-item">
-                    <button class="page-link"><i class="fas fa-minus"></i></button>
-                </li>
-                <li class="page-item">
-                    <label class="d-none" for="quantity"></label>
-                    <input type="text" class="form-control" id="quantity" value="1">
-                </li>
-                <li class="page-item">
-                    <button class="page-link"><i class="fas fa-plus"></i></button>
-                </li>
-            </ul>
+        <div class="col-lg order-1 order-lg-2">
+            <div class="fw-bold fs-2"> 221B Baker Street: The Master Detective Game. Game of the year edition</div>
+            <div> Publisher: Days of wonder</div>
+            <div class="text-muted"> 8+ | 30-60 min | 2-5 | Family Games</div>
+            <div class="fw-bold fs-2">49.99&dollar;</div>
+            <div>
+                <ul class="pagination quantity" aria-label="Quantity selector">
+                    <li class="page-item">
+                        <button class="page-link"><i class="fas fa-minus"></i></button>
+                    </li>
+                    <li class="page-item">
+                        <label class="d-none" for="quantity"></label>
+                        <input type="text" class="form-control" id="quantity" value="1">
+                    </li>
+                    <li class="page-item">
+                        <button class="page-link"><i class="fas fa-plus"></i></button>
+                    </li>
+                </ul>
+            </div>
             <div class="border-sm-bottom pb-3">
                 <a class="btn btn-dark btn-add-to-cart">Add to cart</a>
             </div>
@@ -151,28 +152,30 @@
                 <span class="fw-bold">Release date:</span> 2005
             </div>
         </div>
-
-
     </div>
 
-    <span id="description" class="fs-2">Description</span>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu sapien id ipsum tempor pulvinar.
-        Cras suscipit neque vestibulum metus ultricies bibendum. Phasellus vel dolor orci. Mauris lacinia tempor
-        scelerisque. Phasellus mollis nisi felis. Aenean volutpat interdum eros, quis pharetra lectus eleifend
-        sit amet. Pellentesque vitae porta metus, at condimentum eros. Aliquam nec nibh pharetra, rutrum turpis
-        varius, finibus felis. In a odio libero. Aenean nibh tellus, vehicula eu neque eget, sagittis tristique
-        justo. Phasellus ut urna vitae ex mattis rhoncus ut at dui. Nullam sed mauris at ante vehicula dictum
-        nec in metus.
-    </p>
+    <div>
+        <span id="description" class="fs-2">Description</span>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu sapien id ipsum tempor pulvinar.
+            Cras suscipit neque vestibulum metus ultricies bibendum. Phasellus vel dolor orci. Mauris lacinia tempor
+            scelerisque. Phasellus mollis nisi felis. Aenean volutpat interdum eros, quis pharetra lectus eleifend
+            sit amet. Pellentesque vitae porta metus, at condimentum eros. Aliquam nec nibh pharetra, rutrum turpis
+            varius, finibus felis. In a odio libero. Aenean nibh tellus, vehicula eu neque eget, sagittis tristique
+            justo. Phasellus ut urna vitae ex mattis rhoncus ut at dui. Nullam sed mauris at ante vehicula dictum
+            nec in metus.
+        </p>
+    </div>
 
-    <span class="fs-2">Includes </span>
-    <ul class="ps-3">
-        <li>Lorem ipsum dolor sit amet</li>
-        <li>Ut felis leo, dignissim in dapibus vitae.</li>
-        <li>Integer purus felis, eleifend ut.</li>
-        <li>Morbi porta enim ut ligula convallis.</li>
-    </ul>
+    <div>
+        <span class="fs-2">Includes </span>
+        <ul class="ps-3">
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Ut felis leo, dignissim in dapibus vitae.</li>
+            <li>Integer purus felis, eleifend ut.</li>
+            <li>Morbi porta enim ut ligula convallis.</li>
+        </ul>
+    </div>
 
     <div>
         <div class="fs-2">Related Products</div>
@@ -273,7 +276,7 @@
             (C) 2021 World of Board Games shop@wobg.com
         </div>
     </div>
-
+</footer>
 
 <script src="../js/main.js"></script>
 <script src="../js/suggestions.js"></script>
