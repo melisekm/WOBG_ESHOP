@@ -124,50 +124,50 @@ US
                     </div>
                     <div class="mt-2">
                         <button class="btn btn-outline-dark form-control" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">Edit
+                                data-bs-target="#editAddress">Edit
                         </button>
                     </div>
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    <div class="modal fade" id="editAddress" tabindex="-1" aria-labelledby="editAddressLabel"
                          aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Edit Address</h5>
+                                    <div class="fs-5 modal-title" id="editAddressLabel">Edit Address</div>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="md-form md-outline">
+                                    <div class="mb-3">
                                         <label for="contactForm-name1">First name</label>
                                         <input type="text" id="contactForm-name1" class="form-control">
                                     </div>
 
-                                    <div class="md-form md-outline">
-                                        <label for="contactForm-name1">Surname</label>
+                                    <div class="mb-3">
+                                        <label for="contactForm-name2">Surname</label>
                                         <input type="text" id="contactForm-name2" class="form-control">
                                     </div>
 
-                                    <div class="md-form md-outline">
-                                        <label for="contact81">Street</label>
-                                        <textarea type="text" id="contact81" class="md-textarea form-control"
+                                    <div class="mb-3">
+                                        <label for="street">Street</label>
+                                        <textarea type="text" id="street" class="form-control"
                                                   rows="3"></textarea>
                                     </div>
 
-                                    <div class="md-form md-outline">
+                                    <div class="mb-3">
                                         <label for="contactForm-city">City</label>
                                         <input type="email" id="contactForm-city" class="form-control">
 
                                     </div>
-                                    <div class="md-form md-outline">
+                                    <div class="mb-3">
                                         <label for="contactForm-postalCode">Postal Code</label>
                                         <input type="text" id="contactForm-postalCode" class="form-control">
                                     </div>
 
-                                    <div class="md-form md-outline">
-                                        <label>Country</label>
-                                        <select class="form-select" id="country" name="country">
-                                            <!--source: https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html-->
+                                    <div class="mb-3">
+                                        <label for="country">Country</label>
+                                        <select class="form-select " id="country" name="country" data-bs-size="5" aria-label="Select country" >
+                                            <!--source: https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html -->
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
                                             <option value="Algeria">Algeria</option>
@@ -423,7 +423,6 @@ US
                                     </button>
                                     <a class="btn btn-dark" href="">Save
                                     </a>
-                                    <!--                                <button type="button" class="btn btn-primary"></button>-->
                                 </div>
                             </div>
                         </div>
