@@ -15,6 +15,7 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="checkout.css">
 
     <title>WOBG E-Shop</title>
 </head>
@@ -56,12 +57,12 @@
                     <a class="nav-link" href="../product_catalog/product_catalog.html">Board games</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link cart " href="../cart/empty_cart.html"><i
+                    <a class="nav-link cart " href="../cart/cart.html"><i
                             class="fas fa-shopping-cart fa-lg"></i><span
                             class="cart-basket text-white">3</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../profile/login.html">My Account</a>
+                    <a class="nav-link" href="../profile/my_account.html">My Account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../profile/register.html">Logout</a>
@@ -72,7 +73,251 @@
 </nav>
 
 <div class="container">
+    <!--    Kroky checkoutu-->
+    <ul class="timeline mt-4 ">
+        <li class="step complete">
+            <div class="status">
+                <div> <a href="#" class="black-link">Information</a></div>
+            </div>
+        </li>
+        <li class="step">
+            <div class="status">
+                <div> Review</div>
+            </div>
+        </li>
+        <li class="step">
+            <div class="status">
+                <div> Payment</div>
+            </div>
+        </li>
+        <li class="step">
+            <div class="status">
+                <div> Done</div>
+            </div>
+        </li>
+    </ul>
 
+    <div class="row my-3">
+        <!--    Info-->
+        <div class="col-lg-6 mt-lg-0 mt-3 order-2 order-lg-1">
+            <div class="fs-4 mb-2">Billing information</div>
+
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="firstName" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="firstName">
+                </div>
+                <div class="col mb-3">
+                    <label for="surname" class="form-label">Surname</label>
+                    <input type="text" class="form-control" id="surname">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="street" class="form-label">Street</label>
+                    <textarea class="form-control" id="street" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city">
+                </div>
+                <div class="col mb-3">
+                    <label for="postalCode" class="form-label">Postal Code</label>
+                    <input type="text" class="form-control" id="postalCode">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="country">Country</label>
+                    <select class="form-select " id="country" name="country" data-bs-size="5"
+                            aria-label="Select country">
+                        <!--source: https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html -->
+                        <option value="Slovakia">Slovakia</option>
+                        <option value="Czech Republic">Czech Republic</option>
+                        <option value="Hungary">Hungary</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mb-3">
+                    <label for="phoneNumber" class="form-label">Phone number</label>
+                    <input type="text" class="form-control" id="phoneNumber">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="saveAddress">
+                        <label class="form-check-label" for="saveAddress">
+                            I want to save this address
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--    Payment-->
+            <div class="row">
+                <div class="col 4 mt-2">
+                    <div class="fs-4">
+                        Payment
+                    </div>
+                    <div class="btn-group-vertical" role="group" aria-label="Payment radio group">
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentRadios" id="paymentPaypal"
+                                   value="paymentPaypal" checked>
+                            <label class="form-check-label" for="paymentPaypal">
+                                Paypal
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentRadios" id="paymentBankTransfer"
+                                   value="paymentBankTransfer">
+                            <label class="form-check-label" for="paymentBankTransfer">
+                                Bank Transfer
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentRadios" id="paymentCard"
+                                   value="paymentCard">
+                            <label class="form-check-label" for="paymentCard">
+                                Card
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--    Shipping-->
+            <div class="row">
+                <div class="col mt-2">
+                    <div class="fs-4"> Shipping</div>
+                    <div class="btn-group-vertical" role="group" aria-label="Shipping radio group">
+                        <div class="row">
+                            <div class="col-6 col-md-5">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shippingRadios"
+                                           id="shippingStandard"
+                                           value="shippingStandard" checked>
+                                    <label class="form-check-label" for="shippingStandard">
+                                        Standard Delivery
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                2.99$
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-5">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shippingRadios" id="shippingUPS"
+                                           value="shippingUPS">
+                                    <label class="form-check-label" for="shippingUPS">
+                                        UPS Service
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                5.49$
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-md-5">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shippingRadios"
+                                           id="shippingParcel"
+                                           value="shippingParcel">
+                                    <label class="form-check-label" for="shippingParcel">
+                                        Parcel Service
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                4.99$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--    Continue-->
+            <a class="btn btn-dark my-3 fs-4" href="review.html">Continue to Review</a>
+
+
+        </div>
+        <!--    Summary-->
+        <div class="col-lg-6 order-1 order-lg-2">
+            <div class="d-none d-lg-block fs-4">Summary</div>
+            <div class="mod-collapse">
+                <div class="d-lg-none">
+                    <div class="clearfix">
+                        <a class="btn btn-dark w-100" type="button" role="button"
+                           data-bs-toggle="collapse" href="#summaryCollapse" aria-expanded="false"
+                           aria-controls="summaryCollapse">
+                            <div class="align-left"> Summary &nbsp;<i class="fas fa-chevron-down"></i></div>
+                            <div class="align-right"> 202.95$</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!--    Items-->
+                <div class="collapse darkRectangle mt-2 p-3" id="summaryCollapse">
+                    <div class="container">
+                        <div class="row py-3 align-items-center border-bottom">
+                            <div class="col-3">
+                                <img class="img-fluid" src="../img/aksel-fristrup-w7eaCH6ShR4-unsplash.jpg"
+                                     alt="product image 1">
+                            </div>
+                            <div class="col text-truncate">221B Baker Street: The Master Detective Game. Game of the
+                                year edition
+                            </div>
+                            <div class="col-1"> 1x</div>
+                            <div class="col-3 text-end"> 49.99&dollar;</div>
+                        </div>
+                        <div class="row py-3 align-items-center border-bottom">
+                            <div class="col-3">
+                                <img class="img-fluid" src="../img/dave-photoz-FdTmaUlEr4A-unsplash.jpg"
+                                     alt="product image 1">
+                            </div>
+                            <div class="col text-truncate"> Ticket to Ride</div>
+                            <div class="col-1"> 2x</div>
+                            <div class="col-3 text-end"> 49.99&dollar;</div>
+                        </div>
+                        <div class="row py-3 align-items-center border-bottom">
+                            <div class="col-3">
+                                <img class="img-fluid" src="../img/nik-korba-3WceTBlUoMs-unsplash.jpg"
+                                     alt="product image 1">
+                            </div>
+                            <div class="col text-truncate"> Dead of Winter: A Cross Roads Game</div>
+                            <div class="col-1"> 1x</div>
+                            <div class="col-3 text-end"> 49.99&dollar;</div>
+                        </div>
+
+                        <!--    Subtotal-->
+                        <div class="row border-bottom">
+                            <div class="col">
+                                <div class="py-2"> Subtotal</div>
+                                <div class="py-2"> Shipping</div>
+                            </div>
+                            <div class="col">
+                                <div class="text-end py-2">199.96$</div>
+                                <div class="text-end py-2">2.99$</div>
+                            </div>
+                        </div>
+                        <!--    Total-->
+                        <div class="row">
+                            <div class="col">
+                                <div class="pt-3 fs-4"> Total</div>
+                            </div>
+                            <div class="col">
+                                <div class="text-end pt-3 fw-bold fs-4">202.95$</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Footer -->

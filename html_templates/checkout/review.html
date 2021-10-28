@@ -15,6 +15,8 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="checkout.css">
+
 
     <title>WOBG E-Shop</title>
 </head>
@@ -61,7 +63,7 @@
                             class="cart-basket text-white">3</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../profile/login.html">My Account</a>
+                    <a class="nav-link" href="../profile/my_account.html">My Account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../profile/register.html">Logout</a>
@@ -72,7 +74,169 @@
 </nav>
 
 <div class="container">
+    <ul class="timeline mt-4 ">
+        <li class="step complete">
+            <div class="status">
+                <div><a href="checkout.html" class="black-link">Information</a></div>
+            </div>
+        </li>
+        <li class="step complete">
+            <div class="status">
+                <div><a href="#" class="black-link">Review</a></div>
+            </div>
+        </li>
+        <li class="step">
+            <div class="status">
+                <div> Payment</div>
+            </div>
+        </li>
+        <li class="step">
+            <div class="status">
+                <div> Done</div>
+            </div>
+        </li>
+    </ul>
 
+    <div class="row my-3">
+        <div class="col-lg-6 mt-lg-0 mt-3 order-2 order-lg-1">
+            <div class="form-group">
+                <label for="TextareaAddress" class="fs-4 form-label mt-md-0 mt-3">Address</label>
+                <textarea disabled class="form-control rounded-2" id="TextareaAddress" rows="7">
+John Smith
+2978 Main St
+MN 23876
+US
+smith.john@gmail.com
++4216505130514
+                        </textarea>
+            </div>
+            <!--    Payment-->
+            <div class="row">
+                <div class="col 4 mt-2">
+                    <div class="fs-4">
+                        Payment
+                    </div>
+                    <div class="btn-group-vertical" role="group" aria-label="Payment radio group">
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentRadios" id="paymentPaypal"
+                                   value="paymentPaypal" checked>
+                            <label class="form-check-label" for="paymentPaypal">
+                                Paypal
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--    Shipping-->
+            <div class="row">
+                <div class="col mt-2">
+                    <div class="fs-4"> Shipping</div>
+                    <div class="btn-group-vertical" role="group" aria-label="Shipping radio group">
+                        <div class="row">
+                            <div class="col-6 col-md-5">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="shippingRadios"
+                                           id="shippingStandard"
+                                           value="shippingStandard" checked>
+                                    <label class="form-check-label" for="shippingStandard">
+                                        Standard Delivery
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                2.99$
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--    Continue or back-->
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-dark my-3 fs-4" href="done.html">Pay now</a>
+
+                </div>
+                <!--                FIXME poziciu-->
+                <div class="col text-end">
+                    <a class="btn btn-secondary my-3 fs-4" href="checkout.html">Back</a>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2">
+            <div class="d-none d-lg-block fs-4">Summary</div>
+            <div class="mod-collapse">
+                <div class="d-lg-none">
+                    <div class="clearfix">
+                        <a class="btn btn-dark w-100" type="button" role="button"
+                           data-bs-toggle="collapse" href="#summaryCollapse" aria-expanded="false"
+                           aria-controls="summaryCollapse">
+                            <div class="align-left"> Summary &nbsp;<i class="fas fa-chevron-down"></i></div>
+                            <div class="align-right"> 202.95$</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!--    Items-->
+                <div class="collapse darkRectangle mt-2 p-3" id="summaryCollapse">
+                    <div class="container">
+                        <div class="row py-3 align-items-center border-bottom">
+                            <div class="col-3">
+                                <img class="img-fluid" src="../img/aksel-fristrup-w7eaCH6ShR4-unsplash.jpg"
+                                     alt="product image 1">
+                            </div>
+                            <div class="col text-truncate">221B Baker Street: The Master Detective Game. Game of the
+                                year edition
+                            </div>
+                            <div class="col-1"> 1x</div>
+                            <div class="col-3 text-end"> 49.99&dollar;</div>
+                        </div>
+                        <div class="row py-3 align-items-center border-bottom">
+                            <div class="col-3">
+                                <img class="img-fluid" src="../img/dave-photoz-FdTmaUlEr4A-unsplash.jpg"
+                                     alt="product image 1">
+                            </div>
+                            <div class="col text-truncate"> Ticket to Ride</div>
+                            <div class="col-1"> 2x</div>
+                            <div class="col-3 text-end"> 49.99&dollar;</div>
+                        </div>
+                        <div class="row py-3 align-items-center border-bottom">
+                            <div class="col-3">
+                                <img class="img-fluid" src="../img/nik-korba-3WceTBlUoMs-unsplash.jpg"
+                                     alt="product image 1">
+                            </div>
+                            <div class="col text-truncate"> Dead of Winter: A Cross Roads Game</div>
+                            <div class="col-1"> 1x</div>
+                            <div class="col-3 text-end"> 49.99&dollar;</div>
+                        </div>
+
+                        <!--    Subtotal-->
+                        <div class="row border-bottom">
+                            <div class="col">
+                                <div class="py-2"> Subtotal</div>
+                                <div class="py-2"> Shipping</div>
+                            </div>
+                            <div class="col">
+                                <div class="text-end py-2">199.96$</div>
+                                <div class="text-end py-2">2.99$</div>
+                            </div>
+                        </div>
+                        <!--    Total-->
+                        <div class="row">
+                            <div class="col">
+                                <div class="pt-3 fs-4"> Total</div>
+                            </div>
+                            <div class="col">
+                                <div class="text-end pt-3 fw-bold fs-4">202.95$</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Footer -->

@@ -15,6 +15,7 @@
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="checkout.css">
 
     <title>WOBG E-Shop</title>
 </head>
@@ -61,7 +62,7 @@
                             class="cart-basket  text-white">3</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../profile/login.html">Sign in</a>
+                    <a class="nav-link" href="../profile/my_account.html">My Account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../profile/register.html">Logout</a>
@@ -72,6 +73,58 @@
 </nav>
 
 <div class="container">
+    <ul class="timeline mt-4 ">
+        <li class="step complete">
+            <div class="status">
+                <div>Information</div>
+            </div>
+        </li>
+        <li class="step complete">
+            <div class="status">
+                <div>Review</div>
+            </div>
+        </li>
+        <li class="step complete">
+            <div class="status ">
+                <div>Payment</div>
+            </div>
+        </li>
+        <li class="step complete">
+            <div class="status">
+                <div>Done</div>
+            </div>
+        </li>
+    </ul>
+
+    <div class="m-auto text-center ">
+        <div class="fs-1">
+            Thank you for your order!
+            <div>
+                <i class="fas fa-check-circle fa-4x"></i>
+            </div>
+        </div>
+
+        <div class="darkRectangle p-3 my-3" id="summary-rectangle">
+            <div class="text-center">
+                <p class="fw-bold">Order Sucessful</p>
+                <p>We e-mailed you with order confirmation and order details. We’ll send you a shipping
+                    confirmation email as soon as your order ships.</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="mb-3 text-center">
+<!--        <div class="col-md text-md-end text-center">-->
+            <a href="../profile/my_account.html" class="btn-lg btn-dark me-2 mb-md-0 mb-3 summary-btns">
+                View Order
+            </a>
+<!--        </div>-->
+<!--        <div class="col-md text-md-start my-md-0 my-3 text-center">-->
+            <a href="../product_catalog/product_catalog.html" class="btn-lg btn-secondary summary-btns">
+                Return to Store
+            </a>
+<!--        </div>-->
+    </div>
 
 </div>
 

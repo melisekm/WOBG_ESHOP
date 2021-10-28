@@ -1,31 +1,8 @@
-.filtersRectangle {
-    /*padding: 35px 64px;*/
-    /*margin-top: 30px;*/
-    background: #202027;
-    border-radius: 10px;
-    /*height: 590px;*/
-    /*width:  40vw;*/
-    /*position: center;*/
-    color: #ffffff;
-    /*margin-bottom: 100px;*/
-    /*position: relative;*/
-    /*z-index: -1;*/
-}
-
-
 /*https://stackoverflow.com/a/57218329/12348001*/
-/*.mod-collapse .filtersRectangle{ position: relative;}*/
-/*.mod-collapse .filtersRectangle:after{ content: ''; position: relative; width: 100%;*/
-/*    height: 100%; left: 0; top: 0;}*/
 .mod-collapse .collapse:not(.show) {
     display: block;
 }
 
-/*.mod-collapse {*/
-/*    z-index: 10;*/
-/*    max-height: 100vh;*/
-/*    overflow: hidden;*/
-/*}*/
 
 /*na large urcite zobraz filtre, na mensie daj moznost s buttonom.*/
 @media (max-width: 991px) {
@@ -33,21 +10,12 @@
         display: none;
     }
 
-    .mod-collapse .filtersRectangle:after {
+    .mod-collapse .darkRectangle:after {
         display: none;
     }
 
 }
 
-.slider.slider-horizontal /* It is used */
-{
-    width: 100%;
-}
-
-.filterSpacer {
-    /*margin-left: -15px;*/
-    /*max-width: 100%;*/
-}
 
 .description {
     overflow: hidden;
@@ -58,13 +26,13 @@
 }
 
 
-.pagination .page-link{
-    border:none;
+.pagination .page-link {
+    border: none;
     color: black;
 }
 
-.pagination .page-item.active .page-link{
-background: none;
+.pagination .page-item.active .page-link {
+    background: none;
     color: black;
     text-decoration: underline;
 }
