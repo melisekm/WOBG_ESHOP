@@ -95,32 +95,40 @@
                                placeholder="">
                     </div>
 
-                    <a class="white-link " href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" >Forgot
+                    <a class="white-link " href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot
                         your password?</a>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog"
-                         aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModal"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title mx-auto">Reset Password</h5>
-                                    <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    <h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="md-form md-outline">
-                                        <i class="fas fa-envelope prefix"></i>
-                                        <input type="email" id="modalLoginForm-email" class="form-control">
-                                        <label data-error="wrong" data-success="right" for="modalLoginForm-email">Your
-                                            email</label>
+                                    <div class="container">
+                                        <div class="row ">
+                                            <p class="modal-p">
+                                                We will send you an email to reset your password.
+                                            </p>
+                                            <div class="mb-3">
+                                                <label for="contactForm-city" class="modal-label">Email</label>
+                                                <input type="email" id="contactForm-city" class="form-control">
+                                            </div>
+
+                                        </div>
+
                                     </div>
                                 </div>
-                                <div class="modal-footer d-flex justify-content-center">
-                                    <button class="btn btn-primary">Send</button>
+                                <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
                                     </button>
+                                    <a class="btn btn-dark" data-bs-dismiss="modal">Send
+                                    </a>
+                                    <!--                                <button type="button" class="btn btn-primary"></button>-->
                                 </div>
                             </div>
                         </div>

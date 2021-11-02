@@ -65,7 +65,7 @@
                     <a class="nav-link" href="../profile/my_account.html">My Account</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../profile/register.html">Logout</a>
+                    <a class="nav-link" href="../profile/login.html">Logout</a>
                 </li>
             </ul>
         </div>
@@ -73,22 +73,22 @@
 </nav>
 <div class="container my-5 order-links">
 
-    <ul class="nav nav-pills mb-3 d-xl-flex" id="pills-tab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <a class="nav-link link-dark active" id="pills-personal-details-tab"
-               data-bs-toggle="pill"
-               data-bs-target="#pills-personal-details" type="button" role="tab"
-               aria-controls="pills-personal-details"
-               aria-selected="true">Personal Details
-            </a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link link-dark" id="pills-my-orders-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-my-orders" type="button" role="tab"
-                    aria-controls="pills-my-orders" aria-selected="false">My Orders
-            </button>
-        </li>
-    </ul>
+<!--    <ul class="nav nav-pills mb-3 d-xl-flex" id="pills-tab" role="tablist">-->
+<!--        <li class="nav-item" role="presentation">-->
+<!--            <a class="nav-link link-dark active" id="pills-personal-details-tab"-->
+<!--               data-bs-toggle="pill"-->
+<!--               data-bs-target="#pills-personal-details" type="button" role="tab"-->
+<!--               aria-controls="pills-personal-details"-->
+<!--               aria-selected="true">Personal Details-->
+<!--            </a>-->
+<!--        </li>-->
+<!--        <li class="nav-item" role="presentation">-->
+<!--            <button class="nav-link link-dark" id="pills-my-orders-tab" data-bs-toggle="pill"-->
+<!--                    data-bs-target="#pills-my-orders" type="button" role="tab"-->
+<!--                    aria-controls="pills-my-orders" aria-selected="false">My Orders-->
+<!--            </button>-->
+<!--        </li>-->
+<!--    </ul>-->
 
     <div class="tab-content ps-xl-3" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-personal-details" role="tabpanel"
@@ -108,7 +108,9 @@
 
                     <button class="btn mt-3 btn-dark form-control">Save Changes</button>
                     <hr class="border rounded border-dark border-3 my-4">
-                    <button class="btn btn-dark form-control">Change password</button>
+                    <button class="btn btn-dark form-control" data-bs-toggle="modal"
+                            data-bs-target="#changePasswordModal"> Change password
+                    </button>
                 </div>
 
                 <div class="col-lg-4 col-md-6">
@@ -157,7 +159,6 @@ US
                                     <div class="mb-3">
                                         <label for="contactForm-city">City</label>
                                         <input type="email" id="contactForm-city" class="form-control">
-
                                     </div>
                                     <div class="mb-3">
                                         <label for="contactForm-postalCode">Postal Code</label>
@@ -166,7 +167,8 @@ US
 
                                     <div class="mb-3">
                                         <label for="country">Country</label>
-                                        <select class="form-select " id="country" name="country" data-bs-size="5" aria-label="Select country" >
+                                        <select class="form-select " id="country" name="country" data-bs-size="5"
+                                                aria-label="Select country">
                                             <!--source: https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html -->
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
@@ -428,6 +430,55 @@ US
                         </div>
                     </div>
 
+                    <!-- Modal -->
+                    <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModal"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">New Password</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <div class="row ">
+
+                                            <div class="mb-3">
+                                                <label for="contactForm-city" class="modal-label">Current
+                                                    password</label>
+                                                <label for="pass3"></label><input type="password" id="pass3"
+                                                                                  class="form-control">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="contactForm-city" class="modal-label">New password</label>
+                                                <label for="pass1"></label><input type="password" id="pass1"
+                                                                                  class="form-control">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="contactForm-city" class="modal-label">Confirm new
+                                                    password</label>
+                                                <label for="pass2"></label><input type="password" id="pass2"
+                                                                                  class="form-control">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
+                                    </button>
+                                    <a class="btn btn-dark" data-bs-dismiss="modal">Save
+                                    </a>
+                                    <!--                                <button type="button" class="btn btn-primary"></button>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- V pripade ze nema vyplnene-->
                     <!-- <div>-->
                     <!-- <button class="btn btn-outline-dark btn-new-address">Add a new address</button>-->
@@ -438,70 +489,65 @@ US
         </div>
 
 
-        <div class="tab-pane fade" id="pills-my-orders" role="tabpanel" aria-labelledby="pills-my-orders-tab">
-            <div class="accordion" id="accordionPanelsStayOpenExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                                aria-controls="panelsStayOpen-collapseOne">
-                            Accordion Item #1
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                         aria-labelledby="panelsStayOpen-headingOne">
-                        <div class="accordion-body">
-                            <strong>This is the first item's accordion body.</strong> It is shown by default,
-                            until the collapse plugin adds the appropriate classes that we use to style each
-                            element. These classes control the overall appearance, as well as the showing and
-                            hiding via CSS transitions. You can modify any of this with custom CSS or overriding
-                            our default variables. It's also worth noting that just about any HTML can go within
-                            the <code>.accordion-body</code>, though the transition does limit overflow.
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-                                aria-controls="panelsStayOpen-collapseTwo">
-                            Accordion Item #2
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-                         aria-labelledby="panelsStayOpen-headingTwo">
-                        <div class="accordion-body">
-                            <strong>This is the second item's accordion body.</strong> It is hidden by default,
-                            until the collapse plugin adds the appropriate classes that we use to style each
-                            element. These classes control the overall appearance, as well as the showing and
-                            hiding via CSS transitions. You can modify any of this with custom CSS or overriding
-                            our default variables. It's also worth noting that just about any HTML can go within
-                            the <code>.accordion-body</code>, though the transition does limit overflow.
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-                                aria-controls="panelsStayOpen-collapseThree">
-                            Accordion Item #3
-                        </button>
-                    </h2>
-                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
-                         aria-labelledby="panelsStayOpen-headingThree">
-                        <div class="accordion-body">
-                            <strong>This is the third item's accordion body.</strong> It is hidden by default,
-                            until the collapse plugin adds the appropriate classes that we use to style each
-                            element. These classes control the overall appearance, as well as the showing and
-                            hiding via CSS transitions. You can modify any of this with custom CSS or overriding
-                            our default variables. It's also worth noting that just about any HTML can go within
-                            the <code>.accordion-body</code>, though the transition does limit overflow.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--        <div class="tab-pane fade" id="pills-my-orders" role="tabpanel" aria-labelledby="pills-my-orders-tab">-->
+<!--            <div class="accordion" id="accordionPanelsStayOpenExample">-->
+<!--                <div class="accordion-item">-->
+<!--                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">-->
+<!--                        <button class="accordion-button" type="button" data-bs-toggle="collapse"-->
+<!--                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"-->
+<!--                                aria-controls="panelsStayOpen-collapseOne">-->
+<!--                            Order no. 2110250143-->
+<!--                        </button>-->
+<!--                    </h2>-->
+<!--                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"-->
+<!--                         aria-labelledby="panelsStayOpen-headingOne">-->
+<!--                        <div class="accordion-body">-->
+
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="accordion-item">-->
+<!--                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">-->
+<!--                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
+<!--                                data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"-->
+<!--                                aria-controls="panelsStayOpen-collapseTwo">-->
+<!--                            Order no. 2010050070-->
+<!--                        </button>-->
+<!--                    </h2>-->
+<!--                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"-->
+<!--                         aria-labelledby="panelsStayOpen-headingTwo">-->
+<!--                        <div class="accordion-body">-->
+<!--                            <strong>This is the second item's accordion body.</strong> It is hidden by default,-->
+<!--                            until the collapse plugin adds the appropriate classes that we use to style each-->
+<!--                            element. These classes control the overall appearance, as well as the showing and-->
+<!--                            hiding via CSS transitions. You can modify any of this with custom CSS or overriding-->
+<!--                            our default variables. It's also worth noting that just about any HTML can go within-->
+<!--                            the <code>.accordion-body</code>, though the transition does limit overflow.-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="accordion-item">-->
+<!--                    <h2 class="accordion-header" id="panelsStayOpen-headingThree">-->
+<!--                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
+<!--                                data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"-->
+<!--                                aria-controls="panelsStayOpen-collapseThree">-->
+<!--                            Order no. 2010021240-->
+<!--                        </button>-->
+<!--                    </h2>-->
+<!--                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"-->
+<!--                         aria-labelledby="panelsStayOpen-headingThree">-->
+<!--                        <div class="accordion-body">-->
+<!--                            <strong>This is the third item's accordion body.</strong> It is hidden by default,-->
+<!--                            until the collapse plugin adds the appropriate classes that we use to style each-->
+<!--                            element. These classes control the overall appearance, as well as the showing and-->
+<!--                            hiding via CSS transitions. You can modify any of this with custom CSS or overriding-->
+<!--                            our default variables. It's also worth noting that just about any HTML can go within-->
+<!--                            the <code>.accordion-body</code>, though the transition does limit overflow.-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 
 </div>
