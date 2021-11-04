@@ -3,7 +3,7 @@
 const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
-const resultsTag = `<li><strong>Results</strong></li><hr>`;
+const resultsTag = `<li class="fw-bold results-header">Results</li><hr>`;
 const MAX_SEARCH_RESULTS = 5;
 const MIN_LENGTH_TO_SEARCH = 2;
 
