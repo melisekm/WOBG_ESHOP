@@ -21,15 +21,9 @@
 }
 
 .btn-confirm {
-    color: white;
     width: 100%;
     font-size: 20px;
-    background: #1762A7;
     border-radius: 10px;
-}
-
-.btn-new-address {
-    height: 130px;
 }
 
 textarea {
