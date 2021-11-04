@@ -5,7 +5,7 @@ const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
 const resultsTag = `<li><strong>Results</strong></li><hr>`;
 const MAX_SEARCH_RESULTS = 5;
-const MIN_LENGTH_TO_SEARCH = 3;
+const MIN_LENGTH_TO_SEARCH = 2;
 
 // if user press any key and release
 inputBox.onkeyup = (e) => {
@@ -18,7 +18,7 @@ inputBox.onkeyup = (e) => {
         });
         suggestionsList = suggestionsList.map((data) => {
             // passing return data inside li tag
-            return `<a href="https://www.google.com/search?q=${data}"><li>${data}</li></a>`;
+            return `<a href="#"><li>${data}</li></a>`;
         });
         suggestionsList.splice(0, 0, resultsTag);
         searchWrapper.classList.add("active"); //show autocomplete box
@@ -30,7 +30,7 @@ inputBox.onkeyup = (e) => {
 }
 
 const showSuggestions = (list) => {
-    const search = `<hr/><a href="https://www.google.sk"><li>Search for "${inputBox.value}" &gt;</li></a>`;
+    const search = `<hr/><a href="#"><li>Search for "${inputBox.value}" &gt;</li></a>`;
     if (list.length === 1) {
         return search;
     } else if (list.length >= MAX_SEARCH_RESULTS) {
