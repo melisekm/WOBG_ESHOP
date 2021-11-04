@@ -8,6 +8,14 @@ a {
 
 }
 
+.btn-dark{
+    background-color: #0a58ca;
+    border: none;
+}
+.btn-dark:hover,.btn-dark:focus{
+    background-color: #1762A7;
+}
+
 .darkRectangle {
     background: #202027;
     border-radius: 10px;
