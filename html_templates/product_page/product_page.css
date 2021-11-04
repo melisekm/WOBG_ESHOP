@@ -6,13 +6,9 @@
     .btn-add-to-cart {
         width: 100%;
     }
-    /*.product-container{*/
-    /*    display: flex; flex-flow: column;*/
-    /*}*/
-    /*.product-image{*/
-    /*    order:2;*/
-    /*}*/
-    /*.product-name{*/
-    /*    order:1*/
-    /*}*/
+
+    div .main-product-img{
+        width: 50%;
+    }
 }
+
