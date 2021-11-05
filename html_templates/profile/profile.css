@@ -30,10 +30,6 @@ textarea {
     resize: none;
 }
 
-.forgotPasswordModal {
-    color: black;
-}
-
 .modal-title, .modal-p, .modal-label {
     color: black;
 }

@@ -5,24 +5,24 @@ body {
 a {
     color: black;
     text-decoration: none;
-
 }
 
-.btn-dark {
+.btn-blue {
     background-color: #1762A7;
     border: none;
+    color: white;
 }
 
-.btn-dark:hover, .btn-dark:focus {
+.btn-blue:hover, .btn-blue:focus {
     background-color: #0a58ca;
+    color: white;
 }
 
 .darkRectangle {
     background: #202027;
     border-radius: 10px;
-    color: #ffffff;
+    color: white;
 }
-
 
 .white-link {
     color: white;
@@ -39,7 +39,7 @@ a {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: #fff;
+    color: white;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
@@ -58,7 +58,7 @@ a {
     top: 7px;
     padding-left: 8px;
     padding-right: 8px;
-    color: #fff;
+    color: white;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
 }
@@ -103,8 +103,6 @@ a {
     opacity: 1;
     pointer-events: auto;
     border-radius: 10px;
-
-
     position: absolute;
     top: 100%;
     z-index: 1000;
@@ -112,7 +110,7 @@ a {
     width: 100%;
 
 }
-
+/*Javascript doplna results header*/
 .autocom-box li.results-header {
     cursor: default;
     padding: 8px 12px;
