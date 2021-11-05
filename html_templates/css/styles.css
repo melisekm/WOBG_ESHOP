@@ -95,7 +95,6 @@ a {
     pointer-events: none;
     max-height: 350px;
     overflow-y: auto;
-
 }
 
 .search-input.active .autocom-box {
