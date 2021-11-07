@@ -22,57 +22,59 @@
 
 <body class="d-flex flex-column min-vh-100">
 <!-- Navbar -->
-<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="../landing_page.html">
-            <img src="../img/cubes.svg" alt="logo">
-            <span class="mx-3 ps-1">wobg.com</span>
-        </a>
+<header>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../landing_page.html">
+                <img src="../img/cubes.svg" alt="logo">
+                <span class="mx-3 ps-1">wobg.com</span>
+            </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"
-                aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"
+                    aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
 
-        <div class="collapse navbar-collapse" id="toggleMobileMenu">
-            <form class="me-3 ">
-                <div class="mx-auto search-wrapper">
-                    <div class="form-white input-group">
-                        <div class="search-input">
-                            <div class="icon"><i class="fas fa-search fa-lg pt-1 px-1"></i></div>
-                            <a href="" target="_blank" hidden></a>
+            <div class="collapse navbar-collapse" id="toggleMobileMenu">
+                <form class="me-3 ">
+                    <div class="mx-auto search-wrapper">
+                        <div class="form-white input-group">
+                            <div class="search-input">
+                                <div class="icon"><i class="fas fa-search fa-lg pt-1 px-1"></i></div>
+                                <a href="" target="_blank" hidden></a>
 
-                            <input id="searchGroup" type="search" class="form-control rounded-pill"
-                                   placeholder="Search..." aria-label="Search">
-                            <div class="autocom-box bg-dark">
-                                <!-- here list are inserted from javascript -->
+                                <input id="searchGroup" type="search" class="form-control rounded-pill"
+                                       placeholder="Search..." aria-label="Search">
+                                <div class="autocom-box bg-dark">
+                                    <!-- here list are inserted from javascript -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
 
-            <ul class="navbar-nav nav-fill w-100">
-                <li class="nav-item">
-                    <a class="nav-link" href="../product_catalog/product_catalog.html">Board games</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link cart " href="../cart/cart.html"><i
-                            class="fas fa-shopping-cart fa-lg"></i><span
-                            class="cart-basket text-white">3</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../profile/my_account.html">My Account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../profile/register.html">Logout</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav nav-fill w-100">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../product_catalog/product_catalog.html">Board games</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link cart " href="../cart/cart.html"><i
+                                class="fas fa-shopping-cart fa-lg"></i><span
+                                class="cart-basket text-white">3</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../profile/my_account.html">My Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../profile/register.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>
 
-<div class="container">
+<main class="container">
     <!--    Kroky checkoutu-->
     <ul class="timeline mt-4 ">
         <li class="step complete">
@@ -96,252 +98,259 @@
             </div>
         </li>
     </ul>
+    <h1 class="my-3 display-6">Checkout</h1>
 
     <div class="row my-3">
         <!--    Info-->
         <div class="col-lg-6 mt-lg-0 mt-3 order-2 order-lg-1">
-            <div class="fs-4 mb-2">Billing information</div>
-            <div class="row">
-                <div class="col mb-3">
-                    <label for="firstName" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="firstName">
-                </div>
-                <div class="col mb-3">
-                    <label for="surname" class="form-label">Surname</label>
-                    <input type="text" class="form-control" id="surname">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col mb-3">
-                    <label for="street" class="form-label">Street</label>
-                    <textarea class="form-control" id="street" rows="3"></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col mb-3">
-                    <label for="city" class="form-label">City</label>
-                    <input type="text" class="form-control" id="city">
-                </div>
-                <div class="col mb-3">
-                    <label for="postalCode" class="form-label">Postal Code</label>
-                    <input type="text" class="form-control" id="postalCode">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col mb-3">
-                    <label for="country">Country</label>
-                    <select class="form-select " id="country" name="country" data-bs-size="5"
-                            aria-label="Select country">
-                        <!--source: https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html -->
-                        <option value="Slovakia">Slovakia</option>
-                        <option value="Czech Republic">Czech Republic</option>
-                        <option value="Hungary">Hungary</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col mb-3">
-                    <label for="phoneNumber" class="form-label">Phone number</label>
-                    <input type="text" class="form-control" id="phoneNumber">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="saveAddress">
-                        <label class="form-check-label" for="saveAddress">
-                            I want to save this address
-                        </label>
+            <section>
+                <h2 class="fs-4 mb-2">Billing information</h2>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="firstName" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="firstName">
+                    </div>
+                    <div class="col mb-3">
+                        <label for="surname" class="form-label">Surname</label>
+                        <input type="text" class="form-control" id="surname">
                     </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="street" class="form-label">Street</label>
+                        <textarea class="form-control" id="street" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city">
+                    </div>
+                    <div class="col mb-3">
+                        <label for="postalCode" class="form-label">Postal Code</label>
+                        <input type="text" class="form-control" id="postalCode">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="country">Country</label>
+                        <select class="form-select " id="country" name="country" data-bs-size="5"
+                                aria-label="Select country">
+                            <!--source: https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html -->
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Hungary">Hungary</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="phoneNumber" class="form-label">Phone number</label>
+                        <input type="text" class="form-control" id="phoneNumber">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="saveAddress">
+                            <label class="form-check-label" for="saveAddress">
+                                I want to save this address
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <!--    Payment-->
-            <div class="row">
-                <div class="col 4 mt-2">
-                    <div class="fs-4">
-                        Payment
-                    </div>
-                    <div class="btn-group-vertical" role="group" aria-label="Payment radio group">
+            <section>
+                <div class="row">
+                    <div class="col 4 mt-2">
+                        <h3 class="fs-4"> Payment </h3>
+                        <div class="btn-group-vertical" role="group" aria-label="Payment radio group">
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="paymentRadios" id="paymentPaypal"
-                                   value="paymentPaypal" checked>
-                            <label class="form-check-label" for="paymentPaypal">
-                                Paypal
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="paymentRadios" id="paymentBankTransfer"
-                                   value="paymentBankTransfer">
-                            <label class="form-check-label" for="paymentBankTransfer">
-                                Bank Transfer
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="paymentRadios" id="paymentCard"
-                                   value="paymentCard">
-                            <label class="form-check-label" for="paymentCard">
-                                Card
-                            </label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentRadios" id="paymentPaypal"
+                                       value="paymentPaypal" checked>
+                                <label class="form-check-label" for="paymentPaypal">
+                                    Paypal
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentRadios"
+                                       id="paymentBankTransfer"
+                                       value="paymentBankTransfer">
+                                <label class="form-check-label" for="paymentBankTransfer">
+                                    Bank Transfer
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentRadios" id="paymentCard"
+                                       value="paymentCard">
+                                <label class="form-check-label" for="paymentCard">
+                                    Card
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
             <!--    Shipping-->
-            <div class="row">
-                <div class="col mt-2">
-                    <div class="fs-4"> Shipping</div>
-                    <div class="btn-group-vertical" role="group" aria-label="Shipping radio group">
-                        <div class="row">
-                            <div class="col-6 col-md-5">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="shippingRadios"
-                                           id="shippingStandard"
-                                           value="shippingStandard" checked>
-                                    <label class="form-check-label" for="shippingStandard">
-                                        Standard Delivery
-                                    </label>
+            <section>
+                <div class="row">
+                    <div class="col mt-2">
+                        <h3 class="fs-4"> Shipping</h3>
+                        <div class="btn-group-vertical" role="group" aria-label="Shipping radio group">
+                            <div class="row">
+                                <div class="col-6 col-md-5">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shippingRadios"
+                                               id="shippingStandard"
+                                               value="shippingStandard" checked>
+                                        <label class="form-check-label" for="shippingStandard">
+                                            Standard Delivery
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    2.99$
                                 </div>
                             </div>
-                            <div class="col">
-                                2.99$
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 col-md-5">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="shippingRadios" id="shippingUPS"
-                                           value="shippingUPS">
-                                    <label class="form-check-label" for="shippingUPS">
-                                        UPS Service
-                                    </label>
+                            <div class="row">
+                                <div class="col-6 col-md-5">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shippingRadios"
+                                               id="shippingUPS"
+                                               value="shippingUPS">
+                                        <label class="form-check-label" for="shippingUPS">
+                                            UPS Service
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    5.49$
                                 </div>
                             </div>
-                            <div class="col">
-                                5.49$
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 col-md-5">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="shippingRadios"
-                                           id="shippingParcel"
-                                           value="shippingParcel">
-                                    <label class="form-check-label" for="shippingParcel">
-                                        Parcel Service
-                                    </label>
+                            <div class="row">
+                                <div class="col-6 col-md-5">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="shippingRadios"
+                                               id="shippingParcel"
+                                               value="shippingParcel">
+                                        <label class="form-check-label" for="shippingParcel">
+                                            Parcel Service
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col">
-                                4.99$
+                                <div class="col">
+                                    4.99$
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
             <!--    Continue-->
             <a class="btn btn-blue my-3 fs-4" href="review.html">Continue to Review</a>
-
-
         </div>
         <!--    Summary-->
         <div class="col-lg-6 order-1 order-lg-2">
-            <div class="d-none d-lg-block fs-4">Summary</div>
-            <div class="mod-collapse">
-                <div class="d-lg-none">
-                    <div class="clearfix">
-                        <a class="btn btn-blue w-100" role="button"
-                           data-bs-toggle="collapse" href="#summaryCollapse" aria-expanded="false"
-                           aria-controls="summaryCollapse">
-                            <div class="align-left"> Summary &nbsp;<i class="fas fa-chevron-down"></i></div>
-                            <div class="align-right"> 202.95$</div>
-                        </a>
+            <section>
+                <h2 class="d-none d-lg-block fs-4">Summary</h2>
+                <div class="mod-collapse">
+                    <div class="d-lg-none">
+                        <div class="clearfix">
+                            <a class="btn btn-blue w-100" role="button"
+                               data-bs-toggle="collapse" href="#summaryCollapse" aria-expanded="false"
+                               aria-controls="summaryCollapse">
+                                <div class="align-left"> Summary &nbsp;<i class="fas fa-chevron-down"></i></div>
+                                <div class="align-right"> 202.95$</div>
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="collapse darkRectangle mt-2 p-3" id="summaryCollapse">
-                    <div class="container">
-                        <!--    Items-->
-                        <div class="row py-3 align-items-center border-bottom">
-                            <div class="col-3">
-                                <a href="../product_page/product_page.html">
-                                    <img src="../img/games/sherlock/main/sherlock1-900.jpg"
-                                         srcset="../img/games/sherlock/main/sherlock1-400.jpg 400w,
+                    <div class="collapse darkRectangle mt-2 p-3" id="summaryCollapse">
+                        <div class="container">
+                            <!--    Items-->
+                            <div class="row py-3 align-items-center border-bottom">
+                                <div class="col-3">
+                                    <a href="../product_page/product_page.html">
+                                        <img src="../img/games/sherlock/main/sherlock1-900.jpg"
+                                             srcset="../img/games/sherlock/main/sherlock1-400.jpg 400w,
                                              ../img/games/sherlock/main/sherlock1-600.jpg 600w,
                                              ../img/games/sherlock/main/sherlock1-900.jpg 900w"
-                                         sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                         class="img-fluid product-img" alt="product image 1">
-                                </a>
+                                             sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
+                                             class="img-fluid product-img" alt="product image 1">
+                                    </a>
+                                </div>
+                                <div class="col text-truncate">
+                                    <a class="text-white" href="../product_page/product_page.html"> Sherlock </a>
+                                </div>
+                                <div class="col-1"> 1x</div>
+                                <div class="col-3 text-end"> 49.99&dollar;</div>
                             </div>
-                            <div class="col text-truncate">
-                                <a class="text-white" href="../product_page/product_page.html"> Sherlock </a>
-                            </div>
-                            <div class="col-1"> 1x</div>
-                            <div class="col-3 text-end"> 49.99&dollar;</div>
-                        </div>
-                        <div class="row py-3 align-items-center border-bottom">
-                            <div class="col-3">
-                                <a href="../product_page/product_page.html">
-                                    <img src="../img/games/ticket_to_ride/main/ticket2ride1-900.jpg"
-                                         srcset="../img/games/ticket_to_ride/main/ticket2ride1-400.jpg 400w,
+                            <div class="row py-3 align-items-center border-bottom">
+                                <div class="col-3">
+                                    <a href="../product_page/product_page.html">
+                                        <img src="../img/games/ticket_to_ride/main/ticket2ride1-900.jpg"
+                                             srcset="../img/games/ticket_to_ride/main/ticket2ride1-400.jpg 400w,
                                              ../img/games/ticket_to_ride/main/ticket2ride1-600.jpg 600w,
                                              ../img/games/ticket_to_ride/main/ticket2ride1-900.jpg 900w"
-                                         sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                         class="img-fluid product-img" alt="product image 2">
-                                </a>
+                                             sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
+                                             class="img-fluid product-img" alt="product image 2">
+                                    </a>
+                                </div>
+                                <div class="col text-truncate">
+                                    <a class="text-white" href="../product_page/product_page.html">
+                                        Ticket to Ride: Europe Edition
+                                    </a>
+                                </div>
+                                <div class="col-1"> 2x</div>
+                                <div class="col-3 text-end"> 49.99&dollar;</div>
                             </div>
-                            <div class="col text-truncate">
-                                <a class="text-white" href="../product_page/product_page.html">
-                                    Ticket to Ride: Europe Edition
-                                </a>
-                            </div>
-                            <div class="col-1"> 2x</div>
-                            <div class="col-3 text-end"> 49.99&dollar;</div>
-                        </div>
-                        <div class="row py-3 align-items-center border-bottom">
-                            <div class="col-3">
-                                <a href="../product_page/product_page.html">
-                                    <img src="../img/games/mandala/main/mandala1-900.jpg"
-                                         srcset="../img/games/mandala/main/mandala1-400.jpg 400w,
+                            <div class="row py-3 align-items-center border-bottom">
+                                <div class="col-3">
+                                    <a href="../product_page/product_page.html">
+                                        <img src="../img/games/mandala/main/mandala1-900.jpg"
+                                             srcset="../img/games/mandala/main/mandala1-400.jpg 400w,
                                              ../img/games/mandala/main/mandala1-600.jpg 600w,
                                              ../img/games/mandala/main/mandala1-900.jpg 900w"
-                                         sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                         class="img-fluid product-img" alt="product image 3">
-                                </a>
+                                             sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
+                                             class="img-fluid product-img" alt="product image 3">
+                                    </a>
+                                </div>
+                                <div class="col text-truncate">
+                                    <a class="text-white" href="../product_page/product_page.html"> Mandala </a>
+                                </div>
+                                <div class="col-1"> 1x</div>
+                                <div class="col-3 text-end"> 49.99&dollar;</div>
                             </div>
-                            <div class="col text-truncate">
-                                <a class="text-white" href="../product_page/product_page.html"> Mandala </a>
-                            </div>
-                            <div class="col-1"> 1x</div>
-                            <div class="col-3 text-end"> 49.99&dollar;</div>
-                        </div>
 
-                        <!--    Subtotal-->
-                        <div class="row border-bottom">
-                            <div class="col">
-                                <div class="py-2"> Subtotal</div>
-                                <div class="py-2"> Shipping</div>
+                            <!--    Subtotal-->
+                            <div class="row border-bottom">
+                                <div class="col">
+                                    <div class="py-2"> Subtotal</div>
+                                    <div class="py-2"> Shipping</div>
+                                </div>
+                                <div class="col">
+                                    <div class="text-end py-2">199.96$</div>
+                                    <div class="text-end py-2">2.99$</div>
+                                </div>
                             </div>
-                            <div class="col">
-                                <div class="text-end py-2">199.96$</div>
-                                <div class="text-end py-2">2.99$</div>
-                            </div>
-                        </div>
-                        <!--    Total-->
-                        <div class="row">
-                            <div class="col">
-                                <div class="pt-3 fs-4"> Total</div>
-                            </div>
-                            <div class="col">
-                                <div class="text-end pt-3 fw-bold fs-4">202.95$</div>
+                            <!--    Total-->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="pt-3 fs-4"> Total</div>
+                                </div>
+                                <div class="col">
+                                    <div class="text-end pt-3 fw-bold fs-4">202.95$</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     </div>
-</div>
+</main>
 
 <!-- Footer -->
 <footer class="mt-auto text-white bg-dark">

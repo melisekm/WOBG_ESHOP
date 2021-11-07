@@ -29,58 +29,61 @@
 
 <body class="d-flex flex-column min-vh-100">
 <!-- Navbar -->
-<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="../landing_page.html">
-            <img src="../img/cubes.svg" alt="logo">
-            <span class="mx-3 ps-1">wobg.com</span>
-        </a>
+<header>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../landing_page.html">
+                <img src="../img/cubes.svg" alt="logo">
+                <span class="mx-3 ps-1">wobg.com</span>
+            </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"
-                aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"
+                    aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
 
-        <div class="collapse navbar-collapse" id="toggleMobileMenu">
-            <form class="me-3 ">
-                <div class="mx-auto search-wrapper">
-                    <div class="form-white input-group">
-                        <div class="search-input">
-                            <div class="icon"><i class="fas fa-search fa-lg pt-1 px-1"></i></div>
-                            <a href="" target="_blank" hidden></a>
+            <div class="collapse navbar-collapse" id="toggleMobileMenu">
+                <form class="me-3 ">
+                    <div class="mx-auto search-wrapper">
+                        <div class="form-white input-group">
+                            <div class="search-input">
+                                <div class="icon"><i class="fas fa-search fa-lg pt-1 px-1"></i></div>
+                                <a href="" target="_blank" hidden></a>
 
-                            <input id="searchGroup" type="search" class="form-control rounded-pill"
-                                   placeholder="Search..." aria-label="Search">
-                            <div class="autocom-box bg-dark">
-                                <!-- here list are inserted from javascript -->
+                                <input id="searchGroup" type="search" class="form-control rounded-pill"
+                                       placeholder="Search..." aria-label="Search">
+                                <div class="autocom-box bg-dark">
+                                    <!-- here list are inserted from javascript -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
 
-            <ul class="navbar-nav nav-fill w-100">
-                <li class="nav-item">
-                    <a class="nav-link" href="../product_catalog/product_catalog.html">Board games</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link cart " href="../cart/empty_cart.html"><i
-                            class="fas fa-shopping-cart fa-lg"></i><span
-                            class="cart-basket  text-white">0</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../profile/login.html">Sign in</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../profile/register.html">Sign up</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav nav-fill w-100">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../product_catalog/product_catalog.html">Board games</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link cart " href="../cart/empty_cart.html"><i
+                                class="fas fa-shopping-cart fa-lg"></i><span
+                                class="cart-basket  text-white">0</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../profile/login.html">Sign in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../profile/register.html">Sign up</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>
 
-<div class="container">
-    <div class="row my-5">
+<main class="container">
+    <div class="row mb-5 mt-3">
+        <!--        Filters-->
         <div class="col-lg-3">
             <aside class="mod-collapse">
                 <div class="d-lg-none">
@@ -91,7 +94,6 @@
                 </div>
                 <div class="collapse" id="filtersCollapse">
                     <div class="darkRectangle mt-lg-0 mt-4 pb-3">
-
                         <div class="ps-3 py-2">
                             <div class="text-end">
                                 <a href="#" class="btn btn-blue border-0 bg-transparent pe-2 btn-sm">
@@ -152,7 +154,7 @@
 
                                     <div class="fs-5 fw-bold mt-3 py-3 border-top">Main Category</div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
+                                        <input class="form-check-input" type="checkbox" checked value=""
                                                id="mainCategoryCheckbox1">
                                         <label class="form-check-label" for="mainCategoryCheckbox1">
                                             Family Games
@@ -280,376 +282,406 @@
 
             </aside>
         </div>
+        <!--        Catalog-->
+
         <div class="col-lg-9 py-lg-0 order-links">
-            <ul class="nav nav-pills mb-3 d-none d-xl-flex" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link link-dark active" id="pills-recommended-tab"
-                            data-bs-toggle="pill"
-                            data-bs-target="#pills-recommended" type="button" role="tab"
-                            aria-controls="pills-recommended"
-                            aria-selected="true">Recommended
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link link-dark" id="pills-topsellers-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-topsellers" type="button" role="tab"
-                            aria-controls="pills-topsellers" aria-selected="false">Top Sellers
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link link-dark" id="pills-mostrecent-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-mostrecent" type="button" role="tab"
-                            aria-controls="pills-mostrecent" aria-selected="false">Most Recent
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link link-dark" id="pills-highestprice-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-highestprice" type="button" role="tab"
-                            aria-controls="pills-highestprice" aria-selected="false">Highest Price
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link link-dark" id="pills-lowestprice-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-lowestprice" type="button" role="tab"
-                            aria-controls="pills-lowestprice" aria-selected="false">Lowest Price
-                    </button>
-                </li>
-            </ul>
-
-            <div class="d-xl-none my-3">
-                <select class="form-select" aria-label="Default select">
-                    <option value="recommended">Order by Recommended</option>
-                    <option value="sop_sellers">Order by Top Sellers</option>
-                    <option value="most_recent">Order by Most Recent</option>
-                    <option value="highest_price">Order by Highest Price</option>
-                    <option value="lowest_price">Order by Lowest Price</option>
-                </select>
-            </div>
-            <div class="tab-content ps-xl-3" id="pills-tabContent">
-                <div class="tab-pane fade show active " id="pills-recommended" role="tabpanel"
-                     aria-labelledby="pills-recommended-tab">
-                    <div class="row pb-2 border-bottom">
-                        <div class="col-md-3 py-3 text-center text-lg-start">
-                            <a href="../product_page/product_page.html">
-                                <img src="../img/games/ticket_to_ride/main/ticket2ride1-900.jpg"
-                                     srcset="../img/games/ticket_to_ride/main/ticket2ride1-400.jpg 400w,
-                                             ../img/games/ticket_to_ride/main/ticket2ride1-600.jpg 600w,
-                                             ../img/games/ticket_to_ride/main/ticket2ride1-900.jpg 900w"
-                                     sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                     class="img-fluid product-img" alt="product image">
-                            </a>
-                        </div>
-                        <div class="col d-flex flex-column">
-                            <div class="row pt-3 text-center text-sm-start">
-                                <div class="col-sm-8">
-                                    <a href="../product_page/product_page.html">
-                                        <p class="fs-5 fw-bold text-truncate">Ticket to Ride: Europe Edition</p>
-                                    </a>
-                                </div>
-                                <div class="col-sm">
-                                    <p class="fs-5 text-weight-bold text-sm-end ">49.99$</p>
-                                </div>
-                            </div>
-                            <div class="row d-none d-sm-block">
-                                <div class="col-sm-8">
-                                    <p class="description">Ticket to Ride, from Days of Wonder, is one of those
-                                        ultimately simple yet compelling gateway games that
-                                        continues to prove its place in the world of board gaming.
-                                        In Ticket to Ride, 2-5 players compete against each other to earn the most
-                                        victory points by placing train
-                                        routes across the United States of America.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row mt-auto">
-                                <div class="col-sm-8 d-none d-sm-block">
-                                    <p class="text-muted">10+ | 30 min | 2-8</p>
-                                </div>
-                                <div class="col-sm text-center text-sm-end ">
-                                    <button class="btn btn-blue add-to-cart-btn">
-                                        Add to cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row pb-2 border-bottom">
-                        <div class="col-md-3 py-3 text-center text-lg-start">
-                            <a href="../product_page/product_page.html">
-                                <img src="../img/games/mandala/main/mandala1-900.jpg"
-                                     srcset="../img/games/mandala/main/mandala1-400.jpg 400w,
-                                             ../img/games/mandala/main/mandala1-600.jpg 600w,
-                                             ../img/games/mandala/main/mandala1-900.jpg 900w"
-                                     sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                     class="img-fluid product-img" alt="product image">
-                            </a>
-                        </div>
-                        <div class="col d-flex flex-column">
-                            <div class="row pt-3 text-center text-sm-start">
-                                <div class="col-sm-8">
-                                    <a href="../product_page/product_page.html">
-                                        <p class="fs-5 fw-bold text-truncate">Mandala</p>
-                                    </a>
-                                </div>
-                                <div class="col-sm">
-                                    <p class="fs-5 text-weight-bold text-sm-end ">49.99$</p>
-                                </div>
-                            </div>
-                            <div class="row d-none d-sm-block">
-                                <div class="col-sm-8">
-                                    <p class="description">In the two-player game Mandala, you are trying to score more
-                                        than your opponent by collecting valuable cards — but you won't know which cards
-                                        are valuable until well into the game! Over the course of the game, players play
-                                        their colored cards into the two mandalas, building the central shared mountains
-                                        and laying cards into their own fields.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row mt-auto">
-                                <div class="col-sm-8 d-none d-sm-block">
-                                    <p class="text-muted">10+ | 30 min | 2-8</p>
-                                </div>
-                                <div class="col-sm text-center text-sm-end ">
-                                    <button class="btn btn-blue add-to-cart-btn">
-                                        Add to cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row pb-2 border-bottom">
-                        <div class="col-md-3 py-3 text-center text-lg-start">
-                            <a href="../product_page/product_page.html">
-                                <img src="../img/games/sherlock/main/sherlock1-900.jpg"
-                                     srcset="../img/games/sherlock/main/sherlock1-400.jpg 400w,
-                                             ../img/games/sherlock/main/sherlock1-600.jpg 600w,
-                                             ../img/games/sherlock/main/sherlock1-900.jpg 900w"
-                                     sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                     class="img-fluid product-img" alt="product image">
-                            </a>
-                        </div>
-                        <div class="col d-flex flex-column">
-                            <div class="row pt-3 text-center text-sm-start">
-                                <div class="col-sm-8">
-                                    <a href="../product_page/product_page.html">
-                                        <p class="fs-5 fw-bold text-truncate">Sherlock</p>
-                                    </a>
-                                </div>
-                                <div class="col-sm">
-                                    <p class="fs-5 text-weight-bold text-sm-end ">49.99$</p>
-                                </div>
-                            </div>
-                            <div class="row d-none d-sm-block">
-                                <div class="col-sm-8">
-                                    <p class="description">In Sherlock 13, first published as Holmes 13, the players
-                                        take the role of a detective, trying to unmask the famous thief Arsene Lupin,
-                                        who is among them in disguise.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row mt-auto">
-                                <div class="col-sm-8 d-none d-sm-block">
-                                    <p class="text-muted">10+ | 30 min | 2-8</p>
-                                </div>
-                                <div class="col-sm text-center text-sm-end ">
-                                    <button class="btn btn-blue add-to-cart-btn">
-                                        Add to cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="pills-topsellers" role="tabpanel"
-                     aria-labelledby="pills-topsellers-tab">
-                    <div class="row pb-2 border-bottom">
-                        <div class="col-md-3 py-3 text-center text-lg-start">
-                            <a href="../product_page/product_page.html">
-                                <img src="../img/games/explodingcats/main/explodingcats1-900.jpg"
-                                     srcset="../img/games/explodingcats/main/explodingcats1-400.jpg 400w,
-                                             ../img/games/explodingcats/main/explodingcats1-600.jpg 600w,
-                                             ../img/games/explodingcats/main/explodingcats1-900.jpg 900w"
-                                     sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                     class="img-fluid product-img" alt="product image">
-                            </a>
-                        </div>
-                        <div class="col d-flex flex-column">
-                            <div class="row pt-3 text-center text-sm-start">
-                                <div class="col-sm-8">
-                                    <a href="../product_page/product_page.html">
-                                        <p class="fs-5 fw-bold text-truncate">Exploding Kittens</p>
-                                    </a>
-                                </div>
-                                <div class="col-sm">
-                                    <p class="fs-5 text-weight-bold text-sm-end ">49.99$</p>
-                                </div>
-                            </div>
-                            <div class="row d-none d-sm-block">
-                                <div class="col-sm-8">
-                                    <p class="description">Exploding Kittens is a hilarious and highly strategic
-                                        kitty-powered version of Russian Roulette. Players take turns drawing cards from
-                                        the deck until someone draws an exploding kitten, at which point they explode,
-                                        they are dead, and they are out of the game - unless that player has a Defuse
-                                        card, which can defuse the kitten using things like laser pointers, belly rubs,
-                                        and catnip sandwiches.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row mt-auto">
-                                <div class="col-sm-8 d-none d-sm-block">
-                                    <p class="text-muted">10+ | 30 min | 2-8</p>
-                                </div>
-                                <div class="col-sm text-center text-sm-end ">
-                                    <button class="btn btn-blue add-to-cart-btn">
-                                        Add to cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row pb-2 border-bottom">
-                        <div class="col-md-3 py-3 text-center text-lg-start">
-                            <a href="../product_page/product_page.html">
-                                <img src="../img/games/ticket_to_ride/main/ticket2ride1-900.jpg"
-                                     srcset="../img/games/ticket_to_ride/main/ticket2ride1-400.jpg 400w,
-                                             ../img/games/ticket_to_ride/main/ticket2ride1-600.jpg 600w,
-                                             ../img/games/ticket_to_ride/main/ticket2ride1-900.jpg 900w"
-                                     sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                     class="img-fluid product-img" alt="product image">
-                            </a>
-                        </div>
-                        <div class="col d-flex flex-column">
-                            <div class="row pt-3 text-center text-sm-start">
-                                <div class="col-sm-8">
-                                    <a href="../product_page/product_page.html">
-                                        <p class="fs-5 fw-bold text-truncate">Ticket to Ride: Europe Edition</p>
-                                    </a>
-                                </div>
-                                <div class="col-sm">
-                                    <p class="fs-5 text-weight-bold text-sm-end ">49.99$</p>
-                                </div>
-                            </div>
-                            <div class="row d-none d-sm-block">
-                                <div class="col-sm-8">
-                                    <p class="description">Ticket to Ride, from Days of Wonder, is one of those
-                                        ultimately simple yet compelling gateway games that
-                                        continues to prove its place in the world of board gaming.
-                                        In Ticket to Ride, 2-5 players compete against each other to earn the most
-                                        victory points by placing train
-                                        routes across the United States of America.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row mt-auto">
-                                <div class="col-sm-8 d-none d-sm-block">
-                                    <p class="text-muted">10+ | 30 min | 2-8</p>
-                                </div>
-                                <div class="col-sm text-center text-sm-end ">
-                                    <button class="btn btn-blue add-to-cart-btn">
-                                        Add to cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="tab-pane fade" id="pills-mostrecent" role="tabpanel"
-                     aria-labelledby="pills-mostrecent-tab">
-                    <div class="row pb-2 border-bottom">
-                        <div class="col-md-3 py-3 text-center text-lg-start">
-                            <a href="../product_page/product_page.html">
-                                <img src="../img/games/ticket_to_ride/main/ticket2ride1-900.jpg"
-                                     srcset="../img/games/ticket_to_ride/main/ticket2ride1-400.jpg 400w,
-                                             ../img/games/ticket_to_ride/main/ticket2ride1-600.jpg 600w,
-                                             ../img/games/ticket_to_ride/main/ticket2ride1-900.jpg 900w"
-                                     sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                     class="img-fluid product-img" alt="product image">
-                            </a>
-                        </div>
-                        <div class="col d-flex flex-column">
-                            <div class="row pt-3 text-center text-sm-start">
-                                <div class="col-sm-8">
-                                    <a href="../product_page/product_page.html">
-                                        <p class="fs-5 fw-bold text-truncate">Ticket to Ride: Europe Edition</p>
-                                    </a>
-                                </div>
-                                <div class="col-sm">
-                                    <p class="fs-5 text-weight-bold text-sm-end ">49.99$</p>
-                                </div>
-                            </div>
-                            <div class="row d-none d-sm-block">
-                                <div class="col-sm-8">
-                                    <p class="description">Ticket to Ride, from Days of Wonder, is one of those
-                                        ultimately simple yet compelling gateway games that
-                                        continues to prove its place in the world of board gaming.
-                                        In Ticket to Ride, 2-5 players compete against each other to earn the most
-                                        victory points by placing train
-                                        routes across the United States of America.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row mt-auto">
-                                <div class="col-sm-8 d-none d-sm-block">
-                                    <p class="text-muted">10+ | 30 min | 2-8</p>
-                                </div>
-                                <div class="col-sm text-center text-sm-end ">
-                                    <button class="btn btn-blue add-to-cart-btn">
-                                        Add to cart
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="pills-highestprice" role="tabpanel"
-                     aria-labelledby="pills-highestprice-tab">
-                </div>
-                <div class="tab-pane fade" id="pills-lowestprice" role="tabpanel"
-                     aria-labelledby="pills-lowestprice-tab">
-                </div>
-            </div>
-
-
-            <!--Pagination-->
-            <div class="row mt-5">
-                <div class="col">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination pagination-lg justify-content-center">
-                            <li class="page-item disabled">
-                                <a aria-hidden="true" class="page-link"><i class="fas fa-chevron-circle-left"></i></a>
-                                <span class="sr-only">Previous</span>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="#">&nbsp;1&nbsp;</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <span class="page-link">&hellip;</span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">15</a></li>
-
-                            <li class="page-item">
-                                <a aria-hidden="true" class="page-link" href="#"><i
-                                        class="fas fa-chevron-circle-right"></i></a>
-                                <span class="sr-only">Next</span>
-
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3 col-md-4 pt-2">
-                    <select class="form-select" aria-label="Per page select">
-                        <option value="3">Per page 3</option>
-                        <option value="10">Per page 10</option>
-                        <option value="25">Per page 25</option>
+            <section>
+                <h1 class="my-3 display-6"> Family Games</h1>
+                <!--        Ordering-->
+                <ul class="nav nav-pills mb-3 d-none d-xl-flex" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link link-dark active" id="pills-recommended-tab"
+                                data-bs-toggle="pill"
+                                data-bs-target="#pills-recommended" type="button" role="tab"
+                                aria-controls="pills-recommended"
+                                aria-selected="true">Recommended
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link link-dark" id="pills-topsellers-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-topsellers" type="button" role="tab"
+                                aria-controls="pills-topsellers" aria-selected="false">Top Sellers
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link link-dark" id="pills-mostrecent-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-mostrecent" type="button" role="tab"
+                                aria-controls="pills-mostrecent" aria-selected="false">Most Recent
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link link-dark" id="pills-highestprice-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-highestprice" type="button" role="tab"
+                                aria-controls="pills-highestprice" aria-selected="false">Highest Price
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link link-dark" id="pills-lowestprice-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-lowestprice" type="button" role="tab"
+                                aria-controls="pills-lowestprice" aria-selected="false">Lowest Price
+                        </button>
+                    </li>
+                </ul>
+                <!--    Dropdown ordering-->
+                <div class="d-xl-none my-3">
+                    <select class="form-select" aria-label="Default select">
+                        <option value="recommended">Order by Recommended</option>
+                        <option value="sop_sellers">Order by Top Sellers</option>
+                        <option value="most_recent">Order by Most Recent</option>
+                        <option value="highest_price">Order by Highest Price</option>
+                        <option value="lowest_price">Order by Lowest Price</option>
                     </select>
                 </div>
-            </div>
+                <!--            Prodcuts-->
+                <div class="tab-content ps-xl-3" id="pills-tabContent">
+                    <div class="tab-pane fade show active " id="pills-recommended" role="tabpanel"
+                         aria-labelledby="pills-recommended-tab">
+                        <article>
+                            <div class="row pb-2 border-bottom">
+                                <div class="col-md-3 py-3 text-center text-lg-start">
+                                    <a href="../product_page/product_page.html">
+                                        <img src="../img/games/ticket_to_ride/main/ticket2ride1-900.jpg"
+                                             srcset="../img/games/ticket_to_ride/main/ticket2ride1-400.jpg 400w,
+                                             ../img/games/ticket_to_ride/main/ticket2ride1-600.jpg 600w,
+                                             ../img/games/ticket_to_ride/main/ticket2ride1-900.jpg 900w"
+                                             sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
+                                             class="img-fluid product-img" alt="product image">
+                                    </a>
+                                </div>
+                                <div class="col d-flex flex-column">
+                                    <div class="row pt-3 text-center text-sm-start">
+                                        <div class="col-sm-8">
+                                            <a href="../product_page/product_page.html">
+                                                <h2 class="fs-5  fw-bold text-truncate">Ticket to Ride: Europe
+                                                    Edition</h2>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p class="fs-5 fw-bold text-sm-end ">49.99$</p>
+                                        </div>
+                                    </div>
+                                    <div class="row d-none d-sm-block">
+                                        <div class="col-sm-8">
+                                            <p class="description">Ticket to Ride, from Days of Wonder, is one of those
+                                                ultimately simple yet compelling gateway games that
+                                                continues to prove its place in the world of board gaming.
+                                                In Ticket to Ride, 2-5 players compete against each other to earn the
+                                                most victory points by placing train routes across the United States of
+                                                America.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-auto">
+                                        <div class="col-sm-8 d-none d-sm-block">
+                                            <p class="text-muted">10+ | 30 min | 2-8</p>
+                                        </div>
+                                        <div class="col-sm text-center text-sm-end ">
+                                            <button class="btn btn-blue add-to-cart-btn">
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="row pb-2 border-bottom">
+                                <div class="col-md-3 py-3 text-center text-lg-start">
+                                    <a href="../product_page/product_page.html">
+                                        <img src="../img/games/mandala/main/mandala1-900.jpg"
+                                             srcset="../img/games/mandala/main/mandala1-400.jpg 400w,
+                                             ../img/games/mandala/main/mandala1-600.jpg 600w,
+                                             ../img/games/mandala/main/mandala1-900.jpg 900w"
+                                             sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
+                                             class="img-fluid product-img" alt="product image">
+                                    </a>
+                                </div>
+                                <div class="col d-flex flex-column">
+                                    <div class="row pt-3 text-center text-sm-start">
+                                        <div class="col-sm-8">
+                                            <a href="../product_page/product_page.html">
+                                                <h2 class="fs-5 fw-bold text-truncate">Mandala</h2>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p class="fs-5 fw-bold text-sm-end ">49.99$</p>
+                                        </div>
+                                    </div>
+                                    <div class="row d-none d-sm-block">
+                                        <div class="col-sm-8">
+                                            <p class="description">In the two-player game Mandala, you are trying to
+                                                score more than your opponent by collecting valuable cards — but you
+                                                won't know which cards are valuable until well into the game! Over the
+                                                course of the game, players play their colored cards into the two
+                                                mandalas, building the central shared mountains and laying cards into
+                                                their own fields.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-auto">
+                                        <div class="col-sm-8 d-none d-sm-block">
+                                            <p class="text-muted">10+ | 30 min | 2-8</p>
+                                        </div>
+                                        <div class="col-sm text-center text-sm-end ">
+                                            <button class="btn btn-blue add-to-cart-btn">
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="row pb-2 border-bottom">
+                                <div class="col-md-3 py-3 text-center text-lg-start">
+                                    <a href="../product_page/product_page.html">
+                                        <img src="../img/games/sherlock/main/sherlock1-900.jpg"
+                                             srcset="../img/games/sherlock/main/sherlock1-400.jpg 400w,
+                                             ../img/games/sherlock/main/sherlock1-600.jpg 600w,
+                                             ../img/games/sherlock/main/sherlock1-900.jpg 900w"
+                                             sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
+                                             class="img-fluid product-img" alt="product image">
+                                    </a>
+                                </div>
+                                <div class="col d-flex flex-column">
+                                    <div class="row pt-3 text-center text-sm-start">
+                                        <div class="col-sm-8">
+                                            <a href="../product_page/product_page.html">
+                                                <h2 class="fs-5 fw-bold text-truncate">Sherlock</h2>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p class="fs-5 fw-bold text-sm-end ">49.99$</p>
+                                        </div>
+                                    </div>
+                                    <div class="row d-none d-sm-block">
+                                        <div class="col-sm-8">
+                                            <p class="description">In Sherlock 13, first published as Holmes 13, the
+                                                players
+                                                take the role of a detective, trying to unmask the famous thief Arsene
+                                                Lupin,
+                                                who is among them in disguise.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-auto">
+                                        <div class="col-sm-8 d-none d-sm-block">
+                                            <p class="text-muted">10+ | 30 min | 2-8</p>
+                                        </div>
+                                        <div class="col-sm text-center text-sm-end ">
+                                            <button class="btn btn-blue add-to-cart-btn">
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="tab-pane fade" id="pills-topsellers" role="tabpanel"
+                         aria-labelledby="pills-topsellers-tab">
+                        <article>
+                            <div class="row pb-2 border-bottom">
+                                <div class="col-md-3 py-3 text-center text-lg-start">
+                                    <a href="../product_page/product_page.html">
+                                        <img src="../img/games/explodingcats/main/explodingcats1-900.jpg"
+                                             srcset="../img/games/explodingcats/main/explodingcats1-400.jpg 400w,
+                                             ../img/games/explodingcats/main/explodingcats1-600.jpg 600w,
+                                             ../img/games/explodingcats/main/explodingcats1-900.jpg 900w"
+                                             sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
+                                             class="img-fluid product-img" alt="product image">
+                                    </a>
+                                </div>
+                                <div class="col d-flex flex-column">
+                                    <div class="row pt-3 text-center text-sm-start">
+                                        <div class="col-sm-8">
+                                            <a href="../product_page/product_page.html">
+                                                <h2 class="fs-5 fw-bold text-truncate">Exploding Kittens</h2>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p class="fs-5 fw-bold text-sm-end ">49.99$</p>
+                                        </div>
+                                    </div>
+                                    <div class="row d-none d-sm-block">
+                                        <div class="col-sm-8">
+                                            <p class="description">Exploding Kittens is a hilarious and highly strategic
+                                                kitty-powered version of Russian Roulette. Players take turns drawing
+                                                cards
+                                                from
+                                                the deck until someone draws an exploding kitten, at which point they
+                                                explode,
+                                                they are dead, and they are out of the game - unless that player has a
+                                                Defuse
+                                                card, which can defuse the kitten using things like laser pointers,
+                                                belly
+                                                rubs,
+                                                and catnip sandwiches.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-auto">
+                                        <div class="col-sm-8 d-none d-sm-block">
+                                            <p class="text-muted">10+ | 30 min | 2-8</p>
+                                        </div>
+                                        <div class="col-sm text-center text-sm-end ">
+                                            <button class="btn btn-blue add-to-cart-btn">
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article>
+                            <div class="row pb-2 border-bottom">
+                                <div class="col-md-3 py-3 text-center text-lg-start">
+                                    <a href="../product_page/product_page.html">
+                                        <img src="../img/games/ticket_to_ride/main/ticket2ride1-900.jpg"
+                                             srcset="../img/games/ticket_to_ride/main/ticket2ride1-400.jpg 400w,
+                                             ../img/games/ticket_to_ride/main/ticket2ride1-600.jpg 600w,
+                                             ../img/games/ticket_to_ride/main/ticket2ride1-900.jpg 900w"
+                                             sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
+                                             class="img-fluid product-img" alt="product image">
+                                    </a>
+                                </div>
+                                <div class="col d-flex flex-column">
+                                    <div class="row pt-3 text-center text-sm-start">
+                                        <div class="col-sm-8">
+                                            <a href="../product_page/product_page.html">
+                                                <h2 class="fs-5 fw-bold text-truncate">Ticket to Ride: Europe
+                                                    Edition</h2>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p class="fs-5 fw-bold text-sm-end ">49.99$</p>
+                                        </div>
+                                    </div>
+                                    <div class="row d-none d-sm-block">
+                                        <div class="col-sm-8">
+                                            <p class="description">Ticket to Ride, from Days of Wonder, is one of those
+                                                ultimately simple yet compelling gateway games that
+                                                continues to prove its place in the world of board gaming.
+                                                In Ticket to Ride, 2-5 players compete against each other to earn the
+                                                most
+                                                victory points by placing train
+                                                routes across the United States of America.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-auto">
+                                        <div class="col-sm-8 d-none d-sm-block">
+                                            <p class="text-muted">10+ | 30 min | 2-8</p>
+                                        </div>
+                                        <div class="col-sm text-center text-sm-end ">
+                                            <button class="btn btn-blue add-to-cart-btn">
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="tab-pane fade" id="pills-mostrecent" role="tabpanel"
+                         aria-labelledby="pills-mostrecent-tab">
+                        <article>
+                            <div class="row pb-2 border-bottom">
+                                <div class="col-md-3 py-3 text-center text-lg-start">
+                                    <a href="../product_page/product_page.html">
+                                        <img src="../img/games/ticket_to_ride/main/ticket2ride1-900.jpg"
+                                             srcset="../img/games/ticket_to_ride/main/ticket2ride1-400.jpg 400w,
+                                             ../img/games/ticket_to_ride/main/ticket2ride1-600.jpg 600w,
+                                             ../img/games/ticket_to_ride/main/ticket2ride1-900.jpg 900w"
+                                             sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
+                                             class="img-fluid product-img" alt="product image">
+                                    </a>
+                                </div>
+                                <div class="col d-flex flex-column">
+                                    <div class="row pt-3 text-center text-sm-start">
+                                        <div class="col-sm-8">
+                                            <a href="../product_page/product_page.html">
+                                                <h2 class="fs-5 fw-bold text-truncate">Ticket to Ride: Europe
+                                                    Edition</h2>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm">
+                                            <p class="fs-5 fw-bold text-sm-end ">49.99$</p>
+                                        </div>
+                                    </div>
+                                    <div class="row d-none d-sm-block">
+                                        <div class="col-sm-8">
+                                            <p class="description">Ticket to Ride, from Days of Wonder, is one of those
+                                                ultimately simple yet compelling gateway games that
+                                                continues to prove its place in the world of board gaming.
+                                                In Ticket to Ride, 2-5 players compete against each other to earn the
+                                                most
+                                                victory points by placing train
+                                                routes across the United States of America.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-auto">
+                                        <div class="col-sm-8 d-none d-sm-block">
+                                            <p class="text-muted">10+ | 30 min | 2-8</p>
+                                        </div>
+                                        <div class="col-sm text-center text-sm-end ">
+                                            <button class="btn btn-blue add-to-cart-btn">
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="tab-pane fade" id="pills-highestprice" role="tabpanel"
+                         aria-labelledby="pills-highestprice-tab">
+                    </div>
+                    <div class="tab-pane fade" id="pills-lowestprice" role="tabpanel"
+                         aria-labelledby="pills-lowestprice-tab">
+                    </div>
+                </div>
+                <!--Pagination-->
+                <div class="row mt-5">
+                    <div class="col">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination pagination-lg justify-content-center">
+                                <li class="page-item disabled">
+                                    <a aria-hidden="true" class="page-link"><i
+                                            class="fas fa-chevron-circle-left"></i></a>
+                                    <span class="sr-only">Previous</span>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">&nbsp;1&nbsp;</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <span class="page-link">&hellip;</span>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">15</a></li>
 
+                                <li class="page-item">
+                                    <a aria-hidden="true" class="page-link" href="#"><i
+                                            class="fas fa-chevron-circle-right"></i></a>
+                                    <span class="sr-only">Next</span>
 
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="col-lg-3 col-md-4 pt-2">
+                        <select class="form-select" aria-label="Per page select">
+                            <option value="3">Per page 3</option>
+                            <option value="10">Per page 10</option>
+                            <option value="25">Per page 25</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
         </div>
+
     </div>
-</div>
+</main>
 
 <!-- Footer -->
 <footer class="mt-auto text-white bg-dark">

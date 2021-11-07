@@ -22,57 +22,59 @@
 
 <body class="d-flex flex-column min-vh-100">
 <!-- Navbar -->
-<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="../landing_page.html">
-            <img src="../img/cubes.svg" alt="logo">
-            <span class="mx-3 ps-1">wobg.com</span>
-        </a>
+<header>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../landing_page.html">
+                <img src="../img/cubes.svg" alt="logo">
+                <span class="mx-3 ps-1">wobg.com</span>
+            </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"
-                aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"
+                    aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
 
-        <div class="collapse navbar-collapse" id="toggleMobileMenu">
-            <form class="me-3 ">
-                <div class="mx-auto search-wrapper">
-                    <div class="form-white input-group">
-                        <div class="search-input">
-                            <div class="icon"><i class="fas fa-search fa-lg pt-1 px-1"></i></div>
-                            <a href="" target="_blank" hidden></a>
+            <div class="collapse navbar-collapse" id="toggleMobileMenu">
+                <form class="me-3 ">
+                    <div class="mx-auto search-wrapper">
+                        <div class="form-white input-group">
+                            <div class="search-input">
+                                <div class="icon"><i class="fas fa-search fa-lg pt-1 px-1"></i></div>
+                                <a href="" target="_blank" hidden></a>
 
-                            <input id="searchGroup" type="search" class="form-control rounded-pill"
-                                   placeholder="Search..." aria-label="Search">
-                            <div class="autocom-box bg-dark">
-                                <!-- here list are inserted from javascript -->
+                                <input id="searchGroup" type="search" class="form-control rounded-pill"
+                                       placeholder="Search..." aria-label="Search">
+                                <div class="autocom-box bg-dark">
+                                    <!-- here list are inserted from javascript -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
 
-            <ul class="navbar-nav nav-fill w-100">
-                <li class="nav-item">
-                    <a class="nav-link" href="../product_catalog/product_catalog.html">Board games</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link cart " href="../cart/empty_cart.html"><i
-                            class="fas fa-shopping-cart fa-lg"></i><span
-                            class="cart-basket  text-white">3</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../profile/my_account.html">My Account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../profile/register.html">Logout</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav nav-fill w-100">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../product_catalog/product_catalog.html">Board games</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link cart " href="../cart/empty_cart.html"><i
+                                class="fas fa-shopping-cart fa-lg"></i><span
+                                class="cart-basket  text-white">3</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../profile/my_account.html">My Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../profile/register.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>
 
-<div class="container">
+<main class="container">
     <ul class="timeline mt-4 ">
         <li class="step complete">
             <div class="status">
@@ -97,36 +99,25 @@
     </ul>
 
     <div class="m-auto text-center ">
-        <div class="fs-1">
-            Thank you for your order!
-            <div>
-                <i class="fas fa-check-circle fa-4x"></i>
-            </div>
-        </div>
+        <h1>Thank you for your order!</h1>
+        <div><i class="fas fa-check-circle fa-8x"></i></div>
 
         <div class="darkRectangle p-3 my-3" id="summary-rectangle">
             <div class="text-center">
-                <p class="fw-bold">Order Sucessful</p>
-                <p>We e-mailed you with order confirmation and order details. We’ll send you a shipping
+                <h2 class="fw-bold">Order Sucessful</h2>
+                <p>We sent e-mail you with order confirmation and order details. We’ll send you a shipping
                     confirmation email as soon as your order ships.</p>
             </div>
         </div>
 
     </div>
     <div class="mb-3 text-center">
-<!--        <div class="col-md text-md-end text-center">-->
-<!--            <a href="../profile/my_account.html" class="btn-lg btn-blue me-2 mb-md-0 mb-3 summary-btns">-->
-<!--                View Order-->
-<!--            </a>-->
-<!--        </div>-->
-<!--        <div class="col-md text-md-start my-md-0 my-3 text-center">-->
-            <a href="../product_catalog/product_catalog.html" class="btn-lg btn-secondary summary-btns">
-                Return to Store
-            </a>
-<!--        </div>-->
+        <a href="../product_catalog/product_catalog.html" class="btn-lg btn-secondary summary-btns">
+            Return to Store
+        </a>
     </div>
 
-</div>
+</main>
 
 <!-- Footer -->
 <footer class="mt-auto text-white bg-dark">
