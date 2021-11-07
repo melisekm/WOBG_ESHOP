@@ -1,11 +1,5 @@
 const suggestions = [
     "221B Baker Street: The Master Detective Game Game Game Game Game Game ",
-    "221B Baker Street: The Master Detective Game Game Game Game Game Game ",
-    "221B Baker Street: The Master Detective Game Game Game Game Game Game ",
-    "221B Baker Street: The Master Detective Game Game Game Game Game Game ",
-    "221B Baker Street: The Master Detective Game Game Game Game Game Game ",
-    "221B Baker Street: The Master Detective Game Game Game Game Game Game ",
-    "221B Baker Street: The Master Detective Game Game Game Game Game Game ",
     "30 Seconds",
     "About Time",
     "Acquire",
