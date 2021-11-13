@@ -147,7 +147,6 @@ a {
 @media (max-width: 768px) {
     .search-wrapper {
         position: relative;
-        width: 35vh;
     }
 
     .border-sm-bottom {
@@ -165,7 +164,7 @@ a {
 @media (min-width: 992px) {
     .search-wrapper {
         position: relative;
-        width: 50vh;
+        width: 75vh;
     }
 
     .border-lg-bottom {

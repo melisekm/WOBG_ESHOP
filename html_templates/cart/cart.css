@@ -4,8 +4,6 @@
     border-radius: 10px;
 }
 
-
-
 @media (max-width: 768px) {
     .btn-back-to-browsing, .lower-row-btns {
         font-size: 14px;
@@ -23,6 +21,9 @@
         font-size: 28px;
     }
     .lower-row-btns{
-        width: 40%;
+        width: 50%;
+    }
+    .container-small {
+        width: 900px;
     }
 }

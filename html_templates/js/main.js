@@ -1,3 +1,23 @@
+// na zaklade velkosti obrazovky umiestni von a dnu searchbar
+const mediaQuery = window.matchMedia('(max-width: 768px)')
+const mediaQueryLg = window.matchMedia('(min-width: 769px)')
+const handleTabletChange = (e) => {
+    if (e.matches) {
+        $("#search_form").appendTo($("#toggleMobileMenu"));
+    }
+}
+
+mediaQuery.addEventListener("change", handleTabletChange)
+mediaQueryLg.addEventListener("change", (e) => {
+    if (e.matches) {
+        $("#search_form").insertBefore($("#hamburger-btn"));
+    }
+})
+
+// okamzita kontrola pri otvoreni stranky
+handleTabletChange(mediaQuery)
+
+
 // Live Search
 //zalozene na https://www.codingnepalweb.com/search-bar-autocomplete-search-suggestions-javascript/
 const searchWrapper = document.querySelector(".search-input");
