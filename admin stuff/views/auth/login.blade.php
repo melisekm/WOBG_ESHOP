@@ -6,7 +6,8 @@
             </a>
         </x-slot>
 
-        <!-- Session Status -->
+        <!-- Session Status pouziva sa pri verifikacnom emaily-->
+{{--        https://stackoverflow.com/questions/47065669/purpose-of-sessionstatus-in-laravel-5-5-view-file--}}
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
         <!-- Validation Errors -->
