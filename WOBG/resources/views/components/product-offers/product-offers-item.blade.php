@@ -13,7 +13,7 @@
     <p class="fs-3 fw-bold">{{$product->price}}&dollar;</p>
     <div class="d-grid">
         <button type="button" class="btn rounded btn-blue fs-4" data-bs-toggle="modal"
-                data-bs-target="#addtoCartModal">
+                data-bs-target="#addtoCartModal-{{$product->id}}">
             Add to cart
         </button>
         <!--    Modal -->

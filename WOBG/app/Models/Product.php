@@ -23,14 +23,29 @@ class Product extends Model
         "max_players"
     ];
 
+    // limit the number of characters in description
+    public function getShortenedDescription(): string
+    {
+        if (strlen($this->description) > 100) {
+            return substr($this->description, 0, 100) . "...";
+        }
+        return $this->description;
+    }
+
+    // function to separate lines in includes by new line and return array
+    public function getParsedIncludes(): array
+    {
+        return explode("\n", $this->includes);
+    }
+
     public function category()
     {
-        return $this->belongsTo(ProductCategory::class);
+        return $this->belongsTo(ProductCategory::class, 'product_category_id');
     }
 
     public function subcategory()
     {
-        return $this->belongsTo(ProductSubcategory::class);
+        return $this->belongsTo(ProductSubcategory::class, 'product_subcategory_id');
     }
 
     public function photos()

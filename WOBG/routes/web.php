@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,30 +24,29 @@ Route::get('/review', [CheckoutController::class, 'review']);
 Route::get('/order-completed', [CheckoutController::class, 'completeOrder']);
 
 
+Route::resource('/products', ProductController::class);
+
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth'])->name('dashboard');
 
+
+
 Route::get("/about", function () {
     return view('footer_links.about_us');
 });
-
 Route::get("/contacts", function () {
     return view('footer_links.contacts');
 });
-
 Route::get("/delivery-shipping", function () {
     return view('footer_links.delivery_shipping');
 });
-
 Route::get("/faq", function () {
     return view('footer_links.faq');
 });
-
 Route::get("/how-to-shop", function () {
     return view('footer_links.how_to_shop');
 });
-
 Route::get("/privacy-policy", function () {
     return view('footer_links.privacy_policy');
 });

@@ -1,9 +1,10 @@
-<div class="modal fade" id="addtoCartModal" tabindex="-1" aria-labelledby="addtoCartModalLabel"
+<div class="modal fade" id="addtoCartModal-{{$product->id}}" tabindex="-1"
+     aria-labelledby="addtoCartModal-{{$product->id}}Label"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title fs-5" id="addtoCartModalLabel">Added to cart</div>
+                <div class="modal-title fs-5" id="addtoCartModal-{{$product->id}}Label">Added to cart</div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                         aria-label="Close">
                 </button>
@@ -28,9 +29,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    Back to Browsing
-                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Back to Browsing</button>
                 <a class="btn btn-blue" href="{{url("cart")}}">View Shopping Cart </a>
             </div>
         </div>
