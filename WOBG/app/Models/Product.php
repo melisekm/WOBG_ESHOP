@@ -38,6 +38,11 @@ class Product extends Model
         return $this->hasMany(ProductPhoto::class);
     }
 
+    public function mainPhotos()
+    {
+        return $this->hasMany(ProductPhoto::class)->where('name', "ilike", "%" . "main" . "%");
+    }
+
     public function users()
     {
         return $this->belongsToMany(User::class);
