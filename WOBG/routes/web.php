@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,7 @@ Route::resource('/products', ProductController::class);
 //    return view('dashboard');
 //})->middleware(['auth'])->name('dashboard');
 
+Auth::routes();
 
 
 Route::get("/about", function () {
