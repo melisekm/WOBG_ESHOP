@@ -29,9 +29,9 @@
                     <div class="col col-lg-2">Quantity</div>
                     <div class="col col-lg-2">Total</div>
                 </div>
-                @include("components.cart.cart-item")
-                @include("components.cart.cart-item")
-                @include("components.cart.cart-item")
+                @include("components.cart-item")
+                @include("components.cart-item")
+                @include("components.cart-item")
             </section>
             <!--    Buttons-->
             <section>

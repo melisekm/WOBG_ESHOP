@@ -38,7 +38,7 @@
                                 class="fas fa-shopping-cart fa-lg"></i><span
                                 class="cart-basket  text-white">0</span></a>
                     </li>
-                    @if(Auth::check())
+                    @if(auth()->check())
                         <li class="nav-item">
                             <a class="nav-link" href="{{url("profile")}}">My Account</a>
                         </li>

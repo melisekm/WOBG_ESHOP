@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,16 +21,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'index']);
 Route::get('/cart', [CartController::class, 'index']);
-Route::get('/checkout', [CheckoutController::class, 'checkout']);
-Route::get('/review', [CheckoutController::class, 'review']);
-Route::get('/order-completed', [CheckoutController::class, 'completeOrder']);
+Route::get('/checkout', [CheckoutController::class, 'checkout'])->middleware(['auth']);
+Route::get('/review', [CheckoutController::class, 'review'])->middleware(['auth']);
+Route::get('/order-completed', [CheckoutController::class, 'completeOrder'])->middleware(['auth']);
 
 
 Route::resource('/products', ProductController::class);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+
+Route::get('/profile', [UserController::class, 'index'])->middleware(['auth'])->name('profile');
+Route::post('/updateEmailAndPhone', [UserController::class, 'updateEmailAndPhone'])->middleware(['auth'])->name('profile.update');
+Route::post('/updateAddress', [UserController::class, 'updateAddress'])->middleware(['auth'])->name('address.update');
 
 
 Route::get("/about", function () {

@@ -15,7 +15,7 @@
             Add to cart
         </button>
         <!--    Modal -->
-        @include('components.modals.add-to-cart-modal', ['product' => $product])
+        @include('components.add-to-cart-modal', ['product' => $product])
     </div>
 </div>
 

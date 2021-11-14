@@ -16,13 +16,22 @@
                                 <div class="col text-center">
                                     <h1>Sign Up </h1>
                                 </div>
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="container">
                                 <div class="mb-3">
                                     <label for="email" class="fs-5 form-label">E-mail:</label>
                                     <input id="email" class="form-control form-rounded" type="email" name="email"
-                                           required autofocus/>
+                                           required autofocus value="{{old("email")}}"/>
                                 </div>
 
                                 <div class="mb-3">
@@ -39,7 +48,8 @@
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                           required>
                                     <label class="form-check-label" for="flexCheckChecked">
                                         I agree with
                                         <a class="white-link" href="{{url("privacy-policy")}}">Privacy policy</a> and <a

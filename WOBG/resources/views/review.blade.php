@@ -111,9 +111,9 @@ smith.john@gmail.com
                     <div class="collapse darkRectangle mt-2 p-3" id="summaryCollapse">
                         <div class="container">
                             <!--    Items-->
-                            @include("components.checkout.summary-item")
-                            @include("components.checkout.summary-item")
-                            @include("components.checkout.summary-item")
+                            @include("components.summary-item")
+                            @include("components.summary-item")
+                            @include("components.summary-item")
 
                             <!--    Subtotal-->
                             <div class="row border-bottom">

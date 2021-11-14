@@ -12,6 +12,15 @@
                         <div class="col text-center">
                             <h1>Sign In</h1>
                         </div>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                     </div>
 
                     <form method="POST" action="{{route("login")}}">
@@ -21,7 +30,7 @@
                             <div class="mb-3">
                                 <label for="email" class="fs-5 form-label">E-mail</label>
                                 <input id="email" class="form-control form-rounded" type="email" name="email"
-                                       required autofocus/>
+                                       required autofocus value="{{old("email")}}"/>
                             </div>
 
                             <div class="mb-3">
@@ -47,7 +56,7 @@
 
 
                     <!-- Modal -->
-                    @include("auth.reset-password-modal")
+                    @include("auth.forgot-password-modal")
                     <div class="mt-4 pt-4 border-top text-center">
                         New customer? <a class="white-link d-inline-block" href="{{url("register")}}">Create a new
                             account</a>
