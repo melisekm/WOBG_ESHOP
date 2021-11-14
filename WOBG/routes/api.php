@@ -19,14 +19,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get("products/1", function () {
+Route::get("testapi", function () {
     $popular_games = Product::with("mainPhotos")->select('name','price', 'id')->inRandomOrder()->take(4)->get();
         $new_games = Product::with("mainPhotos")->select('name','price', 'id')->inRandomOrder()->take(4)->get();
-//    return Product::with("mainPhotos")->find(1);
     return response()->json([
         "popular_games" => $popular_games,
         "new_games" => $new_games
     ]);
+});
 
-
+Route::get("testapi2", function () {
+    $popular_games = Product::with("mainPhotos")->select('name','price', 'id')->inRandomOrder()->take(4)->get();
+    $new_games = Product::with("mainPhotos")->select('name','price', 'id')->inRandomOrder()->take(4)->get();
+    return response()->json([
+        "popular_games" => $popular_games,
+        "new_games" => $new_games
+    ]);
 });

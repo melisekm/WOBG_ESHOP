@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +17,38 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingController::class, 'index']);
+Route::get('/cart', [CartController::class, 'index']);
+Route::get('/checkout', [CheckoutController::class, 'checkout']);
+Route::get('/review', [CheckoutController::class, 'review']);
+Route::get('/order-completed', [CheckoutController::class, 'completeOrder']);
+
 
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
 //})->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+Route::get("/about", function () {
+    return view('footer_links.about_us');
+});
+
+Route::get("/contacts", function () {
+    return view('footer_links.contacts');
+});
+
+Route::get("/delivery-shipping", function () {
+    return view('footer_links.delivery_shipping');
+});
+
+Route::get("/faq", function () {
+    return view('footer_links.faq');
+});
+
+Route::get("/how-to-shop", function () {
+    return view('footer_links.how_to_shop');
+});
+
+Route::get("/privacy-policy", function () {
+    return view('footer_links.privacy_policy');
+});
+
+require __DIR__ . '/auth.php';

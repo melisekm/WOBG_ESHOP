@@ -1,0 +1,148 @@
+/*Kroky checkoutu (timeline)*/
+/*https://freefrontend.com/css-timelines/*/
+.timeline {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status div {
+    margin-top: 1rem;
+    font-size: 24px;
+}
+
+.status {
+    padding: 0 40px;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid #D6DCE0;
+    position: relative;
+}
+
+.status:before {
+    content: '';
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: -15px;
+    left: 42%;
+}
+
+.step.complete .status {
+    border-top: 2px solid black;
+}
+
+.step.complete .status:before {
+    background-color: black;
+    border: none;
+}
+
+
+/*Summary page*/
+/*https://stackoverflow.com/questions/17069435/center-fixed-div-with-dynamic-width-css*/
+#summary-rectangle {
+    position: static;
+    /* center the element */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    /* give it dimensions */
+    width: 50%;
+}
+
+.summary-btns{
+    width:200px;
+    display: inline-block;
+}
+
+
+@media (max-device-width: 767px) {
+    /*Kroky checkoutu*/
+    .timeline {
+        list-style-type: none;
+        display: block;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .step {
+        display: flex;
+        width: inherit;
+    }
+
+    .status:before {
+        position: static;
+        margin-top: 4px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .status {
+        border-top: none;
+        padding: 0;
+    }
+
+    .step.complete .status {
+        border-top: none;
+    }
+
+    .status div {
+        margin-top: 1px;
+        padding-left: 1rem;
+        font-size: 18px;
+
+    }
+
+    /*Summary page*/
+    #summary-rectangle {
+        width: 75%;
+    }
+
+    .summary-btns{
+        width: auto;
+    }
+
+}
+
+
+/*Zobrazenie zakupených produktov*/
+
+/*https://stackoverflow.com/a/57218329/12348001*/
+.mod-collapse .collapse:not(.show) {
+    display: block;
+}
+
+
+@media (max-width: 991px) {
+    .mod-collapse .collapse:not(.show) {
+        display: none;
+    }
+
+    .mod-collapse .darkRectangle:after {
+        display: none;
+    }
+}
+
+/*Helper pre Summary button v prvom kroku checkoutu, do buttonu, piseme nalavo do buttonu a na pravo.*/
+.align-left {
+    float: left;
+}
+
+.align-right {
+    float: right;
+}
+
+/*Ponechame full width v columne pre jednotlive checkboxy v groupach*/
+.btn-group-vertical {
+    display: inline;
+}
+
+
+textarea {
+    resize: none;
+}
