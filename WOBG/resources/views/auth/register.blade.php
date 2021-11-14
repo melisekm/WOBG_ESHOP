@@ -23,15 +23,12 @@
                                     <label for="email" class="fs-5 form-label">E-mail:</label>
                                     <input id="email" class="form-control form-rounded" type="email" name="email"
                                            required autofocus/>
-
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="password" class="fs-5 form-label">Password:</label>
                                     <input id="password" class="form-control form-rounded" type="password"
                                            name="password" required/>
-
-
                                 </div>
 
                                 <div class="mb-3">
@@ -39,15 +36,14 @@
                                            class="fs-5 form-label">Confirm password:</label>
                                     <input id="password_confirmation" class="form-control form-rounded" type="password"
                                            name="password_confirmation" required/>
-
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required>
                                     <label class="form-check-label" for="flexCheckChecked">
                                         I agree with
-                                        <a class="white-link" href="">Privacy policy</a> and <a
-                                            class="white-link" href="">Terms of
+                                        <a class="white-link" href="{{url("privacy-policy")}}">Privacy policy</a> and <a
+                                            class="white-link" href="{{url("privacy-policy")}}">Terms of
                                             use</a>
                                     </label>
                                 </div>
@@ -63,17 +59,13 @@
 
                                 <div class="mt-4 border-top pt-4 text-center">
                                     Already have an account?&nbsp;<a class="white-link d-inline-block"
-                                                                     href="">Sign In</a>
+                                                                     href="{{url("login")}}">Sign In</a>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </form>
-
     </main>
 @endsection

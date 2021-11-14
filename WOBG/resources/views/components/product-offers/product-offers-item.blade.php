@@ -1,12 +1,10 @@
 <div class="col mt-3 mt-lg-0">
     <a href={{url("products", [$product->id])}}>
         <div class="ratio ratio-1x1">
-            <img src="{{asset($product->mainPhotos[2]->path)}}"
-                 srcset="{{asset($product->mainPhotos[0]->path)}} 400w,
-                          {{asset($product->mainPhotos[1]->path)}} 600w,
-                          {{asset($product->mainPhotos[2]->path)}} 900w"
-                 sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                 class="img-fluid" alt="popular game image {{$product->name}}">
+            @include("components.image", [
+                "class" => "img-fluid",
+                "alt" => "popular game image $product->name"
+            ])
         </div>
         <p class="text-truncate fs-4 mt-3">{{$product->name}}</p>
     </a>

@@ -46,13 +46,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $relatedProducts = Product::select('name', 'price', 'id')
-            ->where("product_category_id", $product->product_category_id)
-            ->with("mainPhotos")
-            ->inRandomOrder()
-            ->take(4)
-            ->get();
-        return view('product_page', compact('product', "relatedProducts"));
+        $relatedProducts = Product::with("mainPhotos")->select('name', 'price', 'id')->inRandomOrder()->take(4)->get();
+        return view('product-page', compact('product', "relatedProducts"));
     }
 
     /**

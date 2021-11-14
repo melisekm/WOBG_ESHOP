@@ -13,12 +13,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <img src="{{asset($product->mainPhotos[2]->path)}}"
-                                 srcset="{{asset($product->mainPhotos[0]->path)}} 400w,
-                                        {{asset($product->mainPhotos[1]->path)}} 600w,
-                                        {{asset($product->mainPhotos[2]->path)}} 900w"
-                                 sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                 class="img-fluid product-img" alt="product {{$product->name}} image">
+                            @include("components.image", [
+                                    "class" => "img-fluid product-img",
+                                    "alt" => "product $product->name image"
+                            ])
                         </div>
                         <div class="col-md">{{$product->name}}</div>
                     </div>

@@ -20,13 +20,11 @@
             <div class="row">
                 <!--    Fotky-->
                 <div class="col-lg-4 order-2 order-lg-1 text-lg-start text-center">
-                    <img src="{{asset($product->mainPhotos[2]->path)}}"
-                         srcset="{{asset($product->mainPhotos[0]->path)}} 400w,
-                          {{asset($product->mainPhotos[1]->path)}} 600w,
-                          {{asset($product->mainPhotos[2]->path)}} 900w"
-                         sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                         class="img-fluid main-product-img" alt="product image">
-                    <!--        Po kliknuti sa otvori na full-->
+                @include("components.image", [
+                                "class" => "img-fluid main-product-img",
+                                "alt" => "product main image"
+                ])
+                <!--        Po kliknuti sa otvori na full-->
                     <div class="row align-items-center my-2">
                         <div class="col-1">
                             <a href="#">
@@ -35,36 +33,29 @@
                         </div>
                         <div class="col">
                             <div class="ratio ratio-1x1">
-                                <img src="../img/games/ticket_to_ride/main/ticket2ride1-900.jpg"
-                                     srcset="../img/games/ticket_to_ride/main/ticket2ride1-400.jpg 400w,
-                          ../img/games/ticket_to_ride/main/ticket2ride1-600.jpg 600w,
-                          ../img/games/ticket_to_ride/main/ticket2ride1-900.jpg 900w"
-                                     sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                     class="img-fluid" alt="product image">
+                                @include("components.image", [
+                                    "class" => "img-fluid",
+                                    "alt" => "product image 1"
+                                ])
                             </div>
                         </div>
 
                         <div class="col">
                             <div class="ratio ratio-1x1">
-                                <img src="../img/games/ticket_to_ride/back/ticket2ride2-900.jpg"
-                                     srcset="../img/games/ticket_to_ride/back/ticket2ride2-400.jpg 400w,
-                          ../img/games/ticket_to_ride/back/ticket2ride2-600.jpg 600w,
-                          ../img/games/ticket_to_ride/back/ticket2ride2-900.jpg 900w"
-                                     sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                     class="img-fluid" alt="product image">
+                                @include("components.image", [
+                                    "class" => "img-fluid",
+                                    "alt" => "product image 2"
+                                ])
                             </div>
                         </div>
 
                         <div class="col">
                             <div class="ratio ratio-1x1">
-                                <img src="../img/games/ticket_to_ride/play/ticket2ride3-900.jpg"
-                                     srcset="../img/games/ticket_to_ride/play/ticket2ride3-400.jpg 400w,
-                          ../img/games/ticket_to_ride/play/ticket2ride3-600.jpg 600w,
-                          ../img/games/ticket_to_ride/play/ticket2ride3-900.jpg 900w"
-                                     sizes="(max-width:576px) 400px, (max-width:991px) 600px, 900px"
-                                     class="img-fluid" alt="product image">
+                                @include("components.image", [
+                                    "class" => "img-fluid",
+                                    "alt" => "product image 3"
+                                ])
                             </div>
-
                         </div>
                         <div class="col-1 text-end">
                             <a href="#">
@@ -138,7 +129,6 @@
             "products" => $relatedProducts,
             "title" => "Related Products",
             "row_class" => "row row-cols-2 row-cols-lg-4 mb-4"])
-            <a href="{{url("products")}}" class="btn btn-blue fs-4">Show more</a>
         @endcomponent
         <div class="text-center mb-3">
             <a href="{{url("products")}}" class="btn btn-blue fs-4">Show more</a>
