@@ -31,8 +31,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Auth::routes();
-
 
 Route::get("/about", function () {
     return view('footer_links.about_us');

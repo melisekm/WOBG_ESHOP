@@ -38,14 +38,26 @@
                                 class="fas fa-shopping-cart fa-lg"></i><span
                                 class="cart-basket  text-white">0</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href={{url("login")}}>Sign in</a>
-{{--                        @if (Auth::check())--}}
-{{--                            <a class="nav-link" href={{url("logout")}}>Logout</a>--}}
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href={{url("register")}}>Sign up</a>
-                    </li>
+                    @if(Auth::check())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url("profile")}}">My Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="POST" action="{{route("logout")}}">
+                                @csrf
+                                <a class="nav-link" href="{{route("logout")}}" onclick="event.preventDefault();
+                                                this.closest('form').submit();">Logout</a>
+                            </form>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href={{url("login")}}>Sign in</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{url("register")}}>Sign up</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

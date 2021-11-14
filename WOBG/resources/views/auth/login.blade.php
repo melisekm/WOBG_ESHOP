@@ -2,7 +2,7 @@
 @push("styles")
     <link rel="stylesheet" href="{{asset("css/profile.css")}}">
 @endpush
-@section('title', 'World of Board Games')
+@section('title', 'WOBG - Login')
 @section("content")
     <main class="container">
         <div class="row justify-content-center">
@@ -16,7 +16,7 @@
 
                     <div class="container">
                         <div class="mb-3">
-                            <label for="email" class="fs-5 form-label">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="fs-5 form-label">E-mail"</label>
                             <input id="email" class="form-control form-rounded" type="email" name="email"
                                    :value="old('email')" required/>
 

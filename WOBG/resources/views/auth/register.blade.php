@@ -2,7 +2,7 @@
 @push("styles")
     <link rel="stylesheet" href="{{asset("css/profile.css")}}">
 @endpush
-@section('title', 'World of Board Games')
+@section('title', 'WOBG - Register')
 @section("content")
     <main class="container">
         <form method="POST" action="{{ route('register') }}">
@@ -20,23 +20,24 @@
 
                             <div class="container">
                                 <div class="mb-3">
-                                    <label for="email" class="fs-5 form-label">{{ __('E-Mail Address') }}</label>
+                                    <label for="email" class="fs-5 form-label">E-mail:</label>
                                     <input id="email" class="form-control form-rounded" type="email" name="email"
-                                           :value="old('email')" required/>
+                                           required autofocus/>
 
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="password" class="fs-5 form-label">{{ __('Password') }}</label>
-                                    <input id="password" class="form-control form-rounded" type="password" name="password"
-                                           required/>
+                                    <label for="password" class="fs-5 form-label">Password:</label>
+                                    <input id="password" class="form-control form-rounded" type="password"
+                                           name="password" required/>
 
 
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="password-confirm" class="fs-5 form-label">{{ __('Confirm Password') }}</label>
-                                    <input id="password-confirm" class="form-control form-rounded" type="password"
+                                    <label for="password_confirmation"
+                                           class="fs-5 form-label">Confirm password:</label>
+                                    <input id="password_confirmation" class="form-control form-rounded" type="password"
                                            name="password_confirmation" required/>
 
                                 </div>
@@ -54,13 +55,10 @@
 
                                 <div class="row">
                                     <div class="col mt-3 text-center">
-                                    <button type="submit" class="btn btn-confirm btn-blue">
-                                        {{ __('Register') }}
-                                    </button>
+                                        <button type="submit" class="btn btn-confirm btn-blue">
+                                            Create Account
+                                        </button>
                                     </div>
-                                    {{--                                    <div class="col mt-3 text-center">--}}
-                                    {{--                                        <a href="register_success.html" class="btn btn-confirm btn-blue"> Create Account </a>--}}
-                                    {{--                                    </div>--}}
                                 </div>
 
                                 <div class="mt-4 border-top pt-4 text-center">
