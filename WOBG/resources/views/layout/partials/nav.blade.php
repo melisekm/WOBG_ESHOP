@@ -40,6 +40,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href={{url("login")}}>Sign in</a>
+{{--                        @if (Auth::check())--}}
+{{--                            <a class="nav-link" href={{url("logout")}}>Logout</a>--}}
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href={{url("register")}}>Sign up</a>

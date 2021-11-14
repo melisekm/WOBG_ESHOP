@@ -54,7 +54,7 @@
 
                                 <div class="row">
                                     <div class="col mt-3 text-center">
-                                    <button class="btn btn-confirm btn-blue">
+                                    <button type="submit" class="btn btn-confirm btn-blue">
                                         {{ __('Register') }}
                                     </button>
                                     </div>
@@ -65,7 +65,7 @@
 
                                 <div class="mt-4 border-top pt-4 text-center">
                                     Already have an account?&nbsp;<a class="white-link d-inline-block"
-                                                                     href="login.html">Sign In</a>
+                                                                     href="">Sign In</a>
                                 </div>
 
                             </div>

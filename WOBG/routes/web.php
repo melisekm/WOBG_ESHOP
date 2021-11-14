@@ -27,9 +27,9 @@ Route::get('/order-completed', [CheckoutController::class, 'completeOrder']);
 
 Route::resource('/products', ProductController::class);
 
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Auth::routes();
 
