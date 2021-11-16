@@ -33,6 +33,7 @@ Route::get('/order-completed', [CheckoutController::class, 'completeOrder'])->mi
 
 
 Route::resource('/products', ProductController::class);
+Route::get('/products', [ProductController::class, 'sortProductsByPrice']);
 
 
 Route::get('/profile', [UserController::class, 'index'])->middleware(['auth'])->name('profile');

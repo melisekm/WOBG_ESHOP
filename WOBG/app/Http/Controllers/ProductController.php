@@ -90,12 +90,45 @@ class ProductController extends Controller
     }
 
     // read name from request query, find product by name, limit to 5 results
-    public function getProductByQuery (Request $request) {
+    public function getProductByQuery(Request $request)
+    {
         $query = $request->query('query');
         $limit = $request->query('limit', 5);
         $products = Product::where('name', 'ilike', '%' . $query . '%')->select('name', 'id')->take($limit)->get();
         return response()->json($products);
     }
+
+
+    public function sortProductsByPrice(Request $request)
+    {
+        $categories = ProductCategory::all();
+        $subcategories = ProductSubcategory::all();
+
+        if(request()->get('sort') == 'price_asc')
+        {
+            $products = Product::orderBy('price', 'asc')->get();
+        }
+
+        else if (request()->get('sort') == 'price_desc')
+        {
+            $products = Product::orderBy('price', 'desc')->get();
+        }
+
+        else if (request()->get('sort') == 'sort=recent')
+        {
+            $products = Product::orderBy('updated_at', 'desc')->get();
+        }
+
+        else
+        {
+            $products = Product::all();
+        }
+
+        return view('product-catalog', compact('products', 'categories', 'subcategories'));
+
+    }
+
+
 
 }
 

@@ -8,7 +8,7 @@
     <main class="container">
         <div class="row mb-5 mt-3">
 
-        <!--    Filters-->
+            <!--    Filters-->
             <div class="col-lg-3">
                 <aside class="mod-collapse">
                     <div class="d-lg-none">
@@ -115,41 +115,48 @@
                 <section>
                     <h1 class="my-3 display-6"> Family Games</h1>
                     <!--    Ordering-->
-                    <ul class="nav nav-pills mb-3 d-none d-xl-flex" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link link-dark active" id="pills-recommended-tab"
-                                    data-bs-toggle="pill"
-                                    data-bs-target="#pills-recommended" type="button" role="tab"
-                                    aria-controls="pills-recommended"
-                                    aria-selected="true">Recommended
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link link-dark" id="pills-topsellers-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-topsellers" type="button" role="tab"
-                                    aria-controls="pills-topsellers" aria-selected="false">Top Sellers
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link link-dark" id="pills-mostrecent-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-mostrecent" type="button" role="tab"
-                                    aria-controls="pills-mostrecent" aria-selected="false">Most Recent
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link link-dark" id="pills-highestprice-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-highestprice" type="button" role="tab"
-                                    aria-controls="pills-highestprice" aria-selected="false">Highest Price
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link link-dark" id="pills-lowestprice-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-lowestprice" type="button" role="tab"
-                                    aria-controls="pills-lowestprice" aria-selected="false">Lowest Price
-                            </button>
-                        </li>
-                    </ul>
-                    <!--    Dropdown ordering-->
+                    <div class="col-md-12 mb-3">
+                        <a href="{{ url()->current() }}" class="sort-font">Recommended</a>
+                        <a href="{{ url()->current()."?sort=top" }}" class="sort-font">Top Sellers</a>
+                        <a href="{{ url()->current()."?sort=recent" }}" class="sort-font">Most Recent</a>
+                        <a href="{{ url()->current()."?sort=price_desc" }}" class="sort-font">Highest Price</a>
+                        <a href="{{ url()->current()."?sort=price_asc" }}" class="sort-font">Lowest Price</a>
+                    </div>
+                {{--                    <ul class="nav nav-pills mb-3 d-none d-xl-flex" id="pills-tab" role="tablist">--}}
+                {{--                        <li class="nav-item" role="presentation">--}}
+                {{--                            <button class="nav-link link-dark active" id="pills-recommended-tab"--}}
+                {{--                                    data-bs-toggle="pill"--}}
+                {{--                                    data-bs-target="#pills-recommended" type="button" role="tab"--}}
+                {{--                                    aria-controls="pills-recommended"--}}
+                {{--                                    aria-selected="true">Recommended--}}
+                {{--                            </button>--}}
+                {{--                        </li>--}}
+                {{--                        <li class="nav-item" role="presentation">--}}
+                {{--                            <button class="nav-link link-dark" id="pills-topsellers-tab" data-bs-toggle="pill"--}}
+                {{--                                    data-bs-target="#pills-topsellers" type="button" role="tab"--}}
+                {{--                                    aria-controls="pills-topsellers" aria-selected="false">Top Sellers--}}
+                {{--                            </button>--}}
+                {{--                        </li>--}}
+                {{--                        <li class="nav-item" role="presentation">--}}
+                {{--                            <button class="nav-link link-dark" id="pills-mostrecent-tab" data-bs-toggle="pill"--}}
+                {{--                                    data-bs-target="#pills-mostrecent" type="button" role="tab"--}}
+                {{--                                    aria-controls="pills-mostrecent" aria-selected="false">Most Recent--}}
+                {{--                            </button>--}}
+                {{--                        </li>--}}
+                {{--                        <li class="nav-item" role="presentation">--}}
+                {{--                            <button class="nav-link link-dark" id="pills-highestprice-tab" data-bs-toggle="pill"--}}
+                {{--                                    data-bs-target="#pills-highestprice" type="button" role="tab"--}}
+                {{--                                    aria-controls="pills-highestprice" aria-selected="false">Highest Price--}}
+                {{--                            </button>--}}
+                {{--                        </li>--}}
+                {{--                        <li class="nav-item" role="presentation">--}}
+                {{--                            <button class="nav-link link-dark" id="pills-lowestprice-tab" data-bs-toggle="pill"--}}
+                {{--                                    data-bs-target="#pills-lowestprice" type="button" role="tab"--}}
+                {{--                                    aria-controls="pills-lowestprice" aria-selected="false">Lowest Price--}}
+                {{--                            </button>--}}
+                {{--                        </li>--}}
+                {{--                    </ul>--}}
+                <!--    Dropdown ordering-->
                     <div class="d-xl-none my-3">
                         <select class="form-select" aria-label="Default select">
                             <option value="recommended">Order by Recommended</option>
@@ -226,23 +233,7 @@
                              aria-labelledby="pills-lowestprice-tab">
                         </div>
                     </div>
-                    <!--    Pagination-->
-{{--                    <div class="row mt-5">--}}
-{{--                        <div class="col-sm-12">--}}
-{{--                            <nav aria-label="Page navigation example">--}}
-{{--                                <ul class="pagination justify-content-center">--}}
-{{--                                    <li class="page-item disabled">--}}
-{{--                                        <a class="page-link" href="#" tabindex="-1">Previous</a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="page-item"><a class="page-link" href="#">1</a></li>--}}
-{{--                                    <li class="page-item"><a class="page-link" href="#">2</a></li>--}}
-{{--                                    <li class="page-item"><a class="page-link" href="#">3</a></li>--}}
-{{--                                    <li class="page-item">--}}
-{{--                                        <a class="page-link" href="#">Next</a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                            </nav>--}}
-{{--                        </div>--}}
+
                     <div class="row mt-5">
                         <div class="col">
                             <nav aria-label="Page navigation">
