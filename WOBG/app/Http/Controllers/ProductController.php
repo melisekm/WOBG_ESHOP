@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\ProductSubCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,11 +12,17 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource. vsetky produkty VIEW
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        // get all products
+        $products = Product::all();
+        // get all categories
+        $categories = ProductCategory::all();
+        // get all subcategories
+        $subcategories = ProductSubcategory::all();
+        return view('product-catalog', compact('products', 'categories', 'subcategories'));
     }
 
     /**
