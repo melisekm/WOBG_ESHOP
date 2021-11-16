@@ -1,6 +1,6 @@
 @extends("layout.app")
 @push("styles")
-    <link rel="stylesheet" href="{{asset("css/product_page.css")}}">
+    <link rel="stylesheet" href="{{asset("css/product_catalog.css")}}">
 @endpush
 @section('title', 'Product Catalog')
 @section("content")
@@ -9,16 +9,7 @@
 
     <main class="container">
         <div class="row mb-5 mt-3">
-            @foreach($categories as $category)
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{$category->name}}</h5>
-                            <p class="card-text">{{$category->description}}</p>
-                        </div>
-                    </div>
-                </div>
-        @endforeach
+
         <!--    Filters-->
             <div class="col-lg-3">
                 <aside class="mod-collapse">
@@ -90,127 +81,34 @@
                                         <p class="fs-6">45min</p>
 
                                         <div class="fs-5 fw-bold mt-3 py-3 border-top">Main Category</div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" checked value=""
-                                                   id="mainCategoryCheckbox1">
-                                            <label class="form-check-label" for="mainCategoryCheckbox1">
-                                                Family Games
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="mainCategoryCheckbox2">
-                                            <label class="form-check-label" for="mainCategoryCheckbox2">
-                                                Children's Games
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="mainCategoryCheckbox3">
-                                            <label class="form-check-label" for="mainCategoryCheckbox3">
-                                                Party Games
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="mainCategoryCheckbox4">
-                                            <label class="form-check-label" for="mainCategoryCheckbox4">
-                                                Card Games
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="mainCategoryCheckbox5">
-                                            <label class="form-check-label" for="mainCategoryCheckbox5">
-                                                Puzzles
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="mainCategoryCheckbox6">
-                                            <label class="form-check-label" for="mainCategoryCheckbox6">
-                                                Strategic Games
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="mainCategoryCheckbox7">
-                                            <label class="form-check-label" for="mainCategoryCheckbox7">
-                                                Two-Players Games
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="mainCategoryCheckbox8">
-                                            <label class="form-check-label" for="mainCategoryCheckbox8">
-                                                Cooperative Games
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="mainCategoryCheckbox9">
-                                            <label class="form-check-label" for="mainCategoryCheckbox9">
-                                                Quiz, Trivia
-                                            </label>
-                                        </div>
+                                        @foreach($categories as $category)
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" checked value=""
+                                                       id="mainCategoryCheckbox1">
+                                                <label class="form-check-label" for="mainCategoryCheckbox1">
+                                                    {{$category->name}}
+                                                </label>
+                                            </div>
+                                        @endforeach
+
 
                                         <div class="fs-5 fw-bold mt-3 py-3 border-top">Sub Category</div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="subCategyCheckbox1">
-                                            <label class="form-check-label" for="subCategyCheckbox1">
-                                                Animals
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="subCategyCheckbox2">
-                                            <label class="form-check-label" for="subCategyCheckbox2">
-                                                Adventure
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="subCategyCheckbox3">
-                                            <label class="form-check-label" for="subCategyCheckbox3">
-                                                Humor
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="subCategyCheckbox4">
-                                            <label class="form-check-label" for="subCategyCheckbox4">
-                                                Educational
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="subCategyCheckbox5">
-                                            <label class="form-check-label" for="subCategyCheckbox5">
-                                                Fantasy, Sci-Fi, Horror
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="subCategyCheckbox6">
-                                            <label class="form-check-label" for="subCategyCheckbox6">
-                                                Economic
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="subCategyCheckbox7">
-                                            <label class="form-check-label" for="subCategyCheckbox7">
-                                                History
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                   id="subCategyCheckbox8">
-                                            <label class="form-check-label" for="subCategyCheckbox8">
-                                                Deduction
-                                            </label>
-                                        </div>
+
+                                        @foreach($subcategories as $subcategory)
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" checked value=""
+                                                       id="mainCategoryCheckbox1">
+                                                <label class="form-check-label" for="mainCategoryCheckbox1">
+                                                    {{$subcategory->name}}
+                                                </label>
+                                            </div>
+                                        @endforeach
+
+
+
+
+
+
                                     </div>
                                 </div>
                             </div>

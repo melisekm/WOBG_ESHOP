@@ -1,0 +1,76 @@
+@media (max-width: 767px) {
+    div .product-img{
+        width: 50%;
+    }
+}
+
+
+.add-to-cart-btn{
+    width: 50%;
+}
+
+/*https://stackoverflow.com/a/57218329/12348001*/
+.mod-collapse .collapse:not(.show) {
+    display: block;
+}
+
+
+/*na large urcite zobraz filtre, na mensie daj moznost s buttonom.*/
+@media (max-width: 991px) {
+    .mod-collapse .collapse:not(.show) {
+        display: none;
+    }
+
+    .mod-collapse .darkRectangle:after {
+        display: none;
+    }
+}
+
+
+.description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+/*Pagination*/
+.pagination .page-link {
+    border: none;
+    color: black;
+}
+
+.pagination .page-item.active .page-link {
+    background: none;
+    color: black;
+    text-decoration: underline;
+}
+
+/*https://stackoverflow.com/a/56886582/12348001*/
+.pagination .page-link {
+    padding: .25rem .5rem;
+}
+
+@media screen and (min-width: 576px) {
+    .pagination .page-link {
+        padding: .5rem .75rem;
+    }
+    .add-to-cart-btn{
+        width: 100%;
+    }
+}
+@media screen and (min-width: 992px) {
+    .pagination .page-link {
+        padding: .75rem 1.5rem;
+    }
+}
+/*Pagination end*/
+
+select {
+    text-align-last: center;
+}
+/*Javascript ho do doplna*/
+.slider.slider-horizontal {
+    width: 100%;
+}
