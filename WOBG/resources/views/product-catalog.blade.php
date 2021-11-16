@@ -5,8 +5,6 @@
 @section('title', 'Product Catalog')
 @section("content")
 
-
-
     <main class="container">
         <div class="row mb-5 mt-3">
 
@@ -61,11 +59,6 @@
                                                 Minimum Age
                                             </label>
                                         </div>
-{{--                                        <input id="minimumAge" type="text" class="slider" value=""--}}
-{{--                                               data-slider-min="0"--}}
-{{--                                               data-slider-max="100" data-slider-step="1"--}}
-{{--                                               data-slider-value="[0,100]"/>--}}
-{{--                                        --}}
                                         <input type="range" class="form-range w-100" id="minimumAge">
                                         <p class="fs-6">5</p>
 
@@ -166,11 +159,11 @@
                             <option value="lowest_price">Order by Lowest Price</option>
                         </select>
                     </div>
-                    <!--    Prodcuts-->
-
+                    <!--    Products-->
                     <div class="tab-content ps-xl-3" id="pills-tabContent">
                         <div class="tab-pane fade show active " id="pills-recommended" role="tabpanel"
                              aria-labelledby="pills-recommended-tab">
+
                             @foreach($products as $product)
                                 <article>
                                     <div class="row pb-2 border-bottom">
@@ -195,7 +188,7 @@
                                             </div>
                                             <div class="row d-none d-sm-block">
                                                 <div class="col-sm-8">
-                                                    <p class="description">{{$product->getShortenedDescriptionCatalog()}}
+                                                    <p class="description">{{$product->description}}</p>
                                                     </p>
                                                 </div>
                                             </div>

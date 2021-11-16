@@ -32,13 +32,6 @@ class Product extends Model
         return $this->description;
     }
 
-    public function getShortenedDescriptionCatalog(): string
-    {
-        if (strlen($this->description) > 500) {
-            return substr($this->description, 0, 500) . "...";
-        }
-        return $this->description;
-    }
 
     // function to separate lines in includes by new line and return array
     public function getParsedIncludes(): array
