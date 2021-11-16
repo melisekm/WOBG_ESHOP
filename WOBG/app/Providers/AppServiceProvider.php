@@ -29,12 +29,12 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('money', function ($amount) {
             return "<?php echo '$' . number_format($amount, 2); ?>";
         });
-        DB::listen(function ($query) {
-            Log::info(str_repeat('-', 80));
-            Log::info($query->sql);
-            Log::info($query->bindings);
-            Log::info($query->time);
-
-        });
+//        DB::listen(function ($query) {
+//            Log::info(str_repeat('-', 80));
+//            Log::info($query->sql);
+//            Log::info($query->bindings);
+//            Log::info($query->time);
+//
+//        });
     }
 }

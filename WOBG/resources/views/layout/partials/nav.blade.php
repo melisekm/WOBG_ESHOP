@@ -37,7 +37,7 @@
                         <a class="nav-link cart " href={{url("cart")}}><i
                                 class="fas fa-shopping-cart fa-lg"></i>
                             <span id="cartCount" class="cart-basket  text-white">
-                                {{App\Http\Controllers\CartController::getCartCount()}}
+                                {{App\Facades\Cart::getCartCount()}}
                             </span></a>
                     </li>
                     @if(auth()->check())

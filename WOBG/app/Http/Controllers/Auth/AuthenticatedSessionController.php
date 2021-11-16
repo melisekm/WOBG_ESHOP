@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\CartController;
+use App\Facades\Cart;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -34,7 +32,7 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 //        $request->session()->regenerate();
-        CartController::loadCartOnLogin();
+        Cart::loadCartOnLogin();
 
 
         return redirect()->intended(RouteServiceProvider::HOME);

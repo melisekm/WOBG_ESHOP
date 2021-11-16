@@ -130,51 +130,9 @@
                         <div class="col mt-2">
                             <h3 class="fs-4">Shipping</h3>
                             <div class="btn-group-vertical" role="group" aria-label="Shipping radio group">
-                                <div class="row">
-                                    <div class="col-6 col-md-5">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="shippingRadios"
-                                                   id="shippingStandard"
-                                                   value="shippingStandard" checked>
-                                            <label class="form-check-label" for="shippingStandard">
-                                                Standard Delivery
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        2.99$
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-5">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="shippingRadios"
-                                                   id="shippingUPS"
-                                                   value="shippingUPS">
-                                            <label class="form-check-label" for="shippingUPS">
-                                                UPS Service
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        5.49$
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 col-md-5">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="shippingRadios"
-                                                   id="shippingParcel"
-                                                   value="shippingParcel">
-                                            <label class="form-check-label" for="shippingParcel">
-                                                Parcel Service
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        4.99$
-                                    </div>
-                                </div>
+                                @include('components.checkout-checkbox', ['id' => 'shippingStandard', 'label' => 'Standard Delivery', 'price' => '$2.99', 'checked' => 'checked'])
+                                @include('components.checkout-checkbox', ['id' => 'shippingUPS', 'label' => 'UPS Service', 'price' => '$5.49'])
+                                @include('components.checkout-checkbox', ['id' => 'shippingParcel', 'label' => 'Parcel Service', 'price' => '$4.99'])
                             </div>
                         </div>
                     </div>
@@ -201,18 +159,18 @@
                         <div class="collapse darkRectangle mt-2 p-3" id="summaryCollapse">
                             <div class="container">
                                 <!--    Items-->
-                                @include("components.summary-item")
-                                @include("components.summary-item")
-                                @include("components.summary-item")
+                            @foreach($products as $product)
+                                @include("components.summary-item", ["product" => $product])
+                            @endforeach
 
-                                <!--    Subtotal-->
+                            <!--    Subtotal-->
                                 <div class="row border-bottom">
                                     <div class="col">
                                         <div class="py-2"> Subtotal</div>
                                         <div class="py-2"> Shipping</div>
                                     </div>
                                     <div class="col">
-                                        <div class="text-end py-2">199.96$</div>
+                                        <div class="text-end py-2">@money($totalPrice)</div>
                                         <div class="text-end py-2">2.99$</div>
                                     </div>
                                 </div>
