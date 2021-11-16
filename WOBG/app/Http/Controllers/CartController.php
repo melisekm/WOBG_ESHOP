@@ -3,22 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class CartController extends Controller
 {
     public function show()
     {
-        // get products in session from key 'cart'
-        $productsId2Quantity = session('cart');
-        if(!$productsId2Quantity) {
+        $cart = $this->getCart();
+        if (!$cart) {
             return view('cart');
         }
-        $products = Product::with("mainPhotos")->findMany(array_keys($productsId2Quantity), ['id', 'name', 'price']);
+        $products = Product::with("mainPhotos")->findMany(array_keys($cart), ['id', 'name', 'price']);
         $totalPrice = 0;
         foreach ($products as $product) {
-            $product->quantity = $productsId2Quantity[$product->id]["quantity"];
+            $product->quantity = $cart[$product->id]["quantity"];
             $product->total_price = $product->price * $product->quantity;
             $totalPrice += $product->total_price;
         }
@@ -27,7 +24,7 @@ class CartController extends Controller
 
     function store(Product $product)
     {
-        $cart = session('cart');
+        $cart = $this->getCart();
         if (!$cart) {
             $cart = [];
         }
@@ -39,7 +36,7 @@ class CartController extends Controller
             $cart[$product->id] = ['quantity' => 1];
             $this->saveCart("attach", $product->id, $cart);
         }
-        return response()->json(['length' => count($cart)]);
+        return response()->json(['length' => count(session('cart'))]);
     }
 
     public function increment(Product $product)
@@ -51,9 +48,7 @@ class CartController extends Controller
             $this->saveCart("update", $product->id, $cart);
         }
         return back();
-
     }
-
 
     public function decrement(Product $product)
     {
@@ -79,9 +74,11 @@ class CartController extends Controller
 
     private function getCart()
     {
-        $cart = session('cart');
-        if (!$cart) {
-            return abort(422);
+        if (auth()->check()) {
+            $cart = auth()->user()->getProductsInCartWithQuantity();
+            session(['cart' => $cart]);
+        } else {
+            $cart = session('cart');
         }
         return $cart;
     }
@@ -105,5 +102,31 @@ class CartController extends Controller
         session(['cart' => $cart]);
     }
 
+    public static function loadCartOnLogin()
+    {
+        $user = auth()->user();
+        $existingCart = $user->getProductsInCartWithQuantity();
+        if (count($existingCart) > 0) {
+            $cart = $existingCart;
+        } else {
+            $cart = session()->get('cart', []);
+            foreach ($cart as $productId => $details) {
+                $user->products()->attach($productId, ['quantity' => $details["quantity"]]);
+            }
+        }
+        // copy the old session data into a new session entry
+        session()->regenerate();
+        session()->put('cart', $cart);
+    }
 
+    public static function getCartCount()
+    {
+        if (auth()->check()) {
+            return auth()->user()->products()->count();
+        }
+        if (session()->has('cart')) {
+            return count(session()->get('cart'));
+        }
+        return 0;
+    }
 }

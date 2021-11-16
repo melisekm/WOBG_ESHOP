@@ -58,7 +58,7 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
-    public function getProductsInCart()
+    public function getProductsInCartWithQuantity()
     {
         $user_products = $this->products()->get();
         $cart_items = [];

@@ -22,7 +22,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-9 text-end">1x</div>
-                        <div class="col-md text-end">{{$product->price}}</div>
+                        <div class="col-md text-end">@money($product->price)</div>
                     </div>
                 </div>
             </div>

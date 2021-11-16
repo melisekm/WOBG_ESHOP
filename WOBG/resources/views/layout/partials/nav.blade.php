@@ -37,7 +37,7 @@
                         <a class="nav-link cart " href={{url("cart")}}><i
                                 class="fas fa-shopping-cart fa-lg"></i>
                             <span id="cartCount" class="cart-basket  text-white">
-                                {{session()->has("cart") ? count(session()->get("cart")) : 0 }}
+                                {{App\Http\Controllers\CartController::getCartCount()}}
                             </span></a>
                     </li>
                     @if(auth()->check())

@@ -26,7 +26,8 @@
             </li>
             <li class="page-item">
                 <label class="d-none" for="quantity1"></label>
-                <input disabled name="quantity" type="text" class="form-control" id="quantity1" value="{{$product->quantity}}">
+                <input disabled name="quantity" type="text" class="form-control" id="quantity1"
+                       value="{{$product->quantity}}">
             </li>
             <li class="page-item">
                 <form action="{{route("cart.increment", [$product->id])}}" method="POST">
@@ -57,14 +58,22 @@
     <div class="col">
         <ul class="pagination justify-content-center quantity my-auto" aria-label="Quantity selector">
             <li class="page-item">
-                <button class="page-link"><i class="fas fa-minus"></i></button>
+                <form action="{{route("cart.decrement", [$product->id])}}" method="POST">
+                    @csrf
+                    @method("PATCH")
+                    <button class="page-link"><i class="fas fa-minus"></i></button>
+                </form>
             </li>
             <li class="page-item input">
                 <label class="d-none" for="quantity2"></label>
                 <input type="text" class="form-control" id="quantity2" value="{{$product->quantity}}">
             </li>
             <li class="page-item">
-                <button class="page-link"><i class="fas fa-plus"></i></button>
+                <form action="{{route("cart.increment", [$product->id])}}" method="POST">
+                    @csrf
+                    @method("PATCH")
+                    <button class="page-link"><i class="fas fa-plus"></i></button>
+                </form>
             </li>
         </ul>
     </div>

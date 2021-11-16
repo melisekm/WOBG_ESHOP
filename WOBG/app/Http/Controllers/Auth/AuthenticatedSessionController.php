@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,18 +33,8 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $request->authenticate();
-
-        //
-        $existingCart = auth()->user()->getProductsInCart();
-        Log::info($existingCart);
-        if (count($existingCart) > 0) {
-            $cart = $existingCart;
-        } else {
-            $cart = $request->session()->get('cart');
-        }
-        // copy the old session data into a new session entry
-        $request->session()->regenerate();
-        $request->session()->put('cart', $cart);
+//        $request->session()->regenerate();
+        CartController::loadCartOnLogin();
 
 
         return redirect()->intended(RouteServiceProvider::HOME);
