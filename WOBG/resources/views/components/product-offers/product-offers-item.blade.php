@@ -8,7 +8,7 @@
         </div>
         <p class="text-truncate fs-4 mt-3">{{$product->name}}</p>
     </a>
-    <p class="fs-3 fw-bold">{{$product->price}}&dollar;</p>
+    <p class="fs-3 fw-bold">@money($product->price)</p>
     <div class="d-grid">
         @include("components.btn-add-to-cart", ["product" => $product])
     </div>

@@ -71,7 +71,7 @@
                         {{$product->publisher}}<br>
                         <span class="text-muted">{{$product->min_age}}+ | {{$product->min_play_time}} min | {{$product->min_players . " - ". $product->max_players}} | {{$product->category->name}}</span>
                     </p>
-                    <h2 class="fw-bold">{{$product->price}}&dollar;</h2>
+                    <h2 class="fw-bold">@money($product->price)</h2>
                     <!--    Quantity-->
                     <ul class="pagination quantity" aria-label="Quantity selector">
                         <li class="page-item">

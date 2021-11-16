@@ -4,7 +4,7 @@
 @endpush
 @section('title', 'WOBG - Cart')
 @section("content")
-    @if(!$products)
+    @if(empty($products))
         <main class="container m-auto">
             <div class="row">
                 <div class="col-lg-4 m-lg-auto mb-4 order-lg-2 mt-5">
@@ -29,14 +29,14 @@
                     <div class="col col-lg-2">Quantity</div>
                     <div class="col col-lg-2">Total</div>
                 </div>
-                @include("components.cart-item")
-                @include("components.cart-item")
-                @include("components.cart-item")
+                @foreach($products as $product)
+                    @include("components.cart-item", ["product" => $product])
+                @endforeach
             </section>
             <!--    Buttons-->
             <section>
                 <h2 class="mt-3 fs-3 text-end">
-                    Total: 199.96&dollar;
+                    Total: @money($totalPrice)
                 </h2>
                 <div class="row mt-2">
                     <div class="col ps-4">

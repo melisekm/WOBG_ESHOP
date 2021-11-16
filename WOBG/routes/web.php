@@ -5,7 +5,6 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +23,9 @@ Route::get('/', [LandingController::class, 'index']);
 
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 Route::post('cart/{product}', [CartController::class, 'store'])->name('cart.store');
-
+Route::delete('cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
+Route::patch('cart/{product}/increment', [CartController::class, 'increment'])->name('cart.increment');
+Route::patch('cart/{product}/decrement', [CartController::class, 'decrement'])->name('cart.decrement');
 
 Route::get('/checkout', [CheckoutController::class, 'checkout'])->middleware(['auth']);
 Route::get('/review', [CheckoutController::class, 'review'])->middleware(['auth']);
