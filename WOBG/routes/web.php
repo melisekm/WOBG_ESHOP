@@ -20,7 +20,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingController::class, 'index']);
-Route::get('/cart', [CartController::class, 'index']);
+
+
+Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
+Route::post('cart/{product}', [CartController::class, 'store'])->name('cart.store');
+
+
 Route::get('/checkout', [CheckoutController::class, 'checkout'])->middleware(['auth']);
 Route::get('/review', [CheckoutController::class, 'review'])->middleware(['auth']);
 Route::get('/order-completed', [CheckoutController::class, 'completeOrder'])->middleware(['auth']);

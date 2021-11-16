@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -17,20 +18,32 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
+
         return view('auth.login');
     }
 
     /**
      * Handle an incoming authentication request.
      *
-     * @param  \App\Http\Requests\Auth\LoginRequest  $request
+     * @param \App\Http\Requests\Auth\LoginRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(LoginRequest $request)
     {
         $request->authenticate();
 
+        //
+        $existingCart = auth()->user()->getProductsInCart();
+        Log::info($existingCart);
+        if (count($existingCart) > 0) {
+            $cart = $existingCart;
+        } else {
+            $cart = $request->session()->get('cart');
+        }
+        // copy the old session data into a new session entry
         $request->session()->regenerate();
+        $request->session()->put('cart', $cart);
+
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
@@ -38,7 +51,7 @@ class AuthenticatedSessionController extends Controller
     /**
      * Destroy an authenticated session.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Request $request)

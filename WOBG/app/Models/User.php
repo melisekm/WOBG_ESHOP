@@ -50,11 +50,23 @@ class User extends Authenticatable
 
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(Product::class)->withPivot('quantity');
     }
 
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function getProductsInCart()
+    {
+        $user_products = $this->products()->get();
+        $cart_items = [];
+        foreach ($user_products as $user_product) {
+            $cart_items[$user_product->id] = [
+                "quantity" => $user_product->pivot->quantity
+            ];
+        }
+        return $cart_items;
     }
 }

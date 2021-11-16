@@ -4,20 +4,20 @@
 @endpush
 @section('title', 'WOBG - Cart')
 @section("content")
-{{--    @unless($cart->count())--}}
-{{--        <main class="container m-auto">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-lg-4 m-lg-auto mb-4 order-lg-2 mt-5">--}}
-{{--                    <div class="container text-center">--}}
-{{--                        <p class="fs-3"> Your cart is empty </p>--}}
-{{--                        <a href="{{url("products")}}" class="btn btn-blue btn-back-to-browsing">--}}
-{{--                            Back to browsing--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </main>--}}
-{{--    @else--}}
+    @if(!$products)
+        <main class="container m-auto">
+            <div class="row">
+                <div class="col-lg-4 m-lg-auto mb-4 order-lg-2 mt-5">
+                    <div class="container text-center">
+                        <p class="fs-3"> Your cart is empty </p>
+                        <a href="{{url("products")}}" class="btn btn-blue btn-back-to-browsing">
+                            Back to browsing
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    @else
         <main class="container container-small">
             <!--    Items-->
             <section>
@@ -49,5 +49,5 @@
                 </div>
             </section>
         </main>
-{{--    @endunless--}}
+    @endif
 @endsection

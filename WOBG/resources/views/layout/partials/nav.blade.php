@@ -35,8 +35,10 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link cart " href={{url("cart")}}><i
-                                class="fas fa-shopping-cart fa-lg"></i><span
-                                class="cart-basket  text-white">0</span></a>
+                                class="fas fa-shopping-cart fa-lg"></i>
+                            <span id="cartCount" class="cart-basket  text-white">
+                                {{session()->has("cart") ? count(session()->get("cart")) : 0 }}
+                            </span></a>
                     </li>
                     @if(auth()->check())
                         <li class="nav-item">
