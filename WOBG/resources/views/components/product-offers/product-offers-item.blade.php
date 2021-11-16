@@ -1,5 +1,5 @@
 <div class="col mt-3 mt-lg-0">
-    <a href={{url("products", [$product->id])}}>
+    <a href={{route("products.show", [$product->id])}}>
         <div class="ratio ratio-1x1">
             @include("components.image", [
                 "class" => "img-fluid",

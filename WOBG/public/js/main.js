@@ -30,19 +30,22 @@ const MIN_LENGTH_TO_SEARCH = 2;
 // if user press any key and release
 inputBox.onkeyup = (e) => {
     let userData = e.target.value; //user enetered data
-    let suggestionsList = [];
     if (userData.length >= MIN_LENGTH_TO_SEARCH) {
-        suggestionsList = suggestions.filter((data) => {
-            //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
-            return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
-        });
-        suggestionsList = suggestionsList.map((data) => {
-            // passing return data inside li tag
-            return `<a href="#"><li>${data}</li></a>`;
-        });
-        suggestionsList.splice(0, 0, resultsTag);
-        searchWrapper.classList.add("active"); //show autocomplete box
-        suggBox.innerHTML = showSuggestions(suggestionsList);
+        // get suggestions from server
+        fetch(`/api/products/search?query=${userData}`)
+            .then(res => res.json())
+            .then(suggestionsList => {
+                suggestionsList = suggestionsList.map((product) => {
+                    // return data inside li tag
+                    return `<a href="/products/${product.id}"><li>${product.name}</li></a>`;
+                });
+                suggestionsList.splice(0, 0, resultsTag);
+                searchWrapper.classList.add("active"); //show autocomplete box
+                suggBox.innerHTML = showSuggestions(suggestionsList);
+            })
+            .catch(err => {
+                console.log(err);
+            });
     } else {
         suggBox.innerHTML = "";
         searchWrapper.classList.remove("active"); //hide autocomplete box

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -37,3 +38,7 @@ Route::get("testapi2", function () {
 //    return Product::find(1)->with("photos", "category", "subcategory")->get();
 //    return Product::find(1)->with("category")->get();
 });
+
+// get products by query
+Route::get("products/search", [ProductController::class, "getProductByQuery"])->name("products.search");
+
