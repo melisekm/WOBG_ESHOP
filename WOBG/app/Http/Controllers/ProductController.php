@@ -17,13 +17,32 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $per_page = (int)$request->query("per_page", 3);
-        //$products = Product::all();
-        $products = Product::paginate($per_page);
+        $sortOption = $request->query("sort", "recommended");
+        $order = $request->query("order", "asc");
+        $search = $request->query("search", "");
+        if ($sortOption === "recommended") {
+            $sort = "id";
+        } else if ($sortOption === "top") {
+            $sort = "name";
+            $order = "asc";
+        } else if ($sortOption === "recent") {
+            $sort = "created_at";
+            $order = "desc";
+        } else {
+            $sort = "price";
+        }
+
+//        $products = Product::all();
+        $products = Product::where("name", "ilike", "%$search%");
+        $products = $products->orderBy($sort, $order);
+
+        $products = $products->paginate($per_page);
         $categories = ProductCategory::all();
         $subcategories = ProductSubcategory::all();
-        return view('product-catalog', compact('products', 'categories', 'subcategories'));
-    }
 
+        return view('product-catalog', compact('products', 'categories',
+            'subcategories', 'per_page', 'sortOption', 'order'));
+    }
 
 
     /**
@@ -93,5 +112,13 @@ class ProductController extends Controller
         //
     }
 
+
+    public function getProductByQuery(Request $request)
+    {
+        $query = $request->query('query');
+        $limit = $request->query('limit', 5);
+        $products = Product::where('name', 'ilike', '%' . $query . '%')->select('name', 'id')->take($limit)->get();
+        return response()->json($products);
+    }
 }
 
