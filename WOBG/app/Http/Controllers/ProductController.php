@@ -14,10 +14,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function index($perPage)
     {
         //$products = Product::all();
-        $products = Product::paginate(3);
+        $products = Product::paginate($perPage);
         $categories = ProductCategory::all();
         $subcategories = ProductSubcategory::all();
         return view('product-catalog', compact('products', 'categories', 'subcategories'));
@@ -48,7 +48,7 @@ class ProductController extends Controller
      * Display the specified resource. GET VIEW
      *
      * @param \App\Models\Product $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show(Product $product)
     {
@@ -102,28 +102,29 @@ class ProductController extends Controller
 
     public function sortProductsByPrice(Request $request)
     {
+        $per_page = (int)$request->query('per_page', 3);
         $categories = ProductCategory::all();
         $subcategories = ProductSubcategory::all();
 
         if(request()->get('sort') == 'price_asc')
         {
-            $products = Product::orderBy('price', 'asc')->paginate(3);
+            $products = Product::orderBy('price', 'asc')->paginate($per_page);
 
         }
 
         else if (request()->get('sort') == 'price_desc')
         {
-            $products = Product::orderBy('price', 'desc')->paginate(3);
+            $products = Product::orderBy('price', 'desc')->paginate($per_page);
         }
 
         else if (request()->get('sort') == 'sort=recent')
         {
-            $products = Product::orderBy('updated_at', 'desc')->paginate(3);
+            $products = Product::orderBy('updated_at', 'desc')->paginate($per_page);
         }
 
         else
         {
-            $products = Product::paginate(3);
+            $products = Product::paginate($per_page);
         }
 
         return view('product-catalog', compact('products', 'categories', 'subcategories'));
