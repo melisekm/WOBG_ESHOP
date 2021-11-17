@@ -42,7 +42,7 @@
 
         </div>
         <div class="mb-3 text-center">
-            <a href="{{url("products")}}" class="btn-lg btn-secondary summary-btns"> Return to Store </a>
+            <a href="{{route("products.index")}}" class="btn-lg btn-secondary summary-btns"> Return to Store </a>
         </div>
 
     </main>

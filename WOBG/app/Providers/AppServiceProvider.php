@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('money', function ($amount) {
             return "<?php echo '$' . number_format($amount, 2); ?>";
         });
+        Paginator::useBootstrap();
+
 //        DB::listen(function ($query) {
 //            Log::info(str_repeat('-', 80));
 //            Log::info($query->sql);

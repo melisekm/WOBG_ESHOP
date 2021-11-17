@@ -31,7 +31,7 @@
             <div class="collapse navbar-collapse" id="toggleMobileMenu">
                 <ul class="navbar-nav nav-fill w-100">
                     <li class="nav-item">
-                        <a class="nav-link" href={{url("products")}}>Board games</a>
+                        <a class="nav-link" href={{route("products.index")}}>Board games</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link cart " href={{url("cart")}}><i

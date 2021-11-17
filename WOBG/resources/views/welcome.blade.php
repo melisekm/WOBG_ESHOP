@@ -12,17 +12,17 @@
                     <div class="container text-center">
                         <h1 class="display-5"> World of <br> Board Games </h1>
                         <p class="fs-5"> Discover more than one <br> thousand board games </p>
-                        <a class="btn btn-blue btn-browse" href={{url("products")}}>Browse now </a>
+                        <a class="btn btn-blue btn-browse" href={{route("products.index")}}>Browse now </a>
                     </div>
                 </div>
                 <div class="col-lg-8 mb-4 order-lg-1">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0"
                                     class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1"
                                     aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2"
                                     aria-label="Slide 3"></button>
                         </div>
                         <div class="carousel-inner">
@@ -51,12 +51,12 @@
                                      class="d-block w-100" alt="sales banner 3">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators"
                                 data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators"
                                 data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>

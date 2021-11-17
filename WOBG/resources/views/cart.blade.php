@@ -10,7 +10,7 @@
                 <div class="col-lg-4 m-lg-auto mb-4 order-lg-2 mt-5">
                     <div class="container text-center">
                         <p class="fs-3"> Your cart is empty </p>
-                        <a href="{{url("products")}}" class="btn btn-blue btn-back-to-browsing">
+                        <a href="{{route("products.index")}}" class="btn btn-blue btn-back-to-browsing">
                             Back to browsing
                         </a>
                     </div>
@@ -40,11 +40,11 @@
                 </h2>
                 <div class="row mt-2">
                     <div class="col ps-4">
-                        <a class="btn lower-row-btns btn-blue" href="{{url("products")}}">Back to shop</a>
+                        <a class="btn lower-row-btns btn-blue" href="{{route("products.index")}}">Back to shop</a>
                     </div>
                     <div class="col text-end">
                         <p><a class="btn rounded btn-blue lower-row-btns checkout-btn"
-                              href="{{url("checkout")}}">Checkout </a></p>
+                              href="{{route("checkout.checkout")}}">Checkout </a></p>
                     </div>
                 </div>
             </section>

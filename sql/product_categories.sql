@@ -2,7 +2,7 @@ INSERT INTO public.product_categories (id, created_at, updated_at, name)
 VALUES (DEFAULT, '2021-11-13 20:55:14', '2021-11-13 20:55:18', 'Family Games');
 
 INSERT INTO public.product_categories (id, created_at, updated_at, name)
-VALUES (DEFAULT, '2021-11-13 20:56:03', '2021-11-13 20:56:04', 'Childern''s Games');
+VALUES (DEFAULT, '2021-11-13 20:56:03', '2021-11-13 20:56:04', 'Children''s Games');
 
 INSERT INTO public.product_categories (id, created_at, updated_at, name)
 VALUES (DEFAULT, '2021-11-13 20:56:32', '2021-11-13 20:56:33', 'Party Games');

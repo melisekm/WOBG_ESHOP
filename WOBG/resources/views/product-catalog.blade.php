@@ -1,5 +1,9 @@
 @extends("layout.app")
 @push("styles")
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css"
+          integrity="sha512-SZgE3m1he0aEF3tIxxnz/3mXu/u/wlMNxQSnE0Cni9j/O8Gs+TjM9tm1NX34nRQ7GiLwUEzwuE3Wv2FLz2667w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="{{asset("css/product_catalog.css")}}">
 @endpush
 @section('title', 'Product Catalog')
@@ -119,48 +123,25 @@
                     <h1 class="my-3 display-6"> Family Games</h1>
                     <!--    Ordering-->
 
-                    <div class="col-md-12 mb-3 d-none d-xl-flex">
-                        <a href="{{ url()->current() }}" class="sort-font">Recommended</a>
-                        <a href="{{ url()->current()."?sort=top" }}" class="sort-font">Top Sellers</a>
-                        <a href="{{ url()->current()."?sort=recent" }}" class="sort-font">Most Recent</a>
-                        <a href="{{ url()->current()."?sort=price_desc" }}" class="sort-font">Highest Price</a>
-                        <a href="{{ url()->current()."?sort=price_asc" }}" class="sort-font">Lowest Price</a>
-                    </div>
-                {{--                    <ul class="nav nav-pills mb-3 d-none d-xl-flex" id="pills-tab" role="tablist">--}}
-                {{--                        <li class="nav-item" role="presentation">--}}
-                {{--                            <button class="nav-link link-dark active" id="pills-recommended-tab"--}}
-                {{--                                    data-bs-toggle="pill"--}}
-                {{--                                    data-bs-target="#pills-recommended" type="button" role="tab"--}}
-                {{--                                    aria-controls="pills-recommended"--}}
-                {{--                                    aria-selected="true">Recommended--}}
-                {{--                            </button>--}}
-                {{--                        </li>--}}
-                {{--                        <li class="nav-item" role="presentation">--}}
-                {{--                            <button class="nav-link link-dark" id="pills-topsellers-tab" data-bs-toggle="pill"--}}
-                {{--                                    data-bs-target="#pills-topsellers" type="button" role="tab"--}}
-                {{--                                    aria-controls="pills-topsellers" aria-selected="false">Top Sellers--}}
-                {{--                            </button>--}}
-                {{--                        </li>--}}
-                {{--                        <li class="nav-item" role="presentation">--}}
-                {{--                            <button class="nav-link link-dark" id="pills-mostrecent-tab" data-bs-toggle="pill"--}}
-                {{--                                    data-bs-target="#pills-mostrecent" type="button" role="tab"--}}
-                {{--                                    aria-controls="pills-mostrecent" aria-selected="false">Most Recent--}}
-                {{--                            </button>--}}
-                {{--                        </li>--}}
-                {{--                        <li class="nav-item" role="presentation">--}}
-                {{--                            <button class="nav-link link-dark" id="pills-highestprice-tab" data-bs-toggle="pill"--}}
-                {{--                                    data-bs-target="#pills-highestprice" type="button" role="tab"--}}
-                {{--                                    aria-controls="pills-highestprice" aria-selected="false">Highest Price--}}
-                {{--                            </button>--}}
-                {{--                        </li>--}}
-                {{--                        <li class="nav-item" role="presentation">--}}
-                {{--                            <button class="nav-link link-dark" id="pills-lowestprice-tab" data-bs-toggle="pill"--}}
-                {{--                                    data-bs-target="#pills-lowestprice" type="button" role="tab"--}}
-                {{--                                    aria-controls="pills-lowestprice" aria-selected="false">Lowest Price--}}
-                {{--                            </button>--}}
-                {{--                        </li>--}}
-                {{--                    </ul>--}}
-                <!--    Dropdown ordering-->
+                    <ul class="nav nav-pills mb-3 d-none d-xl-flex" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a href="{{ url()->current() }}" class="sort-font">Recommended</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="{{ url()->current()."?sort=top" }}" class="sort-font">Top Sellers</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="{{ url()->current()."?sort=recent" }}" class="sort-font">Most Recent</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="{{ url()->current()."?sort=price_desc" }}" class="sort-font">Highest Price</a>
+
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a href="{{ url()->current()."?sort=price_asc" }}" class="sort-font">Lowest Price</a>
+                        </li>
+                    </ul>
+                    <!--    Dropdown ordering-->
                     <div class="d-xl-none my-3">
                         <select class="form-select" aria-label="Default select">
                             <option value="recommended">Order by Recommended</option>
@@ -215,7 +196,8 @@
                                                     <button
                                                         id="btn-add-tocart-{{$product->id}}"
                                                         onclick="addProductToCart({{$product->id}})"
-                                                        type="button" class="btn rounded btn-blue fs-4" data-bs-toggle="modal"
+                                                        type="button" class="btn btn-blue add-to-cart-btn"
+                                                        data-bs-toggle="modal"
                                                         data-bs-target="#addtoCartModal-{{$product->id}}">
                                                         Add to cart
                                                     </button>
@@ -245,55 +227,27 @@
                         {{--                        </div>--}}
                     </div>
 
-                    {{--                    <div class="row mt-5">--}}
-                    {{--                        <div class="col">--}}
-
-                    {{--                            <nav aria-label="Page navigation">--}}
-                    {{--                                <ul class="pagination pagination-lg justify-content-center">--}}
-                    {{--                                    <li class="page-item disabled">--}}
-                    {{--                                        <a aria-hidden="true" class="page-link"><i--}}
-                    {{--                                                class="fas fa-chevron-circle-left"></i></a>--}}
-                    {{--                                        <span class="sr-only">Previous</span>--}}
-                    {{--                                    </li>--}}
-                    {{--                                    <li class="page-item active"><a class="page-link" href="#">&nbsp;1&nbsp;</a></li>--}}
-                    {{--                                    <li class="page-item"><a class="page-link" href="#">2</a></li>--}}
-                    {{--                                    <li class="page-item"><a class="page-link" href="#">3</a></li>--}}
-                    {{--                                    <li class="page-item">--}}
-                    {{--                                        <span class="page-link">&hellip;</span>--}}
-                    {{--                                    </li>--}}
-                    {{--                                    <li class="page-item"><a class="page-link" href="#">15</a></li>--}}
-
-                    {{--                                    <li class="page-item">--}}
-                    {{--                                        <a aria-hidden="true" class="page-link" href="#"><i--}}
-                    {{--                                                class="fas fa-chevron-circle-right"></i></a>--}}
-                    {{--                                        <span class="sr-only">Next</span>--}}
-
-                    {{--                                    </li>--}}
-                    {{--                                </ul>--}}
-                    {{--                            </nav>--}}
-                    {{--                        </div>--}}
-                    {{--                        <div class="col-lg-3 col-md-4 pt-2">--}}
-
-                    {{--                            <select class="form-select" aria-label="Per page select">--}}
-                    {{--                                <option value="3">Per page 3</option>--}}
-                    {{--                                <option value="10">Per page 10</option>--}}
-                    {{--                                <option value="25">Per page 25</option>--}}
-                    {{--                            </select>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    {{--                    {{ $products->links() }}--}}
                 </section>
-                <div class="row mt-3">
-
-                    <p class="text-muted">Per page:
-                        {{--                        <a href="{{ url()->current()."?sort=top" }}" class="sort-font">Top Sellers</a>--}}
-                        <a href="{{ url()->current()."?per_page=3" }}" class="sort-font">3</a>
-                        <a href="{{ url()->current()."?per_page=10" }}" class="sort-font">10</a>
-                        <a href="{{ url()->current()."?per_page=20" }}" class="sort-font">20</a>
-
+                <div class="row mt-5">
+                    <div class="col">
                         {{ $products->links("pagination::bootstrap-4") }}
+                    </div>
+                    <div class="col-lg-3 col-md-4 pt-2">
+                        <select class="form-select" aria-label="Per page select">
+                            <option value="3">Per page 3</option>
+                            <option value="10">Per page 10</option>
+                            <option value="25">Per page 25</option>
+                        </select>
+                    </div>
 
-                    </p>
+                    {{--                    <p class="text-muted">Per page:--}}
+{{--                        --}}{{--                        <a href="{{ url()->current()."?sort=top" }}" class="sort-font">Top Sellers</a>--}}
+{{--                        <a href="{{ url()->current()."?per_page=3" }}" class="sort-font">3</a>--}}
+{{--                        <a href="{{ url()->current()."?per_page=10" }}" class="sort-font">10</a>--}}
+{{--                        <a href="{{ url()->current()."?per_page=20" }}" class="sort-font">20</a>--}}
+
+
+{{--                    </p>--}}
                 </div>
             </div>
 
@@ -302,3 +256,33 @@
     </main>
 
 @endsection
+
+@push("scripts")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"
+            integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        //Prodcut catalog slider
+        //https://github.com/seiyria/bootstrap-slider
+        const minTag = document.getElementById("priceMin")
+        const maxTag = document.getElementById("priceMax")
+        const priceRange = new Slider('#priceRange', {"tooltip": "hide"});
+        const priceRangeElement = priceRange.getElement()
+        minTag.innerHTML = priceRange.getValue()[0] + "$"
+        maxTag.innerHTML = priceRange.getValue()[1] + "$"
+
+        const updatePriceSliderValues = () => {
+            const [low, high] = priceRange.getValue()
+            minTag.innerHTML = low + "$"
+            maxTag.innerHTML = high + "$"
+        }
+
+        priceRangeElement.slide = () => {
+            updatePriceSliderValues()
+        }
+
+        priceRangeElement.change = () => {
+            updatePriceSliderValues()
+        }
+    </script>
+@endpush

@@ -10,8 +10,8 @@
             <!-- local css custom property by bs5.1 -->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{url("/")}}"><i class="fas fa-home"></i>&nbsp;Home</a></li>
-                <li class="breadcrumb-item"><a href="{{url("products")}}">Board Games</a></li>
-                <li class="breadcrumb-item"><a href="{{url("products")}}">{{$product->category->name}}</a></li>
+                <li class="breadcrumb-item"><a href="{{route("products.index")}}">Board Games</a></li>
+                <li class="breadcrumb-item"><a href="{{route("products.index")}}">{{$product->category->name}}</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Ticket to Ride: Europe Edition</li>
             </ol>
         </nav>
@@ -117,7 +117,7 @@
             "row_class" => "row row-cols-2 row-cols-lg-4 mb-4"])
         @endcomponent
         <div class="text-center mb-3">
-            <a href="{{url("products")}}" class="btn btn-blue fs-4">Show more</a>
+            <a href="{{route("products.index")}}" class="btn btn-blue fs-4">Show more</a>
         </div>
     </main>
 @endsection
