@@ -134,33 +134,25 @@
                     <!--    Payment-->
                     <section>
                         <div class="row">
-                            <div class="col 4 mt-2">
+                            <div class="col mt-2">
                                 <h3 class="fs-4"> Payment </h3>
                                 <div class="btn-group-vertical" role="group" aria-label="Payment radio group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="paymentGroup"
-                                               id="Paypal"
-                                               value="Paypal" checked>
-                                        <label class="form-check-label" for="Paypal">
-                                            Paypal
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="paymentGroup"
-                                               id="Bank Transfer"
-                                               value="Bank Transfer">
-                                        <label class="form-check-label" for="Bank Transfer">
-                                            Bank Transfer
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="paymentGroup"
-                                               id="Card"
-                                               value="Card">
-                                        <label class="form-check-label" for="Card">
-                                            Card
-                                        </label>
-                                    </div>
+                                    @foreach($payments as $payment)
+                                        <div class="form-check">
+                                            @if($loop->first)
+                                                <input class="form-check-input" type="radio" name="paymentGroup"
+                                                       id="{{$payment->name}}"
+                                                       value="{{$payment->name}}" checked>
+                                            @else
+                                                <input class="form-check-input" type="radio" name="paymentGroup"
+                                                       id="{{$payment->name}}"
+                                                       value="{{$payment->name}}">
+                                            @endif
+                                            <label class="form-check-label" for="{{$payment->name}}">
+                                                {{$payment->name}}
+                                            </label>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -171,9 +163,13 @@
                             <div class="col mt-2">
                                 <h3 class="fs-4">Shipping</h3>
                                 <div class="btn-group-vertical" role="group" aria-label="Shipping radio group">
-                                    @include('components.checkout-checkbox', ['id' => 'Standard Delivery', 'label' => 'Standard Delivery', 'price' => 2.99, 'checked' => 'checked'])
-                                    @include('components.checkout-checkbox', ['id' => 'UPS Service', 'label' => 'UPS Service', 'price' => 5.49])
-                                    @include('components.checkout-checkbox', ['id' => 'Parcel Service', 'label' => 'Parcel Service', 'price' => 4.99])
+                                    @foreach($shippings as $shipping)
+                                        @if ($loop->first)
+                                            @include('components.checkout-checkbox', ['label' => $shipping->name, 'price' => $shipping->price, 'checked' => 'checked'])
+                                        @else
+                                            @include('components.checkout-checkbox', ['label' => $shipping->name, 'price' => $shipping->price])
+                                        @endif
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -222,7 +218,8 @@
                                         <div class="pt-3 fs-4"> Total</div>
                                     </div>
                                     <div class="col">
-                                        <div class="text-end pt-3 fw-bold fs-4 total-price"><!--Javascript doplnene--></div>
+                                        <div class="text-end pt-3 fw-bold fs-4 total-price">
+                                            <!--Javascript doplnene--></div>
                                     </div>
                                 </div>
                             </div>

@@ -79,4 +79,12 @@ class Cart
             "totalPrice" => $totalPrice
         ];
     }
+
+    public function clearCart()
+    {
+        session()->forget('cart');
+        if (auth()->check()) {
+            auth()->user()->products()->detach();
+        }
+    }
 }

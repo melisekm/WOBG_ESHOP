@@ -31,6 +31,10 @@ Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout
 Route::post('/review', [CheckoutController::class, 'review'])->name('checkout.review');
 Route::get('/order-completed', [CheckoutController::class, 'completeOrder'])->name('checkout.complete');
 
+Route::get("/review", function(){
+    return view('cart');
+});
+
 Route::resource('/products', ProductController::class);
 Route::get('/products', [ProductController::class, 'sortProductsByPrice']);
 //Route::get('/products/{perPage}',  [ProductController::class, 'index']);

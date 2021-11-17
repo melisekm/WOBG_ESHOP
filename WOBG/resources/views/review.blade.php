@@ -50,10 +50,10 @@
                         <div class="fs-4"> Payment</div>
                         <div class="btn-group-vertical" role="group" aria-label="Payment radio group">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paymentRadios" id="{{$payment}}"
-                                       value="{{$payment}}" checked>
-                                <label class="form-check-label" for="{{$payment}}">
-                                    {{$payment}}
+                                <input class="form-check-input" type="radio" name="paymentRadios" id="{{$payment->name}}"
+                                       value="{{$payment->name}}" checked>
+                                <label class="form-check-label" for="{{$payment->name}}">
+                                    {{$payment->name}}
                                 </label>
                             </div>
                         </div>
@@ -68,15 +68,15 @@
                                 <div class="col-6 col-md-5">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="shippingRadios"
-                                               id="{{$shipping["name"]}}"
-                                               value="{{$shipping["name"]}}" checked>
-                                        <label class="form-check-label" for="{{$shipping["name"]}}">
-                                            {{$shipping["name"]}}
+                                               id="{{$shipping->name}}"
+                                               value="{{$shipping->name}}" checked>
+                                        <label class="form-check-label" for="{{$shipping->name}}">
+                                            {{$shipping->name}}
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    @money($shipping["price"])
+                                    @money($shipping->price)
                                 </div>
                             </div>
                         </div>
