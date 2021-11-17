@@ -24,9 +24,9 @@
             <div class="row">
                 <!--    Fotky-->
                 <div class="col-lg-4 order-2 order-lg-1 text-lg-start text-center">
-                @include("components.image", [
+                @include("components.product-page-image", [
                                 "class" => "img-fluid main-product-img",
-                                "alt" => "product main image",
+                                "alt" => "product $product->name main image",
                                 "path" => $product->mainPhoto->path
                 ])
                 <!--        Po kliknuti sa otvori na full-->
@@ -39,9 +39,9 @@
                         @foreach($product->photos as $photo)
                             <div class="col">
                                 <div class="ratio ratio-1x1">
-                                    @include("components.image", [
+                                    @include("components.product-page-image", [
                                         "class" => "img-fluid",
-                                        "alt" => "product image $loop->index",
+                                        "alt" => "$product->name image $photo->name",
                                         "path" => $photo->path
                                     ])
                                 </div>

@@ -6,7 +6,7 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="{{asset("css/product_catalog.css")}}">
 @endpush
-@section('title', 'Product Catalog')
+@section('title', 'WOBG - Product Catalog')
 @section("content")
     <main class="container">
         <div class="row mb-5 mt-3">
