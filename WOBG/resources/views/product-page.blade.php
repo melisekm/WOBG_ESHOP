@@ -1,6 +1,10 @@
 @extends("layout.app")
 @push("styles")
     <link rel="stylesheet" href="{{asset("css/product_page.css")}}">
+    <link rel="stylesheet" href="{{asset("css/lightbox.css")}}">
+@endpush
+@push("scripts")
+    <script src="{{asset("js/lightbox-plus-jquery.min.js")}}"></script>
 @endpush
 @section('title', "WOBG - " . $product->name)
 @section("content")
