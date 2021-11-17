@@ -41,7 +41,7 @@
                                             </div>
 
                                             <input id="priceRange" type="text" class="slider" value=""
-                                                   data-slider-min="1"
+                                                   data-slider-min="0"
                                                    data-slider-max="100" data-slider-step="5"
                                                    data-slider-value="[{{$price["min"]}},{{$price["max"]}}]"/>
                                         </div>
@@ -138,37 +138,48 @@
                                 </a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a id="sort-top" class="nav-link link-dark @if($sortOption == "top") active @endif">
+                                <a id="sort-top" class="nav-link link-dark @if($sortOption === "top") active @endif">
                                     Top Sellers
                                 </a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a id="sort-recent"
-                                   class="nav-link link-dark @if($sortOption == "recent") active @endif">
+                                   class="nav-link link-dark @if($sortOption === "recent") active @endif">
                                     Most Recent
                                 </a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a id="sort-price-desc"
-                                   class="nav-link link-dark @if($sortOption == "price" && $order == "desc") active @endif">
+                                   class="nav-link link-dark @if($sortOption === "price" && $order == "desc") active @endif">
                                     Highest Price</a>
 
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a id="sort-price-asc"
-                                   class="nav-link link-dark @if($sortOption == "price" && $order == "asc") active @endif">
+                                   class="nav-link link-dark @if($sortOption === "price" && $order == "asc") active @endif">
                                     Lowest Price
                                 </a>
                             </li>
                         </ul>
                         <!--    Dropdown ordering-->
                         <div class="d-xl-none my-3">
-                            <select class="form-select" aria-label="Default select">
-                                <option value="recommended">Order by Recommended</option>
-                                <option value="sop_sellers">Order by Top Sellers</option>
-                                <option value="most_recent">Order by Most Recent</option>
-                                <option value="highest_price">Order by Highest Price</option>
-                                <option value="lowest_price">Order by Lowest Price</option>
+                            <select class="form-select" id="mobile_sort" aria-label="Mobile order select">
+                                <option @if($sortOption === "recommended") selected @endif value="recommended">Order by
+                                    Recommended
+                                </option>
+                                <option @if($sortOption === "top") selected @endif value="top">Order by Top Sellers
+                                </option>
+                                <option @if($sortOption === "recent") selected @endif value="recent">Order by Most
+                                    Recent
+                                </option>
+                                <option @if($sortOption === "price" && $order == "desc") selected
+                                        @endif value="price_desc">Order by
+                                    Highest Price
+                                </option>
+                                <option @if($sortOption === "price" && $order == "asc") selected
+                                        @endif value="price_asc">Order by
+                                    Lowest Price
+                                </option>
                             </select>
                         </div>
                         <!--    Products-->
@@ -280,7 +291,7 @@
             updatePriceSliderValues()
 
         }
-        priceRangeElement.onmouseup = () =>{
+        priceRangeElement.slideStop = () => {
             url.searchParams.set("min_price", priceRange.getValue()[0])
             url.searchParams.set("max_price", priceRange.getValue()[1])
             window.location.href = url.href;
@@ -291,6 +302,21 @@
             updatePriceSliderValues()
         }
 
+
+        document.getElementById("mobile_sort").onchange = function () {
+            if (["recommended", "recent", "top"].includes(this.value)) {
+                url.searchParams.delete("order")
+                url.searchParams.set("sort", this.value)
+            } else if (this.value === "price_asc") {
+                url.searchParams.set("sort", "price")
+                url.searchParams.set('order', 'asc');
+
+            } else if (this.value === "price_desc") {
+                url.searchParams.set("sort", "price")
+                url.searchParams.set('order', 'desc');
+            }
+            window.location.href = url.href;
+        }
 
         document.getElementById('per_page').onchange = function () {
             url.searchParams.set('per_page', this.value);

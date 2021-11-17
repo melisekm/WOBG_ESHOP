@@ -21,7 +21,7 @@ class ProductController extends Controller
         $sortOption = $request->query("sort", "recommended");
         $order = $request->query("order", "asc");
         $search = $request->query("search", "");
-        $minPrice = $request->query("min_price", "1");
+        $minPrice = $request->query("min_price", "0");
         $maxPrice = $request->query("max_price", "100");
         if ($sortOption === "recommended") {
             $sort = "id";
