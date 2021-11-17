@@ -120,8 +120,9 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-check">
-                                        <input name="save_address" class="form-check-input" type="checkbox" value=""
-                                               id="saveAddress">
+                                        <input type="hidden" name="save_address" value="0"/>
+                                        <input name="save_address" class="form-check-input" type="checkbox" value="1"
+                                               id="saveAddress" {{ old('save_address', isset($save_address) ? 'checked' : '') }}>
                                         <label class="form-check-label" for="saveAddress">
                                             I want to save this address
                                         </label>

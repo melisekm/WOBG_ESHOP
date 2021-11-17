@@ -29,11 +29,7 @@ Route::patch('cart/{product}/decrement', [CartController::class, 'decrement'])->
 
 Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.checkout');
 Route::post('/review', [CheckoutController::class, 'review'])->name('checkout.review');
-Route::post('/order-completed', [CheckoutController::class, 'completeOrder'])->name('checkout.complete');
-
-Route::get("/order-completed", function () {
-    return redirect('cart');
-});
+Route::get('/order-completed', [CheckoutController::class, 'completeOrder'])->name('checkout.complete');
 
 Route::resource('/products', ProductController::class);
 Route::get('/products', [ProductController::class, 'sortProductsByPrice']);
