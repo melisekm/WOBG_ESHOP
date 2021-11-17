@@ -27,10 +27,13 @@ Route::delete('cart/{product}', [CartController::class, 'destroy'])->name('cart.
 Route::patch('cart/{product}/increment', [CartController::class, 'increment'])->name('cart.increment');
 Route::patch('cart/{product}/decrement', [CartController::class, 'decrement'])->name('cart.decrement');
 
-Route::get('/checkout', [CheckoutController::class, 'checkout'])->middleware(['auth']);
-Route::get('/review', [CheckoutController::class, 'review'])->middleware(['auth']);
-Route::get('/order-completed', [CheckoutController::class, 'completeOrder'])->middleware(['auth']);
+Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.checkout');
+Route::post('/review', [CheckoutController::class, 'review'])->name('checkout.review');
+Route::post('/order-completed', [CheckoutController::class, 'completeOrder'])->name('checkout.complete');
 
+Route::get("/order-completed", function () {
+    return redirect('cart');
+});
 
 Route::resource('/products', ProductController::class);
 Route::get('/products', [ProductController::class, 'sortProductsByPrice']);

@@ -74,7 +74,6 @@ class Cart
             $product->total_price = $product->price * $product->quantity;
             $totalPrice += $product->total_price;
         }
-
         return [
             "products" => $products,
             "totalPrice" => $totalPrice

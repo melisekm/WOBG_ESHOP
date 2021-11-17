@@ -45,4 +45,3 @@ Route::get("testapi2", function () {
 
 // get products by query
 Route::get("products/search", [ProductController::class, "getProductByQuery"])->name("products.search");
-Route::get("checkout/{shipping}", [CheckoutController::class, "getShipping"])->name("checkout.shipping");

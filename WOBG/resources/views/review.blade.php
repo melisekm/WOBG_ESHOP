@@ -8,7 +8,9 @@
         <ul class="timeline mt-4 ">
             <li class="step complete">
                 <div class="status">
-                    <div><a href="{{url("checkout")}}" class="black-link">Information</a></div>
+                    <div>
+                        <a onclick="window.history.back()" href="#" class="black-link">Information</a>
+                    </div>
                 </div>
             </li>
             <li class="step complete">
@@ -34,12 +36,12 @@
                 <div class="form-group">
                     <label for="TextareaAddress" class="fs-4 form-label mt-md-0 mt-3">Address</label>
                     <textarea disabled class="form-control rounded-2" id="TextareaAddress" rows="7">
-John Smith
-2978 Main St
-MN 23876
-US
-smith.john@gmail.com
-+4216505130514
+{{$user->first_name . " " . $user->surname}}
+{{$user->street}}
+{{$user->city . " " . $user->postal_code}}
+{{$user->country}}
+{{$user->email}}
+{{$user->phone_number}}
                         </textarea>
                 </div>
                 <!--    Payment-->
@@ -51,10 +53,10 @@ smith.john@gmail.com
                         <div class="btn-group-vertical" role="group" aria-label="Payment radio group">
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paymentRadios" id="paymentPaypal"
-                                       value="paymentPaypal" checked>
-                                <label class="form-check-label" for="paymentPaypal">
-                                    Paypal
+                                <input class="form-check-input" type="radio" name="paymentRadios" id="{{$payment}}"
+                                       value="{{$payment}}" checked>
+                                <label class="form-check-label" for="{{$payment}}">
+                                    {{$payment}}
                                 </label>
                             </div>
                         </div>
@@ -69,15 +71,15 @@ smith.john@gmail.com
                                 <div class="col-6 col-md-5">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="shippingRadios"
-                                               id="shippingStandard"
-                                               value="shippingStandard" checked>
-                                        <label class="form-check-label" for="shippingStandard">
-                                            Standard Delivery
+                                               id="{{$shippingName}}"
+                                               value="{{$shippingName}}" checked>
+                                        <label class="form-check-label" for="{{$shippingName}}">
+                                            {{$shippingName}}
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    2.99$
+                                    @money($shippingPrice)
                                 </div>
                             </div>
                         </div>
@@ -89,7 +91,7 @@ smith.john@gmail.com
                         <a class="btn btn-blue my-3 fs-4" href="{{url("order-completed")}}">Pay now</a>
                     </div>
                     <div class="col text-end">
-                        <a class="btn btn-secondary my-3 fs-4" href="{{url("checkout")}}">Back</a>
+                        <button onclick="window.history.back()" class="btn btn-secondary my-3 fs-4">Back</button>
                     </div>
                 </div>
             </div>
@@ -103,7 +105,7 @@ smith.john@gmail.com
                                data-bs-toggle="collapse" href="#summaryCollapse" aria-expanded="false"
                                aria-controls="summaryCollapse">
                                 <div class="align-left"> Summary &nbsp;<i class="fas fa-chevron-down"></i></div>
-                                <div class="align-right"> 202.95$</div>
+                                <div class="align-right">@money($totalPrice)</div>
                             </a>
                         </div>
                     </div>
@@ -111,19 +113,19 @@ smith.john@gmail.com
                     <div class="collapse darkRectangle mt-2 p-3" id="summaryCollapse">
                         <div class="container">
                             <!--    Items-->
-                            @include("components.summary-item")
-                            @include("components.summary-item")
-                            @include("components.summary-item")
+                        @foreach($products as $product)
+                            @include("components.summary-item", ["product" => $product])
+                        @endforeach
 
-                            <!--    Subtotal-->
+                        <!--    Subtotal-->
                             <div class="row border-bottom">
                                 <div class="col">
                                     <div class="py-2"> Subtotal</div>
                                     <div class="py-2"> Shipping</div>
                                 </div>
                                 <div class="col">
-                                    <div class="text-end py-2">199.96$</div>
-                                    <div class="text-end py-2">2.99$</div>
+                                    <div class="text-end py-2">@money($subtotal)</div>
+                                    <div class="text-end py-2">@money($shippingPrice)</div>
                                 </div>
                             </div>
                             <!--    Total-->
@@ -132,7 +134,7 @@ smith.john@gmail.com
                                     <div class="pt-3 fs-4"> Total</div>
                                 </div>
                                 <div class="col">
-                                    <div class="text-end pt-3 fw-bold fs-4">202.95$</div>
+                                    <div class="text-end pt-3 fw-bold fs-4">@money($totalPrice)</div>
                                 </div>
                             </div>
                         </div>
