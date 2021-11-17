@@ -52,6 +52,10 @@ a {
     font-weight: 400;
 }
 
+.nav-link.link-dark{
+    cursor:pointer;
+}
+
 .cart-basket {
     font-size: 15px;
     position: relative;
@@ -241,4 +245,36 @@ div .footer-big a:hover {
 }
 
 /*Quantity selector end*/
+
+
+/*Cart and empty search page btn*/
+.btn-back-to-browsing {
+    padding: 10px 20px;
+    font-size: 28px;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .btn-back-to-browsing, .lower-row-btns {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 768px) {
+    .btn-back-to-browsing, .lower-row-btns {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .btn-back-to-browsing {
+        font-size: 28px;
+    }
+    .lower-row-btns{
+        width: 50%;
+    }
+    .container-small {
+        width: 900px;
+    }
+}
 

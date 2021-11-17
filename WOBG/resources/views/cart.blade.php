@@ -1,7 +1,4 @@
 @extends("layout.app")
-@push("styles")
-    <link rel="stylesheet" href="{{asset("css/cart.css")}}">
-@endpush
 @section('title', 'WOBG - Cart')
 @section("content")
     @if(empty($products))

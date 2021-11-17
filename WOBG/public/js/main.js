@@ -53,7 +53,7 @@ inputBox.onkeyup = (e) => {
 }
 
 const showSuggestions = (list) => {
-    const search = `<hr/><a href="#"><li>Search for "${inputBox.value}" &gt;</li></a>`;
+    const search = `<hr/><a href="/products?search=${inputBox.value}"><li>Search for "${inputBox.value}" &gt;</li></a>`;
     if (list.length === 1) {
         return search;
     } else if (list.length >= MAX_SEARCH_RESULTS) {
