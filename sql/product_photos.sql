@@ -34,3 +34,65 @@ VALUES (DEFAULT, '2021-11-14 03:10:09', '2021-11-14 03:10:10', 'main_600', 'img/
 INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
 VALUES (DEFAULT, '2021-11-14 03:10:10', '2021-11-14 03:10:11', 'main_900', 'img/games/mandala/main/900.jpg', 2);
 
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-14 03:10:10', '2021-11-14 03:10:11', 'main_900', 'img/games/exploding_cats/main/900.jpg', 3);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:50', '2021-11-13 22:32:51', 'back_900', 'img/games/exploding_cats/back/900.jpg', 3);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:54', '2021-11-13 22:32:55', 'play_900', 'img/games/exploding_cats/play/900.jpg', 3);
+
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-14 03:10:10', '2021-11-14 03:10:11', 'main_900', 'img/games/hanabi/main/900.jpg', 4);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:50', '2021-11-13 22:32:51', 'back_900', 'img/games/hanabi/back/900.jpg', 4);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:54', '2021-11-13 22:32:55', 'play_900', 'img/games/hanabi/play/900.jpg', 4);
+
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-14 03:10:10', '2021-11-14 03:10:11', 'main_900', 'img/games/speed_cups/main/900.jpg', 5);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:50', '2021-11-13 22:32:51', 'back_900', 'img/games/speed_cups/back/900.jpg', 5);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:54', '2021-11-13 22:32:55', 'play_900', 'img/games/speed_cups/play/900.jpg', 5);
+
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-14 03:10:10', '2021-11-14 03:10:11', 'main_900', 'img/games/activity_champion/main/900.jpg', 6);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:50', '2021-11-13 22:32:51', 'back_900', 'img/games/activity_champion/back/900.jpg', 6);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:54', '2021-11-13 22:32:55', 'play_900', 'img/games/activity_champion/play/900.jpg', 6);
+
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-14 03:10:10', '2021-11-14 03:10:11', 'main_900', 'img/games/keyforge/main/900.jpg', 7);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:50', '2021-11-13 22:32:51', 'back_900', 'img/games/keyforge/back/900.jpg', 7);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:54', '2021-11-13 22:32:55', 'play_900', 'img/games/keyforge/play/900.jpg', 7);
+
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-14 03:10:10', '2021-11-14 03:10:11', 'main_900', 'img/games/sherlock/main/900.jpg', 8);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:50', '2021-11-13 22:32:51', 'back_900', 'img/games/sherlock/back/900.jpg', 8);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:54', '2021-11-13 22:32:55', 'play_900', 'img/games/sherlock/play/900.jpg', 8);
+
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-14 03:10:10', '2021-11-14 03:10:11', 'main_900', 'img/games/black_stories/main/900.jpg', 9);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:50', '2021-11-13 22:32:51', 'back_900', 'img/games/black_stories/back/900.jpg', 9);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:54', '2021-11-13 22:32:55', 'play_900', 'img/games/black_stories/play/900.jpg', 9);
+
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-14 03:10:10', '2021-11-14 03:10:11', 'main_900', 'img/games/thebes/main/900.jpg', 10);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:50', '2021-11-13 22:32:51', 'back_900', 'img/games/thebes/back/900.jpg', 10);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:54', '2021-11-13 22:32:55', 'play_900', 'img/games/thebes/play/900.jpg', 10);
+
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-14 03:10:10', '2021-11-14 03:10:11', 'main_900', 'img/games/kombo_afrika/main/900.jpg', 11);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:50', '2021-11-13 22:32:51', 'back_900', 'img/games/kombo_afrika/back/900.jpg', 11);
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-13 22:32:54', '2021-11-13 22:32:55', 'play_900', 'img/games/kombo_afrika/play/900.jpg', 11);
