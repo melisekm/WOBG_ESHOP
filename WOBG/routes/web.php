@@ -37,6 +37,9 @@ Route::get("/order-completed", function () {
 
 Route::resource('/products', ProductController::class);
 Route::get('/products', [ProductController::class, 'sortProductsByPrice']);
+//Route::get('/products/{perPage}',  [ProductController::class, 'index']);
+// route for paging and sorting
+Route::get('/products/{page}', [ProductController::class, 'sortProductsByPrice']);
 
 
 Route::get('/profile', [UserController::class, 'index'])->middleware(['auth'])->name('profile');

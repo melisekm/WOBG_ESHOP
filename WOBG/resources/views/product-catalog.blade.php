@@ -194,7 +194,7 @@
                                                     </a>
                                                 </div>
                                                 <div class="col-sm">
-                                                    <p class="fs-5 fw-bold text-sm-end ">{{$product->price}}</p>
+                                                    <p class="fs-5 fw-bold text-sm-end ">@money($product->price)</p>
                                                 </div>
                                             </div>
                                             <div class="row d-none d-sm-block">
@@ -286,9 +286,9 @@
 
                     <p class="text-muted">Per page:
                         {{--                        <a href="{{ url()->current()."?sort=top" }}" class="sort-font">Top Sellers</a>--}}
-                        | 3
-                        | 10
-                        | 20
+                        <a href="{{ url()->current()."?per_page=3" }}" class="sort-font">3</a>
+                        <a href="{{ url()->current()."?per_page=10" }}" class="sort-font">10</a>
+                        <a href="{{ url()->current()."?per_page=20" }}" class="sort-font">20</a>
 
                         {{ $products->links("pagination::bootstrap-4") }}
 
