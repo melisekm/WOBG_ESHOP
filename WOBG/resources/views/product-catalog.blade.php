@@ -41,9 +41,9 @@
                                             </div>
 
                                             <input id="priceRange" type="text" class="slider" value=""
-                                                   data-slider-min="10"
-                                                   data-slider-max="1000" data-slider-step="5"
-                                                   data-slider-value="[10,1000]"/>
+                                                   data-slider-min="1"
+                                                   data-slider-max="100" data-slider-step="5"
+                                                   data-slider-value="[{{$price["min"]}},{{$price["max"]}}]"/>
                                         </div>
                                         <div class="row">
                                             <div class="col">
@@ -120,7 +120,7 @@
             <div class="col-lg-9 py-lg-0 order-links">
                 @if(count($products) === 0)
                     <div class="fs-2 mt-4 text-center">
-                        <p>No results found for "{{request()->query()["search"]}}"</p>
+                        <p>No results found</p>
                         <a href="{{route("products.index")}}" class="btn mt-5 btn-blue btn-back-to-browsing">
                             Back to browsing
                         </a>
@@ -259,6 +259,8 @@
             integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        const url = new URL(window.location.href);
+
         //Prodcut catalog slider
         //https://github.com/seiyria/bootstrap-slider
         const minTag = document.getElementById("priceMin")
@@ -276,15 +278,20 @@
 
         priceRangeElement.slide = () => {
             updatePriceSliderValues()
+
+        }
+        priceRangeElement.onmouseup = () =>{
+            url.searchParams.set("min_price", priceRange.getValue()[0])
+            url.searchParams.set("max_price", priceRange.getValue()[1])
+            window.location.href = url.href;
+
         }
 
         priceRangeElement.change = () => {
             updatePriceSliderValues()
         }
-    </script>
 
-    <script>
-        const url = new URL(window.location.href);
+
         document.getElementById('per_page').onchange = function () {
             url.searchParams.set('per_page', this.value);
             window.location.href = url.href;
@@ -314,7 +321,6 @@
             url.searchParams.set('order', 'desc');
             window.location.href = url.href;
         };
-
-
     </script>
+
 @endpush

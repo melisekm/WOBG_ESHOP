@@ -51,3 +51,23 @@
         </ul>
     </nav>
 @endif
+@push("scripts")
+    <script>
+        const redirect = (e) => {
+            e.preventDefault()
+            const target = e.currentTarget
+            const adresa = target.getAttribute("href")
+            console.log(target, adresa)
+            const params = (new URL(adresa)).searchParams
+            const page = params.get("page")
+            url.searchParams.set("page", page)
+            window.location.href = url.href;
+        }
+
+        const elements = document.getElementsByClassName("page-link");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('click', redirect, false);
+        }
+
+    </script>
+@endpush

@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductSubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
@@ -20,6 +21,8 @@ class ProductController extends Controller
         $sortOption = $request->query("sort", "recommended");
         $order = $request->query("order", "asc");
         $search = $request->query("search", "");
+        $minPrice = $request->query("min_price", "1");
+        $maxPrice = $request->query("max_price", "100");
         if ($sortOption === "recommended") {
             $sort = "id";
         } else if ($sortOption === "top") {
@@ -32,16 +35,25 @@ class ProductController extends Controller
             $sort = "price";
         }
 
-//        $products = Product::all();
         $products = Product::where("name", "ilike", "%$search%");
+        $products = $products->whereBetween("price", [$minPrice, $maxPrice]);
         $products = $products->orderBy($sort, $order);
 
         $products = $products->paginate($per_page);
+        $page = $request->query("page", 1);
+        $lastpage = $products->lastPage();
+        if($page > $lastpage) {
+            return redirect("/products?page=$lastpage&per_page=$per_page&sort=$sortOption&order=$order&search=$search&min_price=$minPrice&max_price=$maxPrice");
+        }
         $categories = ProductCategory::all();
         $subcategories = ProductSubcategory::all();
+        $price = [
+            "min" => $minPrice,
+            "max" => $maxPrice
+        ];
 
         return view('product-catalog', compact('products', 'categories',
-            'subcategories', 'per_page', 'sortOption', 'order'));
+            'subcategories', 'per_page', 'sortOption', 'order', 'price'));
     }
 
 
