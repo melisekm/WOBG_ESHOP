@@ -22,7 +22,8 @@
                 <div class="col-lg-4 order-2 order-lg-1 text-lg-start text-center">
                 @include("components.image", [
                                 "class" => "img-fluid main-product-img",
-                                "alt" => "product main image"
+                                "alt" => "product main image",
+                                "path" => $product->mainPhoto->path
                 ])
                 <!--        Po kliknuti sa otvori na full-->
                     <div class="row align-items-center my-2">
@@ -31,32 +32,17 @@
                                 <i class="fas fa-chevron-left"></i>
                             </a>
                         </div>
-                        <div class="col">
-                            <div class="ratio ratio-1x1">
-                                @include("components.image", [
-                                    "class" => "img-fluid",
-                                    "alt" => "product image 1"
-                                ])
+                        @foreach($product->photos as $photo)
+                            <div class="col">
+                                <div class="ratio ratio-1x1">
+                                    @include("components.image", [
+                                        "class" => "img-fluid",
+                                        "alt" => "product image $loop->index",
+                                        "path" => $photo->path
+                                    ])
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="ratio ratio-1x1">
-                                @include("components.image", [
-                                    "class" => "img-fluid",
-                                    "alt" => "product image 2"
-                                ])
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="ratio ratio-1x1">
-                                @include("components.image", [
-                                    "class" => "img-fluid",
-                                    "alt" => "product image 3"
-                                ])
-                            </div>
-                        </div>
+                            @endforeach
                         <div class="col-1 text-end">
                             <a href="#">
                                 <i class="fas fa-chevron-right"></i>

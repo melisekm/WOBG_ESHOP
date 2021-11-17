@@ -182,7 +182,8 @@
                                             <div class="ratio ratio-1x1">
                                                 @include("components.image", [
                                                     "class" => "img-fluid",
-                                                    "alt" => "product image 1"
+                                                    "alt" => "product image 1",
+                                                    "path" => $product->mainPhoto->path
                                                 ])
                                             </div>
                                         </div>

@@ -3,7 +3,8 @@
         <div class="ratio ratio-1x1">
             @include("components.image", [
                 "class" => "img-fluid",
-                "alt" => "popular game image $product->name"
+                "alt" => "popular game image $product->name",
+                "path" => $product->mainPhoto->path
             ])
         </div>
         <p class="text-truncate fs-4 mt-3">{{$product->name}}</p>

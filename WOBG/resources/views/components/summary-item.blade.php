@@ -1,7 +1,11 @@
 <div class="row py-3 align-items-center border-bottom">
     <div class="col-3">
         <a href={{route("products.show", [$product->id])}}>
-            @include("components.image", ["class" => "img-fluid product-img", "alt" => "product image $product->name"])
+            @include("components.image", [
+                "class" => "img-fluid product-img",
+                "alt" => "product image $product->name",
+                "path" => $product->mainPhoto->path
+            ])
         </a>
     </div>
     <div class="col text-truncate">

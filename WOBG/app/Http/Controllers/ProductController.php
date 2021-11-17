@@ -52,7 +52,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $relatedProducts = Product::with("mainPhotos")->select('name', 'price', 'id')->inRandomOrder()->take(4)->get();
+        $relatedProducts = Product::with("mainPhoto")->select('name', 'price', 'id')->inRandomOrder()->take(4)->get();
         return view('product-page', compact('product', "relatedProducts"));
     }
 

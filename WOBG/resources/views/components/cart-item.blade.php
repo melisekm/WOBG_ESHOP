@@ -1,7 +1,11 @@
 <div class="row ps-4 ps-lg-0 my-2 align-items-center text-lg-center border-lg-bottom pb-lg-2">
     <div class="col-4 col-lg-2">
         <a href={{route("products.show", [$product->id])}}>
-            @include("components.image", ["class"=>"img-fluid","alt"=>"$product->name image"])
+            @include("components.image", [
+                "class"=>"img-fluid",
+                "alt"=>"$product->name image",
+                "path"=>$product->mainPhoto->path
+                ])
         </a>
     </div>
 
