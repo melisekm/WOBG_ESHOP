@@ -22,6 +22,9 @@
                             <div class="ps-3 py-2">
                                 <div class="text-end">
                                     <a href="#" class="btn btn-blue border-0 bg-transparent pe-2 btn-sm">
+                                        <i class="fa fa-check"></i> Apply filters
+                                    </a>
+                                    <a href="#" class="btn btn-blue border-0 bg-transparent pe-2 btn-sm">
                                         <i class="fas fa-times-circle"></i> Cancel filters
                                     </a>
                                 </div>
@@ -81,7 +84,7 @@
                                         <div class="fs-5 fw-bold mt-3 py-3 border-top">Main Category</div>
                                         @foreach($categories as $category)
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" checked value=""
+                                                <input class="form-check-input" type="checkbox" value=""
                                                        id="mainCategoryCheckbox1">
                                                 <label class="form-check-label" for="mainCategoryCheckbox1">
                                                     {{$category->name}}
@@ -94,7 +97,7 @@
 
                                         @foreach($subcategories as $subcategory)
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" checked value=""
+                                                <input class="form-check-input" type="checkbox" value=""
                                                        id="mainCategoryCheckbox1">
                                                 <label class="form-check-label" for="mainCategoryCheckbox1">
                                                     {{$subcategory->name}}
@@ -208,9 +211,15 @@
                                                         | {{$product->category->name}}</p>
                                                 </div>
                                                 <div class="col-sm text-center text-sm-end ">
-                                                    <button class="btn btn-blue add-to-cart-btn">
+                                                    <button
+                                                        id="btn-add-tocart-{{$product->id}}"
+                                                        onclick="addProductToCart({{$product->id}})"
+                                                        type="button" class="btn rounded btn-blue fs-4" data-bs-toggle="modal"
+                                                        data-bs-target="#addtoCartModal-{{$product->id}}">
                                                         Add to cart
                                                     </button>
+                                                    <!--    Modal -->
+                                                    @include('components.add-to-cart-modal', ['product' => $product])
                                                 </div>
                                             </div>
                                         </div>
