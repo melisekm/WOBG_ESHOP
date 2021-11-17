@@ -16,7 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        //$products = Product::all();
+        $products = Product::paginate(3);
         $categories = ProductCategory::all();
         $subcategories = ProductSubcategory::all();
         return view('product-catalog', compact('products', 'categories', 'subcategories'));
@@ -106,22 +107,23 @@ class ProductController extends Controller
 
         if(request()->get('sort') == 'price_asc')
         {
-            $products = Product::orderBy('price', 'asc')->get();
+            $products = Product::orderBy('price', 'asc')->paginate(3);
+
         }
 
         else if (request()->get('sort') == 'price_desc')
         {
-            $products = Product::orderBy('price', 'desc')->get();
+            $products = Product::orderBy('price', 'desc')->paginate(3);
         }
 
         else if (request()->get('sort') == 'sort=recent')
         {
-            $products = Product::orderBy('updated_at', 'desc')->get();
+            $products = Product::orderBy('updated_at', 'desc')->paginate(3);
         }
 
         else
         {
-            $products = Product::all();
+            $products = Product::paginate(3);
         }
 
         return view('product-catalog', compact('products', 'categories', 'subcategories'));

@@ -115,7 +115,8 @@
                 <section>
                     <h1 class="my-3 display-6"> Family Games</h1>
                     <!--    Ordering-->
-                    <div class="col-md-12 mb-3">
+
+                    <div class="col-md-12 mb-3 d-none d-xl-flex">
                         <a href="{{ url()->current() }}" class="sort-font">Recommended</a>
                         <a href="{{ url()->current()."?sort=top" }}" class="sort-font">Top Sellers</a>
                         <a href="{{ url()->current()."?sort=recent" }}" class="sort-font">Most Recent</a>
@@ -217,60 +218,77 @@
                                 </article>
                             @endforeach
                         </div>
-                        <div class="tab-pane fade" id="pills-topsellers" role="tabpanel"
-                             aria-labelledby="pills-topsellers-tab">
+                        {{--                        <div class="tab-pane fade" id="pills-topsellers" role="tabpanel"--}}
+                        {{--                             aria-labelledby="pills-topsellers-tab">--}}
 
 
-                        </div>
-                        <div class="tab-pane fade" id="pills-mostrecent" role="tabpanel"
-                             aria-labelledby="pills-mostrecent-tab">
+                        {{--                        </div>--}}
+                        {{--                        <div class="tab-pane fade" id="pills-mostrecent" role="tabpanel"--}}
+                        {{--                             aria-labelledby="pills-mostrecent-tab">--}}
 
-                        </div>
-                        <div class="tab-pane fade" id="pills-highestprice" role="tabpanel"
-                             aria-labelledby="pills-highestprice-tab">
-                        </div>
-                        <div class="tab-pane fade" id="pills-lowestprice" role="tabpanel"
-                             aria-labelledby="pills-lowestprice-tab">
-                        </div>
+                        {{--                        </div>--}}
+                        {{--                        <div class="tab-pane fade" id="pills-highestprice" role="tabpanel"--}}
+                        {{--                             aria-labelledby="pills-highestprice-tab">--}}
+                        {{--                        </div>--}}
+                        {{--                        <div class="tab-pane fade" id="pills-lowestprice" role="tabpanel"--}}
+                        {{--                             aria-labelledby="pills-lowestprice-tab">--}}
+                        {{--                        </div>--}}
                     </div>
 
-                    <div class="row mt-5">
-                        <div class="col">
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination pagination-lg justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a aria-hidden="true" class="page-link"><i
-                                                class="fas fa-chevron-circle-left"></i></a>
-                                        <span class="sr-only">Previous</span>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">&nbsp;1&nbsp;</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <span class="page-link">&hellip;</span>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">15</a></li>
+                    {{--                    <div class="row mt-5">--}}
+                    {{--                        <div class="col">--}}
 
-                                    <li class="page-item">
-                                        <a aria-hidden="true" class="page-link" href="#"><i
-                                                class="fas fa-chevron-circle-right"></i></a>
-                                        <span class="sr-only">Next</span>
+                    {{--                            <nav aria-label="Page navigation">--}}
+                    {{--                                <ul class="pagination pagination-lg justify-content-center">--}}
+                    {{--                                    <li class="page-item disabled">--}}
+                    {{--                                        <a aria-hidden="true" class="page-link"><i--}}
+                    {{--                                                class="fas fa-chevron-circle-left"></i></a>--}}
+                    {{--                                        <span class="sr-only">Previous</span>--}}
+                    {{--                                    </li>--}}
+                    {{--                                    <li class="page-item active"><a class="page-link" href="#">&nbsp;1&nbsp;</a></li>--}}
+                    {{--                                    <li class="page-item"><a class="page-link" href="#">2</a></li>--}}
+                    {{--                                    <li class="page-item"><a class="page-link" href="#">3</a></li>--}}
+                    {{--                                    <li class="page-item">--}}
+                    {{--                                        <span class="page-link">&hellip;</span>--}}
+                    {{--                                    </li>--}}
+                    {{--                                    <li class="page-item"><a class="page-link" href="#">15</a></li>--}}
 
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="col-lg-3 col-md-4 pt-2">
-                            <select class="form-select" aria-label="Per page select">
-                                <option value="3">Per page 3</option>
-                                <option value="10">Per page 10</option>
-                                <option value="25">Per page 25</option>
-                            </select>
-                        </div>
-                    </div>
+                    {{--                                    <li class="page-item">--}}
+                    {{--                                        <a aria-hidden="true" class="page-link" href="#"><i--}}
+                    {{--                                                class="fas fa-chevron-circle-right"></i></a>--}}
+                    {{--                                        <span class="sr-only">Next</span>--}}
+
+                    {{--                                    </li>--}}
+                    {{--                                </ul>--}}
+                    {{--                            </nav>--}}
+                    {{--                        </div>--}}
+                    {{--                        <div class="col-lg-3 col-md-4 pt-2">--}}
+
+                    {{--                            <select class="form-select" aria-label="Per page select">--}}
+                    {{--                                <option value="3">Per page 3</option>--}}
+                    {{--                                <option value="10">Per page 10</option>--}}
+                    {{--                                <option value="25">Per page 25</option>--}}
+                    {{--                            </select>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--                    {{ $products->links() }}--}}
                 </section>
+                <div class="row mt-3">
+
+                    <p class="text-muted">Per page:
+                        {{--                        <a href="{{ url()->current()."?sort=top" }}" class="sort-font">Top Sellers</a>--}}
+                        | 3
+                        | 10
+                        | 20
+
+                        {{ $products->links("pagination::bootstrap-4") }}
+
+                    </p>
+                </div>
             </div>
+
         </div>
+
     </main>
 
 @endsection
