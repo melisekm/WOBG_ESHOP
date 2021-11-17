@@ -186,7 +186,7 @@
                                         <div class="col d-flex flex-column">
                                             <div class="row pt-3 text-center text-sm-start">
                                                 <div class="col-sm-8">
-                                                    <a href="">
+                                                    <a href={{route("products.show", [$product->id])}}>
                                                         <h2 class="fs-5  fw-bold text-truncate">{{$product->name}}</h2>
                                                     </a>
                                                 </div>
