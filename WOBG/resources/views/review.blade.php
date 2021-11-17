@@ -47,11 +47,8 @@
                 <!--    Payment-->
                 <div class="row">
                     <div class="col 4 mt-2">
-                        <div class="fs-4">
-                            Payment
-                        </div>
+                        <div class="fs-4"> Payment</div>
                         <div class="btn-group-vertical" role="group" aria-label="Payment radio group">
-
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="paymentRadios" id="{{$payment}}"
                                        value="{{$payment}}" checked>
@@ -71,15 +68,15 @@
                                 <div class="col-6 col-md-5">
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="shippingRadios"
-                                               id="{{$shippingName}}"
-                                               value="{{$shippingName}}" checked>
-                                        <label class="form-check-label" for="{{$shippingName}}">
-                                            {{$shippingName}}
+                                               id="{{$shipping["name"]}}"
+                                               value="{{$shipping["name"]}}" checked>
+                                        <label class="form-check-label" for="{{$shipping["name"]}}">
+                                            {{$shipping["name"]}}
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    @money($shippingPrice)
+                                    @money($shipping["price"])
                                 </div>
                             </div>
                         </div>
@@ -88,10 +85,13 @@
                 <!--    Continue or back-->
                 <div class="row">
                     <div class="col">
-                        <a class="btn btn-blue my-3 fs-4" href="{{url("order-completed")}}">Pay now</a>
+                        <a href="{{route("checkout.complete")}}" class="btn btn-blue my-3 fs-4">Pay
+                            now</a>
                     </div>
                     <div class="col text-end">
-                        <button onclick="window.history.back()" class="btn btn-secondary my-3 fs-4">Back</button>
+                        <a onclick="window.history.back()"
+                                class="btn btn-secondary my-3 fs-4">Back
+                        </a>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                                data-bs-toggle="collapse" href="#summaryCollapse" aria-expanded="false"
                                aria-controls="summaryCollapse">
                                 <div class="align-left"> Summary &nbsp;<i class="fas fa-chevron-down"></i></div>
-                                <div class="align-right">@money($totalPrice)</div>
+                                <div class="align-right">@money($price["total"])</div>
                             </a>
                         </div>
                     </div>
@@ -124,8 +124,8 @@
                                     <div class="py-2"> Shipping</div>
                                 </div>
                                 <div class="col">
-                                    <div class="text-end py-2">@money($subtotal)</div>
-                                    <div class="text-end py-2">@money($shippingPrice)</div>
+                                    <div class="text-end py-2">@money($price["subtotal"])</div>
+                                    <div class="text-end py-2">@money($shipping["price"])</div>
                                 </div>
                             </div>
                             <!--    Total-->
@@ -134,7 +134,7 @@
                                     <div class="pt-3 fs-4"> Total</div>
                                 </div>
                                 <div class="col">
-                                    <div class="text-end pt-3 fw-bold fs-4">@money($totalPrice)</div>
+                                    <div class="text-end pt-3 fw-bold fs-4">@money($price["total"])</div>
                                 </div>
                             </div>
                         </div>

@@ -75,3 +75,7 @@ const addProductToCart = (id) => {
     });
 }
 
+const submitFilters = () => {
+    event.preventDefault();
+    this.closest('form').submit();
+}

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Facades\Cart;
+use App\Models\Order;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 
 class CheckoutController extends Controller
@@ -20,8 +23,7 @@ class CheckoutController extends Controller
         return view('checkout', compact('products', 'totalPrice', 'user'));
     }
 
-
-    public function review(Request $request)
+    private function validateCheckout(Request $request)
     {
         if (!auth()->check()) {
             $request->validate([
@@ -50,13 +52,28 @@ class CheckoutController extends Controller
         $shippingName = $request->input('shippingGroup');
         $shippingPrice = $this->getShipping($shippingName);
 
+        $save_address = $request->input('save_address');
+
         ["products" => $products, "totalPrice" => $subtotal] = Cart::getProducts($cart);
         $totalPrice = $subtotal + $shippingPrice;
+        $price = [
+            'subtotal' => $subtotal,
+            'total' => $totalPrice
+        ];
+        $shipping = [
+            'name' => $shippingName,
+            'price' => $shippingPrice,
+        ];
 
         $user = new User($user_data);
-        return view('review',
-            compact('products', 'totalPrice',
-                'payment', 'shippingName', 'shippingPrice', 'subtotal', 'user'));
+        session(["orderData" => compact('user', 'products', 'price', 'shipping', 'payment', 'save_address')]);
+        return compact('user', 'products', 'price', 'shipping', 'payment', 'save_address');
+    }
+
+
+    public function review(Request $request)
+    {
+        return view('review', $this->validateCheckout($request));
     }
 
     private function getShipping($shipping)
@@ -72,11 +89,41 @@ class CheckoutController extends Controller
         return abort(422);
     }
 
+    private function copyOrderUserData(Model $obj, $orderUser)
+    {
+        $obj->first_name = $orderUser->first_name;
+        $obj->surname = $orderUser->surname;
+        $obj->street = $orderUser->street;
+        $obj->city = $orderUser->city;
+        $obj->country = $orderUser->country;
+        $obj->phone_number = $orderUser->phone_number;
+        $obj->postal_code = $orderUser->postal_code;
+    }
+
     public function completeOrder()
     {
-        $cart = Cart::getCart();
-        if (!$cart) {
-            return redirect('cart');
+        $orderData = session('orderData');
+        if (!$orderData) {
+            return redirect("cart");
+        }
+        Log::info($orderData);
+        if (!empty($orderData["save_address"])) {
+            $user = auth()->user();
+            $this->copyOrderUserData($user, $orderData["user"]);
+            $user->save();
+        }
+        $order = new Order();
+        $order->payment = $orderData["payment"];
+        $order->shipping = $orderData["shipping"]["name"];
+        $order->total = $orderData["price"]["total"];
+        if (auth()->check()) {
+            $order->user_id = auth()->user()->id;
+        }
+        $this->copyOrderUserData($order, $orderData["user"]);
+        $order->email = $orderData["user"]->email;
+        $order->save();
+        foreach ($orderData->products as $product) {
+            $order->products()->attach($product->id, ['quantity' => $product->pivot->quantity, "price" => $product->price]);
         }
         return view("order-done");
     }
