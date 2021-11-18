@@ -10,10 +10,12 @@ use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
+
+
     /**
      * Display a listing of the resource. vsetky produkty VIEW
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
     public function index(Request $request)
     {
@@ -23,6 +25,78 @@ class ProductController extends Controller
         $search = $request->query("search", "");
         $minPrice = $request->query("min_price", "0");
         $maxPrice = $request->query("max_price", "100");
+        $categories = $request->query("cat", "");
+        $subCategories = $request->query("subcat", "");
+        // potrebujeme splitnut string lebo je v tvare [1,2,3], konverziu na inty
+        $selectedCategories = array_map('intval', explode(',', $categories));
+        $selectedSubCategories = array_map('intval', explode(',', $subCategories));
+        $minAge = $request->query("minAge", "0");
+        $minPlayers = $request->query("minPlayers", "0");
+        $minPlayTime = $request->query("minPlayTime", "0");
+
+        $products = Product::where("name", "ilike", "%$search%")
+            ->whereBetween("price", [$minPrice, $maxPrice])
+            ->where("min_age", ">=", $minAge)
+            ->where("max_players", ">=", $minPlayers)
+            ->where("min_play_time", ">=", $minPlayTime);
+
+        // hladame produkty podla kategorie
+        // ak je zadana kategoria, tak sa vyberu produkty ktore su v tejto kategorie
+        if (!empty($categories)) {
+            $products = $products->whereHas("category", function ($query) use ($selectedCategories) {
+                $query->whereIn("id", $selectedCategories);
+            });
+        }
+        if (!empty($subCategories)) {
+            $products = $products->whereHas("subcategory", function ($query) use ($selectedSubCategories) {
+                $query->whereIn("id", $selectedSubCategories);
+            });
+        }
+        // trocha custom sorting
+        [$sort, $order] = $this->getSorting($sortOption, $order);
+
+        // order a limit + offset
+        $products = $products->orderBy($sort, $order)->paginate($per_page);
+
+        // tuto sa musime pozriet, ci si neziadame viac ako je stran, ak ano tak nastav na poslednu stranu
+        $lastpage = $products->lastPage();
+        $isMorePagesRequestedThanLast = $request->query("page", 1) > $lastpage;
+        if ($isMorePagesRequestedThanLast) {
+            // vratime sa s rovnakym requestom ale upravenym lastpage
+            return redirect()->route("products.index", array_merge($request->query(), ["page" => $lastpage]));
+        }
+
+        $categories = ProductCategory::all();
+        $subcategories = ProductSubcategory::all();
+
+
+        // len to dame do poli, z ktorych vo view sa vyberaju udaje aby elementy mali aktivny stav
+        // napr zaciarknuty checkbox, pre kategoriu ktora je vybrana
+        $filters = [
+            "categories" => $categories,
+            "subcategories" => $subcategories,
+            "price" => [
+                "min" => $minPrice,
+                "max" => $maxPrice
+            ],
+            "minAge" => $minAge,
+            "minPlayers" => $minPlayers,
+            "selectedCategories" => $selectedCategories,
+            "selectedSubCategories" => $selectedSubCategories,
+            "sortOption" => $sortOption,
+            "order" => $order,
+            "minPlayTime" => $minPlayTime
+        ];
+        $pagination = [
+            "per_page" => $per_page,
+        ];
+
+
+        return view('product-catalog', compact('products', 'filters', 'pagination'));
+    }
+
+    private function getSorting($sortOption, $order): array
+    {
         if ($sortOption === "recommended") {
             $sort = "id";
         } else if ($sortOption === "top") {
@@ -34,28 +108,8 @@ class ProductController extends Controller
         } else {
             $sort = "price";
         }
-
-        $products = Product::where("name", "ilike", "%$search%");
-        $products = $products->whereBetween("price", [$minPrice, $maxPrice]);
-        $products = $products->orderBy($sort, $order);
-
-        $products = $products->paginate($per_page);
-        $page = $request->query("page", 1);
-        $lastpage = $products->lastPage();
-        if($page > $lastpage) {
-            return redirect("/products?page=$lastpage&per_page=$per_page&sort=$sortOption&order=$order&search=$search&min_price=$minPrice&max_price=$maxPrice");
-        }
-        $categories = ProductCategory::all();
-        $subcategories = ProductSubcategory::all();
-        $price = [
-            "min" => $minPrice,
-            "max" => $maxPrice
-        ];
-
-        return view('product-catalog', compact('products', 'categories',
-            'subcategories', 'per_page', 'sortOption', 'order', 'price'));
+        return [$sort, $order];
     }
-
 
     /**
      * Show the form for creating a new resource. VIEW

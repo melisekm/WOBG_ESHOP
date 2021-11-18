@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="icon"  type="image/x-icon" href="{{asset("favicon.ico")}}">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+
     @stack('styles')
     <title>@yield('title')</title>
 </head>

@@ -53,11 +53,10 @@
 @endif
 @push("scripts")
     <script>
-        const redirect = (e) => {
+        // len to nastavi page a zachova existujuce parametre
+        const mergeWithParamsAndGo = (e) => {
             e.preventDefault()
-            const target = e.currentTarget
-            const adresa = target.getAttribute("href")
-            console.log(target, adresa)
+            const adresa = e.currentTarget.getAttribute("href")
             const params = (new URL(adresa)).searchParams
             const page = params.get("page")
             url.searchParams.set("page", page)
@@ -66,8 +65,7 @@
 
         const elements = document.getElementsByClassName("page-link");
         for (let i = 0; i < elements.length; i++) {
-            elements[i].addEventListener('click', redirect, false);
+            elements[i].addEventListener('click', mergeWithParamsAndGo);
         }
-
     </script>
 @endpush

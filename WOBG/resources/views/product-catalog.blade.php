@@ -24,10 +24,8 @@
                         <div class="darkRectangle mt-lg-0 mt-4 pb-3">
                             <div class="ps-3 py-2">
                                 <div class="text-end">
-                                    <a href="#" class="btn btn-blue border-0 bg-transparent pe-2 btn-sm">
-                                        <i class="fa fa-check"></i> Apply filters
-                                    </a>
-                                    <a href="#" class="btn btn-blue border-0 bg-transparent pe-2 btn-sm">
+                                    <a href="{{route("products.index")}}"
+                                       class="btn btn-blue border-0 bg-transparent pe-2 btn-sm">
                                         <i class="fas fa-times-circle"></i> Cancel filters
                                     </a>
                                 </div>
@@ -43,7 +41,7 @@
                                             <input id="priceRange" type="text" class="slider" value=""
                                                    data-slider-min="0"
                                                    data-slider-max="100" data-slider-step="5"
-                                                   data-slider-value="[{{$price["min"]}},{{$price["max"]}}]"/>
+                                                   data-slider-value="[{{$filters["price"]["min"]}},{{$filters["price"]["max"]}}]"/>
                                         </div>
                                         <div class="row">
                                             <div class="col">
@@ -61,35 +59,47 @@
                                 <div class="row">
                                     <div class="col-11">
                                         <div class="form-label fs-5 fw-bold mt-3 pt-3 border-top">
-                                            <label for="minimumAge">
+                                            <label for="ageRange">
                                                 Minimum Age
                                             </label>
                                         </div>
-                                        <input type="range" class="form-range w-100" id="minimumAge">
-                                        <p class="fs-6">5</p>
+                                        <input id="ageRange" type="text" class="slider" value=""
+                                               data-slider-min="0"
+                                               data-slider-max="18" data-slider-step="1"
+                                               data-slider-value="{{$filters["minAge"]}}"/>
+                                        <span class="fs-6" id="minAge"></span>
 
                                         <div class="form-label fs-5 fw-bold">
-                                            <label for="minimumPlayers">
+                                            <label for="playerRange">
                                                 Minimum players
                                             </label>
                                         </div>
-                                        <input type="range" class="form-range w-100" id="minimumPlayers">
-                                        <p class="fs-6">2</p>
+                                        <input id="playerRange" type="text" class="slider" value=""
+                                               data-slider-min="0"
+                                               data-slider-max="10" data-slider-step="1"
+                                               data-slider-value="{{$filters["minPlayers"]}}"/>
+                                        <span class="fs-6" id="minPlayers"></span>
 
                                         <div class="form-label fs-5 fw-bold">
-                                            <label for="playTime">
+                                            <label for="playTimeRange">
                                                 Play Time
                                             </label>
                                         </div>
-                                        <input type="range" class="form-range w-100" id="playTime">
-                                        <p class="fs-6">45min</p>
+                                        <input id="playTimeRange" type="text" class="slider" value=""
+                                               data-slider-min="0"
+                                               data-slider-max="120" data-slider-step="10"
+                                               data-slider-value="{{$filters["minPlayTime"]}}"/>
+                                        <span class="fs-6" id="minPlayTime"></span>
 
                                         <div class="fs-5 fw-bold mt-3 py-3 border-top">Main Category</div>
-                                        @foreach($categories as $category)
+                                        @foreach($filters["categories"] as $category)
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                       id="mainCategoryCheckbox1">
-                                                <label class="form-check-label" for="mainCategoryCheckbox1">
+                                                <input class="form-check-input"
+                                                       @if(in_array($category->id, $filters["selectedCategories"])) checked
+                                                       @endif name="category" type="checkbox"
+                                                       value="{{$category->id}}"
+                                                       id="{{$category->name}}">
+                                                <label class="form-check-label" for="{{$category->name}}">
                                                     {{$category->name}}
                                                 </label>
                                             </div>
@@ -98,11 +108,14 @@
 
                                         <div class="fs-5 fw-bold mt-3 py-3 border-top">Sub Category</div>
 
-                                        @foreach($subcategories as $subcategory)
+                                        @foreach($filters["subcategories"] as $subcategory)
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                       id="mainCategoryCheckbox1">
-                                                <label class="form-check-label" for="mainCategoryCheckbox1">
+                                                <input class="form-check-input" type="checkbox" name="subcategory"
+                                                       @if(in_array($subcategory->id, $filters["selectedSubCategories"])) checked
+                                                       @endif
+                                                       value="{{$subcategory->id}}"
+                                                       id="{{$subcategory->name}}">
+                                                <label class="form-check-label" for="{{$subcategory->name}}">
                                                     {{$subcategory->name}}
                                                 </label>
                                             </div>
@@ -118,75 +131,79 @@
             </div>
             <!--    Catalog-->
             <div class="col-lg-9 py-lg-0 order-links">
-                @if(count($products) === 0)
-                    <div class="fs-2 mt-4 text-center">
-                        <p>No results found</p>
-                        <a href="{{route("products.index")}}" class="btn mt-5 btn-blue btn-back-to-browsing">
-                            Back to browsing
-                        </a>
+
+                <section>
+                    <h1 class="my-3 display-6">Board Games</h1>
+                    <!--    Ordering-->
+                    <ul class="nav nav-pills mb-3 d-none d-xl-flex" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a id="recommended"
+                               class="nav-link link-dark sort-option @if($filters["sortOption"] == "recommended") active @endif">
+                                Recommended
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a id="top"
+                               class="nav-link link-dark sort-option @if($filters["sortOption"] === "top") active @endif">
+                                Top Sellers
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a id="recent"
+                               class="nav-link link-dark sort-option @if($filters["sortOption"] === "recent") active @endif">
+                                Most Recent
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a id="price_desc"
+                               class="nav-link link-dark sort-option @if($filters["sortOption"] === "price" && $filters["order"] == "desc") active @endif">
+                                Highest Price</a>
+
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a id="price_asc"
+                               class="nav-link link-dark sort-option @if($filters["sortOption"] === "price" && $filters["order"] == "asc") active @endif">
+                                Lowest Price
+                            </a>
+                        </li>
+                    </ul>
+                    <!--    Dropdown ordering-->
+                    <div class="d-xl-none my-3">
+                        <select class="form-select" id="mobile_sort" aria-label="Mobile order select">
+                            <option @if($filters["sortOption"] === "recommended") selected @endif value="recommended">
+                                Order by
+                                Recommended
+                            </option>
+                            <option @if($filters["sortOption"] === "top") selected @endif value="top">Order by Top
+                                Sellers
+                            </option>
+                            <option @if($filters["sortOption"] === "recent") selected @endif value="recent">Order by
+                                Most
+                                Recent
+                            </option>
+                            <option @if($filters["sortOption"] === "price" && $filters["order"] == "desc") selected
+                                    @endif value="price_desc">Order by
+                                Highest Price
+                            </option>
+                            <option @if($filters["sortOption"] === "price" && $filters["order"] == "asc") selected
+                                    @endif value="price_asc">Order by
+                                Lowest Price
+                            </option>
+                        </select>
                     </div>
-
-                @else
-                    <section>
-                        <h1 class="my-3 display-6"> Family Games</h1>
-                        <!--    Ordering-->
-                        <ul class="nav nav-pills mb-3 d-none d-xl-flex" id="pills-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a id="sort-recommended"
-                                   class="nav-link link-dark @if($sortOption == "recommended") active @endif">
-                                    Recommended
-                                </a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a id="sort-top" class="nav-link link-dark @if($sortOption === "top") active @endif">
-                                    Top Sellers
-                                </a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a id="sort-recent"
-                                   class="nav-link link-dark @if($sortOption === "recent") active @endif">
-                                    Most Recent
-                                </a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a id="sort-price-desc"
-                                   class="nav-link link-dark @if($sortOption === "price" && $order == "desc") active @endif">
-                                    Highest Price</a>
-
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a id="sort-price-asc"
-                                   class="nav-link link-dark @if($sortOption === "price" && $order == "asc") active @endif">
-                                    Lowest Price
-                                </a>
-                            </li>
-                        </ul>
-                        <!--    Dropdown ordering-->
-                        <div class="d-xl-none my-3">
-                            <select class="form-select" id="mobile_sort" aria-label="Mobile order select">
-                                <option @if($sortOption === "recommended") selected @endif value="recommended">Order by
-                                    Recommended
-                                </option>
-                                <option @if($sortOption === "top") selected @endif value="top">Order by Top Sellers
-                                </option>
-                                <option @if($sortOption === "recent") selected @endif value="recent">Order by Most
-                                    Recent
-                                </option>
-                                <option @if($sortOption === "price" && $order == "desc") selected
-                                        @endif value="price_desc">Order by
-                                    Highest Price
-                                </option>
-                                <option @if($sortOption === "price" && $order == "asc") selected
-                                        @endif value="price_asc">Order by
-                                    Lowest Price
-                                </option>
-                            </select>
+                    <!--    Products-->
+                    @if(count($products) === 0)
+                        <div class="fs-2 mt-4 text-center">
+                            <p>No results found</p>
+                            <a href="{{route("products.index")}}" class="btn mt-5 btn-blue btn-back-to-browsing">
+                                Back to browsing
+                            </a>
                         </div>
-                        <!--    Products-->
+
+                    @else
                         <div class="tab-content ps-xl-3" id="pills-tabContent">
                             <div class="tab-pane fade show active " id="pills-recommended" role="tabpanel"
                                  aria-labelledby="pills-recommended-tab">
-
                                 @foreach($products as $product)
                                     <article>
                                         <div class="row pb-2 border-bottom">
@@ -213,7 +230,6 @@
                                                 <div class="row d-none d-sm-block">
                                                     <div class="col-sm-8">
                                                         <p class="description">{{$product->description}}</p>
-                                                        </p>
                                                     </div>
                                                 </div>
                                                 <div class="row mt-auto">
@@ -242,21 +258,20 @@
                                 @endforeach
                             </div>
                         </div>
-
-                    </section>
-                    <div class="row mt-5">
-                        <div class="col">
-                            {{ $products->links("pagination::bootstrap-4") }}
-                        </div>
-                        <div class="col-lg-3 col-md-4 pt-2">
-                            <select class="form-select" id="per_page" aria-label="Per page select">
-                                <option value="3" @if($per_page == 3) selected @endif>Per page 3</option>
-                                <option value="10" @if($per_page == 10) selected @endif>Per page 10</option>
-                                <option value="25" @if($per_page == 25) selected @endif>Per page 25</option>
-                            </select>
-                        </div>
+                    @endif
+                </section>
+                <div class="row mt-5">
+                    <div class="col">
+                        {{ $products->links("pagination::bootstrap-4") }}
                     </div>
-                @endif
+                    <div class="col-lg-3 col-md-4 pt-2">
+                        <select class="form-select" id="per_page" aria-label="Per page select">
+                            <option value="3" @if($pagination["per_page"] == 3) selected @endif>Per page 3</option>
+                            <option value="10" @if($pagination["per_page"] == 10) selected @endif>Per page 10</option>
+                            <option value="25" @if($pagination["per_page"] == 25) selected @endif>Per page 25</option>
+                        </select>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -269,84 +284,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"
             integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        const url = new URL(window.location.href);
-
-        //Prodcut catalog slider
-        //https://github.com/seiyria/bootstrap-slider
-        const minTag = document.getElementById("priceMin")
-        const maxTag = document.getElementById("priceMax")
-        const priceRange = new Slider('#priceRange', {"tooltip": "hide"});
-        const priceRangeElement = priceRange.getElement()
-        minTag.innerHTML = priceRange.getValue()[0] + "$"
-        maxTag.innerHTML = priceRange.getValue()[1] + "$"
-
-        const updatePriceSliderValues = () => {
-            const [low, high] = priceRange.getValue()
-            minTag.innerHTML = low + "$"
-            maxTag.innerHTML = high + "$"
-        }
-
-        priceRangeElement.slide = () => {
-            updatePriceSliderValues()
-
-        }
-        priceRangeElement.slideStop = () => {
-            url.searchParams.set("min_price", priceRange.getValue()[0])
-            url.searchParams.set("max_price", priceRange.getValue()[1])
-            window.location.href = url.href;
-
-        }
-
-        priceRangeElement.change = () => {
-            updatePriceSliderValues()
-        }
-
-
-        document.getElementById("mobile_sort").onchange = function () {
-            if (["recommended", "recent", "top"].includes(this.value)) {
-                url.searchParams.delete("order")
-                url.searchParams.set("sort", this.value)
-            } else if (this.value === "price_asc") {
-                url.searchParams.set("sort", "price")
-                url.searchParams.set('order', 'asc');
-
-            } else if (this.value === "price_desc") {
-                url.searchParams.set("sort", "price")
-                url.searchParams.set('order', 'desc');
-            }
-            window.location.href = url.href;
-        }
-
-        document.getElementById('per_page').onchange = function () {
-            url.searchParams.set('per_page', this.value);
-            window.location.href = url.href;
-        };
-        document.getElementById('sort-recommended').onclick = () => {
-            url.searchParams.set('sort', 'recommended');
-            url.searchParams.delete("order")
-            window.location.href = url.href;
-        };
-        document.getElementById('sort-recent').onclick = () => {
-            url.searchParams.set('sort', 'recent');
-            url.searchParams.delete("order")
-            window.location.href = url.href;
-        };
-        document.getElementById('sort-top').onclick = () => {
-            url.searchParams.set('sort', 'top');
-            url.searchParams.delete("order")
-            window.location.href = url.href;
-        };
-        document.getElementById('sort-price-asc').onclick = () => {
-            url.searchParams.set('sort', 'price');
-            url.searchParams.set('order', 'asc');
-            window.location.href = url.href;
-        };
-        document.getElementById('sort-price-desc').onclick = () => {
-            url.searchParams.set('sort', 'price');
-            url.searchParams.set('order', 'desc');
-            window.location.href = url.href;
-        };
-    </script>
-
+    <script src="{{asset("js/product_catalog/sliders.js")}}"></script>
+    <script src="{{asset("js/product_catalog/filters.js")}}"></script>
 @endpush
