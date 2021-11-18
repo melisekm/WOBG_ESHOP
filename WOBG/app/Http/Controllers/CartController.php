@@ -12,10 +12,10 @@ class CartController extends Controller
     {
         $cart = Cart::getCart();
         if (!$cart) {
-            return view('cart');
+            return view('cart.cart');
         }
         ["products" => $products, "totalPrice" => $totalPrice] = Cart::getProducts($cart);
-        return view('cart', compact('products', 'totalPrice'));
+        return view('cart.cart', compact('products', 'totalPrice'));
     }
 
     function store(Product $product)
@@ -24,8 +24,8 @@ class CartController extends Controller
         if (!$cart) {
             $cart = [];
         }
-
-        if (array_key_exists($product->id, $cart)) {
+        $isProductInCart = array_key_exists($product->id, $cart);
+        if ($isProductInCart) {
             $cart[$product->id]['quantity']++;
             Cart::saveCart("update", $product->id, $cart);
         } else {
@@ -38,8 +38,8 @@ class CartController extends Controller
     public function increment(Product $product)
     {
         $cart = Cart::getCart();
-
-        if (array_key_exists($product->id, $cart)) {
+        $isProductInCart = array_key_exists($product->id, $cart);
+        if ($isProductInCart) {
             $cart[$product->id]['quantity']++;
             Cart::saveCart("update", $product->id, $cart);
         }
@@ -49,8 +49,10 @@ class CartController extends Controller
     public function decrement(Product $product)
     {
         $cart = Cart::getCart();
-
-        if (array_key_exists($product->id, $cart) && $cart[$product->id]['quantity'] > 1) {
+        $isProductInCart = array_key_exists($product->id, $cart);
+        $isAtleastTwiceInCart = $cart[$product->id]['quantity'] > 1;
+        $canBeDecremented = $isProductInCart && $isAtleastTwiceInCart;
+        if ($canBeDecremented) {
             $cart[$product->id]['quantity']--;
             Cart::saveCart("update", $product->id, $cart);
         }

@@ -58,6 +58,8 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
+    // pozrie v medzivazobnej tabulke a vytvori objekt ekvivalentny tomu co mame v session
+    // bude to objekt cart, ktory je asociativne pole id produktov, ktore obsahuju pole a v nom element quantity
     public function getProductsInCartWithQuantity()
     {
         $user_products = $this->products()->get();

@@ -9,28 +9,7 @@
 @section("content")
     <main class="container">
         <!--    Kroky checkoutu-->
-        <ul class="timeline mt-4 ">
-            <li class="step complete">
-                <div class="status">
-                    <div><a href="#" class="black-link">Information</a></div>
-                </div>
-            </li>
-            <li class="step">
-                <div class="status">
-                    <div>Review</div>
-                </div>
-            </li>
-            <li class="step">
-                <div class="status">
-                    <div>Payment</div>
-                </div>
-            </li>
-            <li class="step">
-                <div class="status">
-                    <div>Done</div>
-                </div>
-            </li>
-        </ul>
+        @include("components.checkout.steps", ["step" => 1])
         <h1 class="my-3 display-6">Checkout</h1>
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -165,9 +144,9 @@
                                 <div class="btn-group-vertical" role="group" aria-label="Shipping radio group">
                                     @foreach($shippings as $shipping)
                                         @if ($loop->first)
-                                            @include('components.checkout-checkbox', ['label' => $shipping->name, 'price' => $shipping->price, 'checked' => 'checked'])
+                                            @include('components.checkout.checkbox', ['label' => $shipping->name, 'price' => $shipping->price, 'checked' => 'checked'])
                                         @else
-                                            @include('components.checkout-checkbox', ['label' => $shipping->name, 'price' => $shipping->price])
+                                            @include('components.checkout.checkbox', ['label' => $shipping->name, 'price' => $shipping->price])
                                         @endif
                                     @endforeach
                                 </div>
@@ -198,7 +177,7 @@
                             <div class="container">
                                 <!--    Items-->
                             @foreach($products as $product)
-                                @include("components.summary-item", ["product" => $product])
+                                @include("components.checkout.summary-item", ["product" => $product])
                             @endforeach
 
                             <!--    Subtotal-->

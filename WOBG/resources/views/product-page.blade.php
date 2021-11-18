@@ -76,13 +76,10 @@
                         </li>
                     </ul>
                     <div class="border-sm-bottom pb-3">
-                        <button type="button" class="btn btn-blue btn-add-to-cart" data-bs-toggle="modal"
-                                data-bs-target="#addtoCartModal-{{$product->id}}">
-                            Add to cart
-                        </button>
-                        <!--    Modal-->
-                        @include("components.add-to-cart-modal", ["product" => $product])
-
+                        @include("components.btn-add-to-cart", [
+                            "product" => $product,
+                            "class" => "btn btn-blue btn-add-to-cart"
+                        ])
                     </div>
                     <p class="pt-3">
                         {{$product->getShortenedDescription()}}

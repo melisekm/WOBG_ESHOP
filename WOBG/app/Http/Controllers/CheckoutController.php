@@ -23,7 +23,7 @@ class CheckoutController extends Controller
         $user = auth()->check() ? auth()->user() : new User();
         $payments = Payment::all();
         $shippings = Shipping::all();
-        return view('checkout', compact('products', 'totalPrice', 'user', 'payments', 'shippings'));
+        return view('cart.checkout', compact('products', 'totalPrice', 'user', 'payments', 'shippings'));
     }
 
     private function getCartData($shipping, $cart)
@@ -73,7 +73,7 @@ class CheckoutController extends Controller
 
         $user = new User($user_data);
         session(["orderData" => compact('user', 'payment', 'shipping', 'save_address')]);
-        return view('review',
+        return view('cart.review',
             compact('user', 'products', 'price', 'shipping', 'payment', 'save_address'));
     }
 
@@ -125,6 +125,6 @@ class CheckoutController extends Controller
         }
         Cart::clearCart();
         session()->forget("orderData");
-        return view("order-done");
+        return view("cart.order-done");
     }
 }

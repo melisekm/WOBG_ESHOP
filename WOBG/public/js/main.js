@@ -70,12 +70,7 @@ inputBox.addEventListener('search', () => {
 });
 
 const addProductToCart = (id) => {
-    $.post(`cart/${id}`).done((data) => {
+    $.post(`/cart/${id}`).done((data) => {
         $("#cartCount").html(data.length);
     });
-}
-
-const submitFilters = () => {
-    event.preventDefault();
-    this.closest('form').submit();
 }

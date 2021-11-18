@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUnused */
 
 namespace App\Helpers;
 
@@ -6,6 +6,7 @@ use App\Models\Product;
 
 class Cart
 {
+    // naplni kosik z databazy alebo z sessionu
     public function getCart()
     {
         if (auth()->check()) {
@@ -17,6 +18,8 @@ class Cart
         return $cart;
     }
 
+    // ak je pouzivatel prihlaseny na zaklade akcie prida novy item, updatne, alebo vymaze
+    // ulozi vysledok do session
     public function saveCart(string $action, $productId, $cart)
     {
         if (auth()->check()) {
@@ -36,7 +39,9 @@ class Cart
         session(['cart' => $cart]);
     }
 
-
+    // po prihlaseni alebo registracii, nacita do kosika produkty
+    // ak sa prihlasil a nemal produkty v kosiku, nakopiruje do DB cart zo sessionu
+    // tuto sa moze spravit merge
     public function loadCartOnLogin()
     {
         $user = auth()->user();
@@ -65,7 +70,10 @@ class Cart
         return 0;
     }
 
-    public function getProducts($cart)
+    // na zaklade nacitaneho kosika vytiahne z DB konkretne produkty
+    // vrati ku kazdemu objektu quantity z kosika a vyslednu cenu (item_cena * quantity)
+    // taktiez spocita celkovu cenu vsetkych produktov v kosiku
+    public function getProducts($cart): array
     {
         $products = Product::with("mainPhotos")->findMany(array_keys($cart), ['id', 'name', 'price']);
         $totalPrice = 0;

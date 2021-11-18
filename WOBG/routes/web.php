@@ -32,7 +32,7 @@ Route::post('/review', [CheckoutController::class, 'review'])->name('checkout.re
 Route::get('/order-completed', [CheckoutController::class, 'completeOrder'])->name('checkout.complete');
 
 Route::get("/review", function(){
-    return view('cart');
+    return view('cart.cart');
 });
 
 

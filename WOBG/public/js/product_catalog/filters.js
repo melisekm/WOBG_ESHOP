@@ -42,8 +42,8 @@ document.querySelectorAll('.sort-option').forEach((element) => {
 // CHECKBOXES
 const getCheckedCategoriesAndSearch = () => {
     // get selected checkboxes on page
-    const selectedCategories = document.querySelectorAll('input[name="category"]:checked');
-    const selectedSubCategories = document.querySelectorAll('input[name="subcategory"]:checked');
+    const selectedCategories = document.querySelectorAll('input[name="categories"]:checked');
+    const selectedSubCategories = document.querySelectorAll('input[name="subcategories"]:checked');
     // create array with values only
     const categories = Array.from(selectedCategories).map(el => el.value);
     const subcategories = Array.from(selectedSubCategories).map(el => el.value);

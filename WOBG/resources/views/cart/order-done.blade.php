@@ -5,29 +5,7 @@
 @section('title', 'WOBG - Review')
 @section("content")
     <main class="container">
-        <ul class="timeline mt-4 ">
-            <li class="step complete">
-                <div class="status">
-                    <div>Information</div>
-                </div>
-            </li>
-            <li class="step complete">
-                <div class="status">
-                    <div>Review</div>
-                </div>
-            </li>
-            <li class="step complete">
-                <div class="status ">
-                    <div>Payment</div>
-                </div>
-            </li>
-            <li class="step complete">
-                <div class="status">
-                    <div>Done</div>
-                </div>
-            </li>
-        </ul>
-
+        @include("components.checkout.steps", ["step" => 4])
         <div class="m-auto text-center ">
             <h1>Thank you for your order!</h1>
             <div><i class="fas fa-check-circle fa-8x"></i></div>

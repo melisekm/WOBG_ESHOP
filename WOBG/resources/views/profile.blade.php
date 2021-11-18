@@ -67,7 +67,7 @@
                             </button>
                         </div>
                     </div>
-                @include("components.address-modal")
+                @include("components.modals.address-modal")
                 @include("auth.reset-password-modal")
                 </div>
             </div>

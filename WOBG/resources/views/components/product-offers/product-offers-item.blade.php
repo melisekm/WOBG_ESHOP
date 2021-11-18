@@ -11,7 +11,7 @@
     </a>
     <p class="fs-3 fw-bold">@money($product->price)</p>
     <div class="d-grid">
-        @include("components.btn-add-to-cart", ["product" => $product])
+        @include("components.btn-add-to-cart", ["product" => $product, "class" => "btn rounded btn-blue fs-4"])
     </div>
 </div>
 

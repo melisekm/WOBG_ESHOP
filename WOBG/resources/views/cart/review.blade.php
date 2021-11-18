@@ -5,31 +5,7 @@
 @section('title', 'WOBG - Review')
 @section("content")
     <main class="container">
-        <ul class="timeline mt-4 ">
-            <li class="step complete">
-                <div class="status">
-                    <div>
-                        <a onclick="window.history.back()" href="#" class="black-link">Information</a>
-                    </div>
-                </div>
-            </li>
-            <li class="step complete">
-                <div class="status">
-                    <div><a href="#" class="black-link">Review</a></div>
-                </div>
-            </li>
-            <li class="step">
-                <div class="status">
-                    <div> Payment</div>
-                </div>
-            </li>
-            <li class="step">
-                <div class="status">
-                    <div> Done</div>
-                </div>
-            </li>
-        </ul>
-
+        @include("components.checkout.steps", ["step" => 2])
         <h1 class="my-3 display-6">Review</h1>
         <div class="row my-3">
             <div class="col-lg-6 mt-lg-0 mt-3 order-2 order-lg-1">
@@ -46,7 +22,7 @@
                 </div>
                 <!--    Payment-->
                 <div class="row">
-                    <div class="col 4 mt-2">
+                    <div class="col mt-2">
                         <div class="fs-4"> Payment</div>
                         <div class="btn-group-vertical" role="group" aria-label="Payment radio group">
                             <div class="form-check">
@@ -114,7 +90,7 @@
                         <div class="container">
                             <!--    Items-->
                         @foreach($products as $product)
-                            @include("components.summary-item", ["product" => $product])
+                            @include("components.checkout.summary-item", ["product" => $product])
                         @endforeach
 
                         <!--    Subtotal-->
