@@ -3,8 +3,10 @@
 ## Usage
 - composer update
 - npm install
-- set .env file
-- generate api key
+- setup your .env
+- generate your app key
+- php artisan migrate
+- make inserts based on .sql files
 - php artisan serve
 
 ## Description
