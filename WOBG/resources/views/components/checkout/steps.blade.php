@@ -1,17 +1,19 @@
 <ul class="timeline mt-4 ">
     <li class="step complete">
         <div class="status">
-            <div><a @if($step > 1) onclick="window.history.back()" @endif href="#"
-                    class="black-link">Information</a></div>
+            <div>
+                @if($step == 2)
+                    <a onclick="window.history.back()" href="#"
+                       class="black-link">Information</a>
+                @else
+                    Information
+                @endif
+            </div>
         </div>
     </li>
     <li class="step @if($step > 1) complete @endif">
         <div class="status">
-            @if($step > 1)
-                <div><a href="#" class="black-link">Review</a></div>
-            @else
-                <div> Review</div>
-            @endif
+            <div> Review</div>
         </div>
     </li>
     <li class="step @if($step > 2) complete @endif">

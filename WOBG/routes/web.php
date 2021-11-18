@@ -22,7 +22,7 @@ Route::get('/', [LandingController::class, 'index']);
 
 
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
-Route::post('cart/{product}', [CartController::class, 'store'])->name('cart.store');
+Route::post('cart/{product}/{amount}', [CartController::class, 'store'])->name('cart.store');
 Route::delete('cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 Route::patch('cart/{product}/increment', [CartController::class, 'increment'])->name('cart.increment');
 Route::patch('cart/{product}/decrement', [CartController::class, 'decrement'])->name('cart.decrement');

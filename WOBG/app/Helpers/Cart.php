@@ -20,13 +20,13 @@ class Cart
 
     // ak je pouzivatel prihlaseny na zaklade akcie prida novy item, updatne, alebo vymaze
     // ulozi vysledok do session
-    public function saveCart(string $action, $productId, $cart)
+    public function saveCart(string $action, $productId, $cart, $amount = 1)
     {
         if (auth()->check()) {
             $user = auth()->user();
             switch ($action) {
                 case "attach":
-                    $user->products()->attach($productId, ['quantity' => 1]);
+                    $user->products()->attach($productId, ['quantity' => $amount]);
                     break;
                 case 'update':
                     $user->products()->updateExistingPivot($productId, ['quantity' => $cart[$productId]['quantity']]);

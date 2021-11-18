@@ -69,8 +69,8 @@ inputBox.addEventListener('search', () => {
     searchWrapper.classList.remove("active");
 });
 
-const addProductToCart = (id) => {
-    $.post(`/cart/${id}`).done((data) => {
+const addProductToCart = (id, amount) => {
+    $.post(`/cart/${id}/${amount}`).done((data) => {
         $("#cartCount").html(data.length);
     });
 }

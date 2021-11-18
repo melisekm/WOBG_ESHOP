@@ -46,7 +46,7 @@
                                     ])
                                 </div>
                             </div>
-                            @endforeach
+                        @endforeach
                         <div class="col-1 text-end">
                             <a href="#">
                                 <i class="fas fa-chevron-right"></i>
@@ -65,30 +65,69 @@
                     <!--    Quantity-->
                     <ul class="pagination quantity" aria-label="Quantity selector">
                         <li class="page-item">
-                            <button class="page-link"><i class="fas fa-minus"></i></button>
+                            <button id="quantity-decrement" class="page-link"><i class="fas fa-minus"></i></button>
                         </li>
                         <li class="page-item">
                             <label class="d-none" for="quantity"></label>
-                            <input type="text" class="form-control" id="quantity" value="1">
+                            <input disabled type="text" class="form-control" id="quantity" value="1">
                         </li>
                         <li class="page-item">
-                            <button class="page-link"><i class="fas fa-plus"></i></button>
+                            <button id="quantity-increment" class="page-link"><i class="fas fa-plus"></i></button>
                         </li>
                     </ul>
                     <div class="border-sm-bottom pb-3">
-                        @include("components.btn-add-to-cart", [
-                            "product" => $product,
-                            "class" => "btn btn-blue btn-add-to-cart"
-                        ])
+                        <button
+                            id="btn-add-tocart-main"
+                            type="button" class="btn btn-blue btn-add-to-cart" data-bs-toggle="modal"
+                            data-bs-target="#addtoCartModal-{{$product->id}}">
+                            Add to cart
+                        </button>
+                        <div class="modal fade" id="addtoCartModal-{{$product->id}}" tabindex="-1"
+                             aria-labelledby="addtoCartModal-{{$product->id}}Label"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="modal-title fs-5" id="addtoCartModal-{{$product->id}}Label">Added to cart</div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    @include("components.image", [
+                                                            "class" => "img-fluid product-img",
+                                                            "alt" => "product $product->name image",
+                                                            "path" => $product->mainPhoto->path
+                                                    ])
+                                                </div>
+                                                <div class="col-md">{{$product->name}}</div>
+                                            </div>
+                                            <div class="row">
+                                                <div id="cartQuantityMain" class="col-md-9 text-end">1x</div>
+                                                <div class="col-md text-end">@money($product->price)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Back to Browsing</button>
+                                        <a class="btn btn-blue" href="{{url("cart")}}">View Shopping Cart </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <p class="pt-3">
                         {{$product->getShortenedDescription()}}
                         <a class="black-link" href="#description"> Read more</a>
                     </p>
                     <div class="lh-sm border-sm-bottom pb-3">
-                        <span class="fw-bold">Language:</span> English
+                        <span class="fw-bold">Language:</span> {{$product->language}}
                         <br>
-                        <span class="fw-bold">Release date:</span> 2005
+                        <span class="fw-bold">Release date:</span> {{$product->release_date}}
                     </div>
                 </div>
             </div>
@@ -122,3 +161,31 @@
         </div>
     </main>
 @endsection
+
+@push("scripts")
+    <script>
+        $(document).ready(function () {
+            const quanityIncrement = $("#quantity-increment");
+            const quanityDecrement = $("#quantity-decrement");
+            const currentQuantity = $("#quantity");
+            quanityIncrement.click(function () {
+                let quantity = parseInt(currentQuantity.val());
+                quantity++;
+                currentQuantity.val(quantity);
+            });
+            quanityDecrement.click(function () {
+                let quantity = parseInt(currentQuantity.val());
+                if (quantity > 1) {
+                    quantity--;
+                    $("#quantity").val(quantity);
+                }
+            });
+            const btnAddToCart = $("#btn-add-tocart-main");
+            btnAddToCart.click(function () {
+                const quantity = parseInt($("#quantity").val());
+                $("#cartQuantityMain").html(quantity + "x");
+                addProductToCart({{$product->id}}, quantity);
+            });
+        });
+    </script>
+@endpush

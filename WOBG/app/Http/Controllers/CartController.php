@@ -18,19 +18,22 @@ class CartController extends Controller
         return view('cart.cart', compact('products', 'totalPrice'));
     }
 
-    function store(Product $product)
+    function store(Product $product, $amount)
     {
+        if ($amount < 1) {
+            return response()->json(['error' => 'amount must be greater than 0']);
+        }
         $cart = Cart::getCart();
         if (!$cart) {
             $cart = [];
         }
         $isProductInCart = array_key_exists($product->id, $cart);
         if ($isProductInCart) {
-            $cart[$product->id]['quantity']++;
+            $cart[$product->id]['quantity'] += $amount;
             Cart::saveCart("update", $product->id, $cart);
         } else {
-            $cart[$product->id] = ['quantity' => 1];
-            Cart::saveCart("attach", $product->id, $cart);
+            $cart[$product->id] = ['quantity' => $amount];
+            Cart::saveCart("attach", $product->id, $cart, $amount);
         }
         return response()->json(['length' => count(session('cart'))]);
     }
