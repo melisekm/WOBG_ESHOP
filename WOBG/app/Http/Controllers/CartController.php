@@ -62,8 +62,8 @@ class CartController extends Controller
     public function destroy(Product $product)
     {
         $cart = Cart::getCart();
-
-        if (array_key_exists($product->id, $cart)) {
+        $isProductInCart = array_key_exists($product->id, $cart);
+        if ($isProductInCart) {
             unset($cart[$product->id]);
             Cart::saveCart("detach", $product->id, $cart);
         }

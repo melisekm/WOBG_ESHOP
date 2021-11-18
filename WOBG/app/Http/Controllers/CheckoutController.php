@@ -44,6 +44,7 @@ class CheckoutController extends Controller
         if (!$cart) {
             return redirect('cart');
         }
+        // ak nie je prihlaseny v tomto kroku zvalidujeme aj mail
         if (!auth()->check()) {
             $request->validate([
                 'email' => 'required|email|max:255',
@@ -65,13 +66,17 @@ class CheckoutController extends Controller
         ]);
 
         $payment = Payment::where("name", $request->paymentGroup)->first();
-        $shipping = Shipping::where("name", $request->input('shippingGroup'))->first();
+        $shipping = Shipping::where("name", $request->shippingGroup)->first();
 
         ["products" => $products, "price" => $price] = $this->getCartData($shipping, $cart);
-        $save_address = $request->input('save_address');
+        $save_address = $request->save_address;
 
 
         $user = new User($user_data);
+
+        // aby sa lahsie dalo preposlat do dalsieho view data ulozime ich do session
+        // ide najma o usera - kto to teda vytvara ten order, podla mna nejde o security risk,
+        // lebo ajtak moze vyplnit niekoho ineho udaje
         session(["orderData" => compact('user', 'payment', 'shipping', 'save_address')]);
         return view('cart.review',
             compact('user', 'products', 'price', 'shipping', 'payment', 'save_address'));
@@ -90,10 +95,12 @@ class CheckoutController extends Controller
 
     public function completeOrder()
     {
+        // musel prejst cez krok review na to aby mal sessione na servery orderData
         $orderData = session('orderData');
         if (!$orderData) {
             return redirect("cart");
         }
+        // zvolil ze si chce ulozit adresu
         if (!empty($orderData["save_address"])) {
             $user = auth()->user();
             $this->copyOrderUserData($user, $orderData["user"]);
@@ -110,18 +117,26 @@ class CheckoutController extends Controller
         if (!$cart) {
             return redirect('cart');
         }
+        // v kazdom kroku vyberame itemy z databazy, aby si tam nemohol nieco sam napisat
         ["products" => $products, "price" => $price] = $this->getCartData($shipping, $cart);
 
         $order->total = $price["total"];
         if (auth()->check()) {
             $order->user_id = auth()->user()->id;
         }
+        // aj do orderu nakopirujeme data pouzivatela, ktory vytvoril order
         $this->copyOrderUserData($order, $orderData["user"]);
         $order->email = $orderData["user"]->email;
 
         $order->save();
+        // naplnime medzivezbovu tabulku
+        // quantita je ulozena v carte ktory je z db, pristupime k nej cez id produktu
         foreach ($products as $product) {
-            $order->products()->attach($product->id, ["quantity" => $cart[$product->id]["quantity"], "price" => $product->price]);
+            $quantity = $cart[$product->id]["quantity"];
+            if($quantity < 1){
+                abort(422);
+            }
+            $order->products()->attach($product->id, ["quantity" => $quantity, "price" => $product->price]);
         }
         Cart::clearCart();
         session()->forget("orderData");

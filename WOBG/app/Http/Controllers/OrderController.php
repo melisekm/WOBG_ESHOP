@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
-
+// ak by sme chceli zobrazit aj data o orderoch
 class OrderController extends Controller
 {
     /**

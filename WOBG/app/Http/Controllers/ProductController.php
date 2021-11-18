@@ -37,7 +37,7 @@ class ProductController extends Controller
         $products = Product::where("name", "ilike", "%$search%")
             ->whereBetween("price", [$minPrice, $maxPrice])
             ->where("min_age", ">=", $minAge)
-            ->where("max_players", ">=", $minPlayers)
+            ->where("max_players", ">=", $minPlayers) // ?
             ->where("min_play_time", ">=", $minPlayTime);
 
         // hladame produkty podla kategorie
