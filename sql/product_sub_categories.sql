@@ -22,3 +22,6 @@ VALUES (DEFAULT, '2021-11-13 21:01:13', '2021-11-13 21:01:14', 'History');
 INSERT INTO public.product_sub_categories (id, created_at, updated_at, name)
 VALUES (DEFAULT, '2021-11-13 21:01:14', '2021-11-13 21:01:15', 'Deduction');
 
+INSERT INTO public.product_sub_categories (id, created_at, updated_at, name)
+VALUES (DEFAULT, '2021-11-13 21:01:14', '2021-11-13 21:01:15', 'Other');
+

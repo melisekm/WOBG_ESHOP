@@ -19,7 +19,7 @@ priceRangeElement.change = updatePriceSliderValues
 priceRangeElement.slideStop = () => {
     url.searchParams.set("min_price", priceRange.getValue()[0])
     url.searchParams.set("max_price", priceRange.getValue()[1])
-    window.location.href = url.href;
+    // window.location.href = url.href;
 }
 
 
@@ -31,7 +31,7 @@ const SliderWrapper = (sliderId, tag, textDecorator) => {
 
     sliderElement.slideStop = () => {
         url.searchParams.set(tag, slider.getValue())
-        window.location.href = url.href;
+        // window.location.href = url.href;
     }
 
     const updateSliderValue = () => {

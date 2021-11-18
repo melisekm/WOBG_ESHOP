@@ -10,6 +10,10 @@
             <div class="darkRectangle mt-lg-0 mt-4 pb-3">
                 <div class="ps-3 py-2">
                     <div class="text-end">
+                        <a href="javascript:void(0)" onclick="window.location.href = url.href"
+                                class="btn btn-blue border-0 bg-transparent pe-2 btn-sm">
+                            <i class="fa fa-check"></i> Apply filters
+                        </a>
                         <a href="{{route("products.index")}}"
                            class="btn btn-blue border-0 bg-transparent pe-2 btn-sm">
                             <i class="fas fa-times-circle"></i> Cancel filters

@@ -62,7 +62,7 @@ const getCheckedCategoriesAndSearch = () => {
         url.searchParams.delete('subcat');
     }
     // update url
-    window.location.href = url.href;
+    // window.location.href = url.href;
 }
 
 // iterate over every checkbox and add eventlistener which listens for checkbox change

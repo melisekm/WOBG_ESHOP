@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Facades\Cart;
 use App\Models\Product;
-use Illuminate\Support\Facades\Log;
 
 class CartController extends Controller
 {

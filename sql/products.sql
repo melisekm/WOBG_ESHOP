@@ -9,7 +9,7 @@ VALUES (DEFAULT, '2021-11-13 21:03:40', '2021-11-13 21:03:41', 'Ticket to Ride: 
 110 train car cards
 46 destination tickets
 5 wooden scoring markers
-and 1 rule book', 'English', 2005, 8, 30, 2, 5, 1, null);
+and 1 rule book', 'English', 2005, 8, 30, 2, 5, 1, 9);
 
 INSERT INTO public.products (id, created_at, updated_at, name, price, publisher, description, includes, language,
                              release_date, min_age, min_play_time, min_players, max_players, product_category_id,
@@ -31,7 +31,7 @@ VALUES (DEFAULT, '2021-11-14 18:14:29', '2021-11-14 18:14:34', 'Exploding Kitten
 
 INSERT INTO public.products (id, created_at, updated_at, name, price, publisher, description, includes, language, release_date, min_age, min_play_time, min_players, max_players, product_category_id, product_sub_category_id) VALUES (DEFAULT, '2021-11-14 18:14:35', '2021-11-14 18:14:36', 'Hanabi', 8.99, 'Cocktail Games', 'Hanabi—named for the Japanese word for "fireworks"—is a cooperative game in which players try to create the perfect fireworks show by placing the cards on the table in the right order. (In Japanese, hanabi is written as 花火; these are the ideograms flower and fire, respectively.) The card deck consists of five different colors of cards, numbered 1–5 in each color. For each color, the players try to place a row in the correct order from 1–5. Sounds easy, right? Well, not quite, as in this game you hold your cards so that they''re visible only to other players. To assist other players in playing a card, you must give them hints regarding the numbers or the colors of their cards. Players must act as a team to avoid errors and to finish the fireworks display before they run out of cards. An extra suit of cards, rainbow colored, is also provided for advanced or variant play.', '1 paper game plan
 61 cards
-11 tokens', 'No language dependence', 2010, 8, 25, 2, 5, 8, null);
+11 tokens', 'No language dependence', 2010, 8, 25, 2, 5, 8, 9);
 
 INSERT INTO public.products (id, created_at, updated_at, name, price, publisher, description, includes, language, release_date, min_age, min_play_time, min_players, max_players, product_category_id, product_sub_category_id) VALUES (DEFAULT, '2021-11-14 18:14:37', '2021-11-14 18:14:38', 'Speed Cups', 14.99, 'AMIGO', 'Haim Shafir''s most famous game design, Halli Galli, includes one of the best-known game props in existence: a bell. Players both young and old love to hit the bell after spotting a winning combination, so it''s no surprise to see the bell return in yet another Shafir design: Speed Cups, a.k.a. Quick Cups. In this game, each player receives a set of five plastic cups, each a different color; a deck of 24 cards is shuffled and placed face down in the center of the table next to the bell. One player flips over the top card, which depicts colored objects – trains, birds, cups, etc. – stacked vertically or horizontally, then everyone tries to recreate this colored sequence with her own set of cups. The first player to do slams the bell, revels in the soul-brightening "ding", then (if correct), claims the card. Someone then reveals the next card, and the players start shuffling cups once again. Once all the cards have been claimed, whoever holds the most cards wins!', '1 paper game plan
 20 cups

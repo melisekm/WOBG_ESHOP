@@ -29,7 +29,7 @@ const MIN_LENGTH_TO_SEARCH = 2;
 
 // if user press any key and release
 inputBox.onkeyup = (e) => {
-    let userData = e.target.value; //user enetered data
+    let userData = e.target.value.trim(); //user enetered data
     if (userData.length >= MIN_LENGTH_TO_SEARCH) {
         // get suggestions from server
         fetch(`/api/products/search?query=${userData}`)
@@ -53,7 +53,7 @@ inputBox.onkeyup = (e) => {
 }
 
 const showSuggestions = (list) => {
-    const search = `<hr/><a href="/products?search=${inputBox.value}"><li>Search for "${inputBox.value}" &gt;</li></a>`;
+    const search = `<hr/><a href="/products?search=${inputBox.value.trim()}"><li>Search for "${inputBox.value}" &gt;</li></a>`;
     if (list.length === 1) {
         return search;
     } else if (list.length >= MAX_SEARCH_RESULTS) {
