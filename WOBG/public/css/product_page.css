@@ -2,11 +2,7 @@
     width: 35%;
 }
 
-@media (max-width: 576px) {
-    .btn-add-to-cart {
-        width: 50%;
-    }
-}
+
 
 @media (max-width: 992px) {
     .btn-add-to-cart {
@@ -14,7 +10,16 @@
     }
 
     div .main-product-img {
-        width: 50%;
+        width: 65%;
     }
 }
 
+@media (max-width: 576px) {
+    .btn-add-to-cart {
+        width: 50%;
+    }
+
+    div .main-product-img {
+        width: 80%;
+    }
+}

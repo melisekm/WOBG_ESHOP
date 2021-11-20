@@ -26,8 +26,8 @@ class Product extends Model
     // limit the number of characters in description
     public function getShortenedDescription(): string
     {
-        if (strlen($this->description) > 100) {
-            return substr($this->description, 0, 100) . "...";
+        if (strlen($this->description) > 155) {
+            return substr($this->description, 0, 155) . "...";
         }
         return $this->description;
     }

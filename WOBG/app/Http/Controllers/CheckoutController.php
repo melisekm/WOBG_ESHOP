@@ -75,8 +75,7 @@ class CheckoutController extends Controller
         $user = new User($user_data);
 
         // aby sa lahsie dalo preposlat do dalsieho view data ulozime ich do session
-        // ide najma o usera - kto to teda vytvara ten order, podla mna nejde o security risk,
-        // lebo ajtak moze vyplnit niekoho ineho udaje
+        // ide najma o usera - kto to teda vytvara ten order
         session(["orderData" => compact('user', 'payment', 'shipping', 'save_address')]);
         return view('cart.review',
             compact('user', 'products', 'price', 'shipping', 'payment', 'save_address'));
@@ -129,7 +128,7 @@ class CheckoutController extends Controller
         $order->email = $orderData["user"]->email;
 
         $order->save();
-        // naplnime medzivezbovu tabulku
+        // naplnime medzivazbovu tabulku
         // quantita je ulozena v carte ktory je z db, pristupime k nej cez id produktu
         foreach ($products as $product) {
             $quantity = $cart[$product->id]["quantity"];
