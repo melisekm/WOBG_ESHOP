@@ -121,15 +121,9 @@
                                 <div class="btn-group-vertical" role="group" aria-label="Payment radio group">
                                     @foreach($payments as $payment)
                                         <div class="form-check">
-                                            @if($loop->first)
-                                                <input class="form-check-input" type="radio" name="paymentGroup"
-                                                       id="{{$payment->name}}"
-                                                       value="{{$payment->name}}" checked>
-                                            @else
-                                                <input class="form-check-input" type="radio" name="paymentGroup"
-                                                       id="{{$payment->name}}"
-                                                       value="{{$payment->name}}">
-                                            @endif
+                                            <input class="form-check-input" type="radio" name="paymentGroup"
+                                                   id="{{$payment->name}}"
+                                                   value="{{$payment->name}}" @if($loop->first) checked @endif>
                                             <label class="form-check-label" for="{{$payment->name}}">
                                                 {{$payment->name}}
                                             </label>
@@ -146,11 +140,7 @@
                                 <h3 class="fs-4">Shipping</h3>
                                 <div class="btn-group-vertical" role="group" aria-label="Shipping radio group">
                                     @foreach($shippings as $shipping)
-                                        @if ($loop->first)
-                                            @include('components.checkout.checkbox', ['label' => $shipping->name, 'price' => $shipping->price, 'checked' => 'checked'])
-                                        @else
-                                            @include('components.checkout.checkbox', ['label' => $shipping->name, 'price' => $shipping->price])
-                                        @endif
+                                        @include('components.checkout.checkbox', ['label' => $shipping->name, 'price' => $shipping->price])
                                     @endforeach
                                 </div>
                             </div>
@@ -223,7 +213,7 @@
             const shippingPriceSelector = $(".shipping-price");
             shippingPriceSelector[0].innerHTML = `$${shippingPrice}`;
         }
-        updateShippingMethod(2.99, {{$totalPrice}});
+        updateShippingMethod({{$shippings[0]->price}}, {{$totalPrice}});
 
     </script>
 @endpush

@@ -12,7 +12,7 @@
 
             <div class="darkRectangle p-3 my-3" id="summary-rectangle">
                 <div class="text-center">
-                    <h2 class="fw-bold">Order Sucessful</h2>
+                    <h2 class="fw-bold">Order Successful</h2>
                     <p>We sent e-mail you with order confirmation and order details. We’ll send you a shipping
                         confirmation email as soon as your order ships.</p>
                 </div>

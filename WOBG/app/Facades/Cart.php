@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static getProducts($cart)
  * @method static loadCartOnLogin()
  * @method static saveCart(string $string, mixed $id, $cart, $amount = 1)
+ * @method static clearCart()
  */
 class Cart extends Facade
 {

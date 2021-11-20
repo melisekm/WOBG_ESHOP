@@ -3,7 +3,7 @@
         <div class="form-check">
             <input name="shippingGroup" class="form-check-input" type="radio"
                    id="{{$label}}"
-                   value="{{$label}}" {{!empty($checked) ? "checked=checked" : ""}}>
+                   value="{{$label}}" @if($loop->first) checked @endif>
             <label onclick="updateShippingMethod({{$price}},{{$totalPrice}})" class="form-check-label" for="{{$label}}">
                 {{$label}}
             </label>

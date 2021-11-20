@@ -29,7 +29,7 @@ const MIN_LENGTH_TO_SEARCH = 2;
 
 // if user press any key and release
 inputBox.onkeyup = (e) => {
-    let userData = e.target.value.trim(); //user enetered data
+    let userData = e.target.value.trim(); //user entered data
     if (userData.length >= MIN_LENGTH_TO_SEARCH) {
         // get suggestions from server
         fetch(`/api/products/search?query=${userData}`)

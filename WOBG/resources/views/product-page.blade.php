@@ -24,12 +24,13 @@
             <div class="row">
                 <!--    Fotky-->
                 <div class="col-lg-4 order-2 order-lg-1 text-lg-start text-center">
-                @include("components.product-page-image", [
-                                "class" => "img-fluid main-product-img",
-                                "alt" => "product $product->name main image",
-                                "path" => $product->mainPhoto->path
-                ])
-                <!--        Po kliknuti sa otvori na full-->
+                    <a href="{{asset($product->mainPhoto->path)}}" data-lightbox="mygallery"
+                       data-title="product {{$product->name}} main image">
+                        <img src="{{asset($product->mainPhoto->path)}}" class="img-fluid main-product-img"
+                             alt="product {{$product->name}} main image">
+                    </a>
+
+                    <!--        Po kliknuti sa otvori na full-->
                     <div class="row align-items-center my-2">
                         <div class="col-1">
                             <a href="#">
