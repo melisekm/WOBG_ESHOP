@@ -96,3 +96,9 @@ INSERT INTO public.product_photos (id, created_at, updated_at, name, path, produ
 VALUES (DEFAULT, '2021-11-13 22:32:50', '2021-11-13 22:32:51', 'back_900', 'img/games/kombo_afrika/back/900.jpg', 11);
 INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
 VALUES (DEFAULT, '2021-11-13 22:32:54', '2021-11-13 22:32:55', 'play_900', 'img/games/kombo_afrika/play/900.jpg', 11);
+
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-14 03:10:09', '2021-11-14 03:10:10', 'play_900', 'img/games/mandala/play/900.jpg', 2);
+
+INSERT INTO public.product_photos (id, created_at, updated_at, name, path, product_id)
+VALUES (DEFAULT, '2021-11-14 03:10:10', '2021-11-14 03:10:11', 'back_900', 'img/games/mandala/back/900.jpg', 2);
