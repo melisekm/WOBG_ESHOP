@@ -15,6 +15,11 @@
                             @foreach($errors->all() as $error)
                                 <li>{{$error}}</li>
                             @endforeach
+                            @if($errors->has("phone_number"))
+                                <li>Valid phone number format must start with + and contain only digits. eg.
+                                    +123456789
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 @endif
@@ -67,8 +72,8 @@
                             </button>
                         </div>
                     </div>
-                @include("components.modals.address-modal")
-                @include("auth.reset-password-modal")
+                    @include("components.modals.address-modal")
+                    @include("auth.reset-password-modal")
                 </div>
             </div>
         </div>

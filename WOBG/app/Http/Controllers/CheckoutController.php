@@ -59,7 +59,7 @@ class CheckoutController extends Controller
             'street' => 'required|max:255',
             'city' => 'required|max:255',
             'country' => 'required|max:255',
-            'phone_number' => 'required|max:255',
+            'phone_number' => 'required|max:255|starts_with:+|regex:/^\+[0-9]*$/',
             'postal_code' => 'required|max:255',
             'paymentGroup' => ['required', 'in:Paypal,Bank Transfer,Card'],
             'shippingGroup' => ['required', 'in:Standard Delivery,UPS Service,Parcel Service'],

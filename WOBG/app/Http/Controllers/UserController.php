@@ -43,6 +43,9 @@ class UserController extends Controller
             ]);
             $user->email = $request->email;
         }
+        $request->validate([
+            'phone_number' => 'max:255|starts_with:+|regex:/^\+[0-9]*$/',
+        ]);
         $user->phone_number = $request->phone_number;
         $user->save();
         return redirect()->back()->with('success', 'Profile updated successfully');

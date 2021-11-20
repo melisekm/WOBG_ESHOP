@@ -17,6 +17,9 @@
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
+                    @if($errors->has("phone_number"))
+                        <li>Valid phone number format must start with + and contain only digits. eg. +123456789</li>
+                    @endif
                 </ul>
             </div>
         @endif
@@ -60,7 +63,7 @@
                             <div class="col mb-3">
                                 <label for="street" class="form-label">Street</label>
                                 <textarea class="form-control" name="street" id="street"
-                                          rows="3">{{$user->street}}</textarea>
+                                          rows="3">{{old("street",$user->street)}}</textarea>
                             </div>
                         </div>
                         <div class="row">
