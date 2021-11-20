@@ -16,7 +16,7 @@ INSERT INTO public.products (id, created_at, updated_at, name, price, publisher,
                              product_sub_category_id)
 VALUES (DEFAULT, '2021-11-14 03:06:29', '2021-11-14 03:06:30', 'Mandala', 19.99, 'Lookout Games', 'In the two-player game Mandala, you are trying to score more than your opponent by collecting valuable cards — but you won''t know which cards are valuable until well into the game! Over the course of the game, players play their colored cards into the two mandalas, building the central shared mountains and laying cards into their own fields. As soon as a mandala has all six colors, the players take turns choosing the colors in the mountain and adding those cards to their "river" and "cup". At the end of the game, the cards in your cup are worth points based on the position of their colors in that player''s river. The player whose cup is worth more points wins.', '1 paper game plan
 108 cards
-2 reference cards', 'English', 2019, 10, 30, 2, 2, 1, 2);
+2 reference cards', 'English', 2019, 10, 30, 2, 2, 7, 9);
 
 
 INSERT INTO public.products (id, created_at, updated_at, name, price, publisher, description, includes, language, release_date, min_age, min_play_time, min_players, max_players, product_category_id, product_sub_category_id)
