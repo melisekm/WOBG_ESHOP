@@ -71,4 +71,17 @@ class User extends Authenticatable
         }
         return $cart_items;
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+
+    public function hasRole($role)
+    {
+        if ($this->roles()->where('name', $role)->first()) {
+            return true;
+        }
+        return false;
+    }
 }

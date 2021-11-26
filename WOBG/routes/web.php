@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\LandingController;
@@ -31,11 +32,12 @@ Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout
 Route::post('/review', [CheckoutController::class, 'review'])->name('checkout.review');
 Route::get('/order-completed', [CheckoutController::class, 'completeOrder'])->name('checkout.complete');
 
-Route::get("/review", function(){
+Route::get("/review", function () {
     return view('cart.cart');
 });
 
-
+Route::get("/admin", [AdminController::class, 'index'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('admin.index');
+Route::get("/admin/products", [AdminController::class, 'products'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('admin.products');
 
 
 Route::get('/products', [ProductController::class, 'index'])->name("products.index");
@@ -45,8 +47,6 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::patch('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
-
-
 
 
 Route::get('/profile', [UserController::class, 'index'])->middleware(['auth'])->name('profile');

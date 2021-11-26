@@ -23,6 +23,7 @@ class CreateForeignKeys extends Migration
         Schema::table('product_photos', function (Blueprint $table) {
             $table->foreignId('product_id')->nullable()->constrained()->onDelete('set null');
         });
+        // constrained method will use conventions to determine the table and column name being referenced.
     }
 
     /**

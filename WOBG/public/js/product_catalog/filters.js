@@ -1,15 +1,3 @@
-// arrow functions do not bind this
-
-const url = new URL(window.location.href);
-
-// PER PAGE SELECTION
-// read what is selected and set it in params
-document.getElementById('per_page').onchange = function () {
-    url.searchParams.set('per_page', this.value);
-    window.location.href = url.href;
-};
-
-
 // based on the value of the sort_by select box, change the url
 const changeOrderURLParam = (value) => {
     if (["recommended", "recent", "top"].includes(value)) {

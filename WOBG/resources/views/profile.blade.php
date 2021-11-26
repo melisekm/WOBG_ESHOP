@@ -71,6 +71,12 @@
                                     data-bs-target="#editAddress">Edit
                             </button>
                         </div>
+                        @can('viewAdmin', App\Models\Product::class)
+                            <hr class="border rounded border-dark border-3 my-4">
+                            <a class="btn btn-success form-control" href="{{route("admin.index")}}">
+                                ADMIN DASHBOARD
+                            </a>
+                        @endcan
                     </div>
                     @include("components.modals.address-modal")
                     @include("auth.reset-password-modal")

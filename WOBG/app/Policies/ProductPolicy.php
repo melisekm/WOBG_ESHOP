@@ -11,6 +11,17 @@ class ProductPolicy
     use HandlesAuthorization;
 
     /**
+     * Determine whether the user can view ADMIN UI.
+     *
+     * @param  \App\Models\User  $user
+     * @return mixed
+     */
+    public function viewAdmin(User $user)
+    {
+        return $user->hasRole("ADMIN");
+    }
+
+    /**
      * Determine whether the user can view any models.
      *
      * @param  \App\Models\User  $user
@@ -41,7 +52,7 @@ class ProductPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->hasRole("ADMIN");
     }
 
     /**
@@ -53,7 +64,7 @@ class ProductPolicy
      */
     public function update(User $user, Product $product)
     {
-        //
+        return $user->hasRole("ADMIN");
     }
 
     /**
@@ -65,7 +76,7 @@ class ProductPolicy
      */
     public function delete(User $user, Product $product)
     {
-        //
+        return $user->hasRole("ADMIN");
     }
 
     /**

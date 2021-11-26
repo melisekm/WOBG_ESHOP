@@ -1,3 +1,5 @@
+const url = new URL(window.location.href);
+
 // na zaklade velkosti obrazovky umiestni von a dnu searchbar
 const mediaQuery = window.matchMedia('(max-width: 768px)')
 const mediaQueryLg = window.matchMedia('(min-width: 769px)')

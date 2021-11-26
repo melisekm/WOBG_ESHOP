@@ -10,3 +10,7 @@
         </select>
     </div>
 </div>
+
+@push("scripts")
+    <script src="{{asset("js/pagination.js")}}"></script>
+@endpush
