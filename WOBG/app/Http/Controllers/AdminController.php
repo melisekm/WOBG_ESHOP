@@ -32,7 +32,7 @@ class AdminController extends Controller
     private function simpleAdminRetrieve($model, $request, $view)
     {
         $per_page = (int)$request->query("per_page", 10);
-        $model_collection = $model::orderBy('id', 'asc')->paginate($per_page);
+        $model_collection = $model::orderBy('id', 'desc')->paginate($per_page);
         $pagination = [
             "per_page" => $per_page,
         ];

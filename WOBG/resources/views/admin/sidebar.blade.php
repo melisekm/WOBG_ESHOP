@@ -8,37 +8,37 @@
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
                 <a href="{{route("admin.index")}}"
-                   class="nav-link @if($active==="home") active aria-current='page' @else text-white @endif">
+                   class="nav-link pb-2 @if($active==="home") active aria-current='page' @else text-white @endif">
                     Home
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{route("admin.products")}}"
-                   class="nav-link @if($active==="products") active aria-current='page' @else text-white @endif">
+                   class="nav-link pb-2 @if($active==="products") active aria-current='page' @else text-white @endif">
                     Products
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{route("admin.users")}}"
-                   class="nav-link @if($active==="users") active aria-current='page' @else text-white @endif">
+                   class="nav-link pb-2 @if($active==="users") active aria-current='page' @else text-white @endif">
                     Users
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{route("admin.categories")}}"
-                   class="nav-link @if($active==="categories") active aria-current='page' @else text-white @endif">
+                   class="nav-link pb-2 @if($active==="categories") active aria-current='page' @else text-white @endif">
                     Categories
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{route("admin.subcategories")}}"
-                   class="nav-link @if($active==="subcategories") active aria-current='page' @else text-white @endif">
+                   class="nav-link pb-2 @if($active==="subcategories") active aria-current='page' @else text-white @endif">
                     Sub Categories
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{route("admin.orders")}}"
-                   class="nav-link @if($active==="orders") active aria-current='page' @else text-white @endif">
+                   class="nav-link pb-2 @if($active==="orders") active aria-current='page' @else text-white @endif">
                     Orders
                 </a>
             </li>

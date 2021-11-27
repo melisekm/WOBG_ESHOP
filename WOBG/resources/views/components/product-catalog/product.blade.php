@@ -3,13 +3,12 @@
         <div class="col-md-3 py-3 text-center text-lg-start">
             <div class="ratio ratio-1x1">
                 <a href={{route("products.show", [$product->id])}}>
-                @include("components.image", [
-                    "class" => "img-fluid",
-                    "alt" => "product image 1",
-                    "path" => $product->mainPhoto->path
-                ])
+                    @include("components.image", [
+                        "class" => "img-fluid",
+                        "alt" => "product image $product->name",
+                        "path" => $product->mainPhoto->path
+                    ])
                 </a>
-
             </div>
         </div>
         <div class="col d-flex flex-column">

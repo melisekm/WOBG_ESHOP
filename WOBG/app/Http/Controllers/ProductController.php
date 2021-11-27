@@ -26,7 +26,7 @@ class ProductController extends Controller
         $minPrice = $request->query("min_price", "0");
         // get max price of all products
         $totalMax = Product::max('price');
-        $maxPrice = $request->query("max_price",$totalMax);
+        $maxPrice = $request->query("max_price", $totalMax);
         $categories = $request->query("cat", "");
         $subCategories = $request->query("subcat", "");
         // potrebujeme splitnut string lebo je v tvare [1,2,3], konverziu na inty
@@ -80,7 +80,7 @@ class ProductController extends Controller
             "price" => [
                 "min" => $minPrice,
                 "max" => $maxPrice,
-                "totalMax"=> $totalMax
+                "totalMax" => $totalMax
             ],
             "minAge" => $minAge,
             "minPlayers" => $minPlayers,
@@ -142,9 +142,8 @@ class ProductController extends Controller
             'category' => 'required',
             'subcategory' => 'required',
             'publisher' => 'required|max:255',
-            'mainPhoto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-            'backPhoto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-            'playPhoto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'mainPhoto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'photosNew.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $product = new Product();
@@ -164,28 +163,18 @@ class ProductController extends Controller
 
         $product->save();
 
-        $image_codes = [
-            "mainPhoto" => "_main.",
-            "backPhoto" => "_back.",
-            "playPhoto" => "_play.",
-        ];
+        $this->addPhotosToProduct($request->file('photosNew'), $product);
 
-        foreach ($image_codes as $key => $value) {
-            if ($request->hasFile($key)) {
-                $photo = $request->file($key);
-                $filename = $product->id . $value . $photo->getClientOriginalExtension();
-                $public_path = "img\\games\\" . $filename;
-                $location_full = public_path($public_path);
-                Image::make($photo->getRealPath())->resize(900, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save($location_full);
-                $photoDB = new ProductPhoto();
-                $photoDB->path = $public_path;
-                $photoDB->name = $filename;
-                $photoDB->product()->associate($product);
-                $photoDB->save();
-            }
+
+        if ($request->hasFile("mainPhoto")) {
+            $photo = $request->file("mainPhoto");
+            $public_path = "img\\games\\" . md5($photo->getClientOriginalName()) . "." . $photo->getClientOriginalExtension();
+            $this->createInterventionPhoto($public_path, $photo);
+        } else {
+            $public_path = "img\\missing_img.png";
         }
+        $filename = $product->id . "_main";
+        $this->savePhotoInDB($public_path, $filename, $product);
 
         $request->session()->flash('success', 'Product created successfully!');
         return redirect()->route('admin.products');
@@ -230,15 +219,11 @@ class ProductController extends Controller
             'category' => 'required',
             'subcategory' => 'required',
             'publisher' => 'required|max:255',
-
-//            'mainPhoto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-//            'backPhoto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
-//            'playPhoto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'photosNew.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $category = ProductCategory::find($request->category);
         $subcategory = ProductSubcategory::find($request->subcategory);
-        // update product with category
         $product->category()->associate($category);
         $product->subcategory()->associate($subcategory);
         $product->update([
@@ -248,25 +233,21 @@ class ProductController extends Controller
             "publisher" => $request->publisher,
         ]);
         $product->save();
-        // update product photos
-//        $mainPhoto = $request->file('mainPhoto');
-//        $backPhoto = $request->file('backPhoto');
-//        $playPhoto = $request->file('playPhoto');
-//        $mainPhotoName = $product->id . '_main.' . $mainPhoto->getClientOriginalExtension();
-//        $backPhotoName = $product->id . '_back.' . $backPhoto->getClientOriginalExtension();
-//        $playPhotoName = $product->id . '_play.' . $playPhoto->getClientOriginalExtension();
-//        $mainPhoto->move(public_path('img\\games'), $mainPhotoName);
-//        $backPhoto->move(public_path('img\\games'), $backPhotoName);
-//        $playPhoto->move(public_path('img\\games'), $playPhotoName);
-//        $product->update([
-//            "main_photo" => $mainPhotoName,
-//            "back_photo" => $backPhotoName,
-//            "play_photo" => $playPhotoName
-//        ]);
 
+        $existingPhotos = $request->photos;
+        if ($existingPhotos) {
+            $productPhotos = $product->photos;
+            foreach ($productPhotos as $photo) {
+                if (!in_array($photo->id, $existingPhotos)) {
+                    $this->hardDeletePhoto($photo);
+                    $photo->delete();
+                }
+            }
+        }
+        $this->addPhotosToProduct($request->file('photosNew'), $product);
 
         $request->session()->flash('success', 'Product updated!');
-        return redirect()->route('admin.products');
+        return back();
     }
 
     /**
@@ -278,16 +259,43 @@ class ProductController extends Controller
     public function destroy(Product $product, Request $request)
     {
         foreach ($product->photos as $photo) {
-            $photoPath = public_path($photo->path);
-            if (file_exists($photoPath)) {
-                unlink($photoPath);
-            }
+            $this->hardDeletePhoto($photo);
         }
         // delete product
         $product->photos()->delete();
         $product->delete();
         $request->session()->flash('success', 'Product deleted successfully!');
         return back();
+    }
+
+    private function hardDeletePhoto($photo)
+    {
+        $photoPath = public_path($photo->path);
+        if ($photoPath === public_path('img\\missing_img.png')) {
+            return;
+        }
+        if (file_exists($photoPath)) {
+            unlink($photoPath);
+        }
+    }
+
+    private function createInterventionPhoto($public_path, $photo)
+    {
+        $image_width = getimagesize($photo->getRealPath())[0];
+        $width = $image_width > 900 ? 900 : $image_width;
+        $location_full = public_path($public_path);
+        Image::make($photo->getRealPath())->resize($width, null, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($location_full);
+    }
+
+    private function savePhotoInDB($public_path, $filename, $product)
+    {
+        $photoDB = new ProductPhoto();
+        $photoDB->path = $public_path;
+        $photoDB->name = $filename;
+        $photoDB->product()->associate($product);
+        $photoDB->save();
     }
 
 
@@ -297,6 +305,34 @@ class ProductController extends Controller
         $limit = $request->query('limit', 5);
         $products = Product::where('name', 'ilike', '%' . $query . '%')->select('name', 'id')->take($limit)->get();
         return response()->json($products);
+    }
+
+    private function addPhotosToProduct($photos, $product)
+    {
+        if ($photos) {
+            foreach ($photos as $photo) {
+                $filename = md5($photo->getClientOriginalName()) . '.' . $photo->getClientOriginalExtension();
+                $public_path = "img\\games\\" . $filename;
+                $this->createInterventionPhoto($public_path, $photo);
+                $this->savePhotoInDB($public_path, $filename, $product);
+            }
+        }
+    }
+
+    public function setMainProductPhoto(Product $product, ProductPhoto $photo)
+    {
+        $originalMainPhoto = $product->mainPhoto()->get()[0];
+        $newPhotoNameTemp = $photo->name;
+        $photo->name = $product->id . '_' . "main";
+        $originalMainPhoto->name = $newPhotoNameTemp;
+        $originalMainPhoto->save();
+        $photo->save();
+        return back();
+    }
+
+    private function changeProductMainPhoto(Product $product, ProductPhoto $photo)
+    {
+
     }
 }
 

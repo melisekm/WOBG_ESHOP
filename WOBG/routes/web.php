@@ -51,6 +51,7 @@ Route::get('/products/{product}', [ProductController::class, 'show'])->name('pro
 Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('products.edit');
 Route::patch('/products/{product}', [ProductController::class, 'update'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('products.update');
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('products.destroy');
+Route::get("/products/setphoto/{product}/{photo}", [ProductController::class, 'setMainProductPhoto'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('products.setMainPhoto');
 
 
 Route::get('/profile', [UserController::class, 'index'])->middleware(['auth'])->name('profile');

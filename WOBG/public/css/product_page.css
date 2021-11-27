@@ -2,6 +2,10 @@
     width: 35%;
 }
 
+.product-gallery{
+    width: 100px;
+}
+
 
 
 @media (max-width: 992px) {
