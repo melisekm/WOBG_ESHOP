@@ -29,7 +29,7 @@
                                 </div>
                                 <input id="priceRange" type="text" class="slider" value=""
                                        data-slider-min="0"
-                                       data-slider-max="100" data-slider-step="5"
+                                       data-slider-max="{{$filters["price"]["totalMax"]}}" data-slider-step="5"
                                        data-slider-value="[{{$filters["price"]["min"]}},{{$filters["price"]["max"]}}]"/>
                             </div>
                             <div class="row">

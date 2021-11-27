@@ -20,7 +20,9 @@ class Product extends Model
         "min_age",
         "min_play_time",
         "min_players",
-        "max_players"
+        "max_players",
+        'product_category_id',
+        'produc_subcategory_id',
     ];
 
     // limit the number of characters in description
@@ -51,14 +53,14 @@ class Product extends Model
 
     public function photos()
     {
-        return $this->hasMany(ProductPhoto::class)->whereIn("name", ["main_900", "back_900", "play_900"]);
+        return $this->hasMany(ProductPhoto::class);
 
 //        return $this->hasMany(ProductPhoto::class);
     }
 
     public function mainPhoto()
     {
-        return $this->hasOne(ProductPhoto::class)->where("name", "main_900");
+        return $this->hasOne(ProductPhoto::class)->where('name', "ilike", "%" . "main" . "%");
     }
 
 //    public function productPagePhotos()

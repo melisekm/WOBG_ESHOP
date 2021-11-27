@@ -41,12 +41,12 @@ Route::get("/admin/products", [AdminController::class, 'products'])->middleware(
 
 
 Route::get('/products', [ProductController::class, 'index'])->name("products.index");
-Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::get('/products/create', [ProductController::class, 'create'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('products.store');
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-Route::patch('/products/{product}', [ProductController::class, 'update'])->name('products.update');
-Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('products.edit');
+Route::patch('/products/{product}', [ProductController::class, 'update'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('products.update');
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('products.destroy');
 
 
 Route::get('/profile', [UserController::class, 'index'])->middleware(['auth'])->name('profile');

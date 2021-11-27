@@ -37,6 +37,6 @@
             </li>
         </ul>
         <hr>
-        <a href="{{ route('profile') }}" class="nav-link text-white btn-secondary "> Back </a>
+        <a href="{{ route('profile') }}" class="nav-link text-white btn-secondary "> Back to profile </a>
     </div>
 </div>
