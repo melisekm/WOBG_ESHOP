@@ -38,6 +38,10 @@ Route::get("/review", function () {
 
 Route::get("/admin", [AdminController::class, 'index'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('admin.index');
 Route::get("/admin/products", [AdminController::class, 'products'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('admin.products');
+Route::get("/admin/orders", [AdminController::class, 'orders'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('admin.orders');
+Route::get("/admin/users", [AdminController::class, 'users'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('admin.users');
+Route::get("/admin/categories", [AdminController::class, 'categories'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('admin.categories');
+Route::get("/admin/subcategories", [AdminController::class, 'subcategories'])->middleware(['auth', 'can:viewAdmin,App\Models\Product'])->name('admin.subcategories');
 
 
 Route::get('/products', [ProductController::class, 'index'])->name("products.index");

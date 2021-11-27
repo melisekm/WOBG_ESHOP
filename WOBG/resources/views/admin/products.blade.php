@@ -1,5 +1,5 @@
 @extends("layout.partials.admin")
-@section('title', "WOBG - ADMIN DASHBOARD")
+@section('title', "Admin dashboard: Products")
 @section("admin-content")
     <div class="col-lg-9">
         <div class="card">
@@ -30,7 +30,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($products as $product)
+                        @foreach($model_collection as $product)
                             <tr>
                                 <td>{{ $product->id }}</td>
                                 <td>
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        @include('components.product-catalog.pagination')
+        @include('components.product-catalog.pagination', ['paginator' => $model_collection])
 
     </div>
 @endsection

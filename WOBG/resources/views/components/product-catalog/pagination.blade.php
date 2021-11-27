@@ -1,6 +1,6 @@
 <div class="row mt-5">
     <div class="col">
-        {{ $products->links("pagination::bootstrap-4") }}
+        {{ $paginator->links("pagination::bootstrap-4") }}
     </div>
     <div class="col-lg-3 col-md-4 pt-2">
         <select class="form-select" id="per_page" aria-label="Per page select">

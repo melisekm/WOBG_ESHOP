@@ -29,14 +29,41 @@ class AdminController extends Controller
         return view('admin.index', compact('active', 'stats'));
     }
 
-    public function products(Request $request)
+    private function simpleAdminRetrieve($model, $request, $view)
     {
         $per_page = (int)$request->query("per_page", 10);
-        $products = Product::orderBy('id', 'asc')->paginate($per_page);
-        $active = "products";
+        $model_collection = $model::orderBy('id', 'asc')->paginate($per_page);
         $pagination = [
             "per_page" => $per_page,
         ];
-        return view('admin.products', compact('active', 'products', 'pagination'));
+        $active = $view;
+        return view('admin.' . $view, compact('active', 'model_collection', 'pagination'));
     }
+
+    public function products(Request $request)
+    {
+        return $this->simpleAdminRetrieve(Product::class, $request, "products");
+    }
+
+    public function orders(Request $request)
+    {
+        return $this->simpleAdminRetrieve(Order::class, $request, "orders");
+    }
+
+    public function users(Request $request)
+    {
+        return $this->simpleAdminRetrieve(User::class, $request, "users");
+    }
+
+    public function categories(Request $request)
+    {
+        return $this->simpleAdminRetrieve(ProductCategory::class, $request, "categories");
+    }
+
+    public function subcategories(Request $request)
+    {
+        return $this->simpleAdminRetrieve(ProductSubCategory::class, $request, "subcategories");
+    }
+
+
 }

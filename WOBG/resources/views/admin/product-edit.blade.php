@@ -1,5 +1,5 @@
 @extends("layout.partials.admin")
-@section('title', "WOBG - Edit {{ $product->name }}")
+@section('title', "Admin dashboard: Edit $product->name")
 @section("admin-content")
     <div class="col-lg-9">
         <div class="card">

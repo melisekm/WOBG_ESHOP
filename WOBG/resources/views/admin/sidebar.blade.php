@@ -19,19 +19,26 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#"
+                <a href="{{route("admin.users")}}"
+                   class="nav-link @if($active==="users") active aria-current='page' @else text-white @endif">
+                    Users
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route("admin.categories")}}"
                    class="nav-link @if($active==="categories") active aria-current='page' @else text-white @endif">
-                    Product categories
+                    Categories
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#"
+                <a href="{{route("admin.subcategories")}}"
                    class="nav-link @if($active==="subcategories") active aria-current='page' @else text-white @endif">
-                    Product subcategories
+                    Sub Categories
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link @if($active==="orders") active aria-current='page' @else text-white @endif">
+                <a href="{{route("admin.orders")}}"
+                   class="nav-link @if($active==="orders") active aria-current='page' @else text-white @endif">
                     Orders
                 </a>
             </li>

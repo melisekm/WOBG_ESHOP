@@ -21,5 +21,5 @@
             </div>
         @endif
     </section>
-    @include('components.product-catalog.pagination')
+    @include('components.product-catalog.pagination', ['paginator' => $products])
 </div>

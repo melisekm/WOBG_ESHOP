@@ -1,5 +1,5 @@
 @extends("layout.partials.admin")
-@section('title', "WOBG - Create product")
+@section('title', "Admin dashboard: Create product")
 @section("admin-content")
     <div class="col-lg-9">
         <div class="card">
