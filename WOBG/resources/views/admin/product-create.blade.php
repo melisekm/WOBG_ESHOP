@@ -20,54 +20,54 @@
                     @csrf
                     <div class="form-group">
                         <label for="name">Name*</label>
-                        <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" required>
+                        <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
                     </div>
                     <div class="form-group">
                         <label for="description">Description*</label>
-                        <textarea required name="description" id="description" cols="30" rows="10"
+                        <textarea name="description" id="description" cols="30" rows="10"
                                   class="form-control">{{ old('description') }}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="publisher">Publisher*</label>
-                        <input required type="text" name="publisher" id="publisher" class="form-control" value="{{ old('publisher') }}" required>
+                        <input type="text" name="publisher" id="publisher" class="form-control" value="{{ old('publisher') }}">
                     </div>
                     <div class="form-group mb-2">
                         <label for="price">Price*</label>
-                        <input required type="number" name="price" id="price" min=".01" step=".01" class="form-control"
-                               value="{{ old('price') }}" required>
+                        <input type="number" name="price" id="price" min=".01" step=".01" class="form-control"
+                               value="{{ old('price') }}">
                     </div>
                     <div class="form-group mb-2">
                         <label for="min_age">Minimum age*</label>
-                        <input type="number" name="min_age" id="min_age" min="0" max="18" step="1" class="form-control"
-                               value="{{ old('min_age')}}" required>
+                        <input type="number" name="min_age" id="min_age" step="1" class="form-control"
+                               value="{{ old('min_age')}}">
                     </div>
                     <div class="form-group mb-2">
                         <label for="min_players">Minimum players*</label>
-                        <input type="number" name="min_players" id="min_players" min="0" max="10" step="1" class="form-control"
-                               value="{{ old('min_players') }}" required>
+                        <input type="number" name="min_players" id="min_players" step="1" class="form-control"
+                               value="{{ old('min_players') }}">
                     </div>
                     <div class="form-group mb-2">
                         <label for="max_players">Maximum players*</label>
-                        <input type="number" name="max_players" id="max_players" min="0" max="10" step="1" class="form-control"
-                               value="{{ old('max_players') }}" required>
+                        <input type="number" name="max_players" id="max_players" step="1" class="form-control"
+                               value="{{ old('max_players') }}">
                     </div>
                     <div class="form-group mb-2">
-                        <label for="min_play_time">Play time*</label>
-                        <input type="number" name="min_play_time" id="min_play_time" min="0" max="120" step="5" class="form-control"
-                               value="{{ old('min_play_time') }}" required>
+                        <label for="min_play_time">Play time in minutes*</label>
+                        <input type="number" name="min_play_time" id="min_play_time" step="5" class="form-control"
+                               value="{{ old('min_play_time') }}">
                     </div>
                     <div class="form-group mb-2">
                         <label for="release_date">Release date*</label>
-                        <input type="number" name="release_date" id="release_date" min="0" max="3000" step="1" class="form-control"
-                               value="{{ old('release_date') }}" required>
+                        <input type="number" name="release_date" id="release_date" step="1" class="form-control"
+                               value="{{ old('release_date') }}">
                     </div>
                     <div class="form-group">
-                        <label for="name">Language*</label>
-                        <input type="text" name="language" id="language" class="form-control" value="{{ old('language') }}" required>
+                        <label for="language">Language*</label>
+                        <input type="text" name="language" id="language" class="form-control" value="{{ old('language') }}">
                     </div>
 
                     <div class="form-group">
-                        <label for="includes">Includes*</label>
+                        <label for="includes">Includes, separate each with new line*</label>
                         <textarea name="includes" id="includes" cols="30" rows="10"
                                   class="form-control">{{ old('includes') }}</textarea>
                     </div>

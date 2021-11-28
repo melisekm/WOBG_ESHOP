@@ -142,10 +142,10 @@ class ProductController extends Controller
             'category' => 'required',
             'subcategory' => 'required',
             'publisher' => 'required|max:255',
-            'min_age' => 'required|numeric|min:0|max:100',
-            'min_players' => 'required|numeric|min:1|max:10',
-            'max_players' => 'required|numeric|min:1|max:10',
-            'min_play_time' => 'required|numeric|min:0|max:120',
+            'min_age' => 'required|numeric|between:0,18',
+            'min_players' => 'required|numeric|between:1,10',
+            'max_players' => 'required|numeric|between:1,10',
+            'min_play_time' => 'required|numeric|between:1,120',
             'language' => 'required|max:255',
             'release_date' => 'required|numeric',
             'includes' => 'required',
@@ -226,12 +226,12 @@ class ProductController extends Controller
             'category' => 'required',
             'subcategory' => 'required',
             'publisher' => 'required|max:255',
-            'min_age' => 'required|numeric|min:0|max:100',
-            'min_players' => 'required|numeric|min:1|max:10',
-            'max_players' => 'required|numeric|min:1|max:10',
-            'min_play_time' => 'required|numeric|min:0|max:120',
+            'min_age' => 'required|numeric|between:0,18',
+            'min_players' => 'required|numeric|between:1,10',
+            'max_players' => 'required|numeric|between:1,10',
+            'min_play_time' => 'required|numeric|between:0,120',
             'language' => 'required|max:255',
-            'release_date' => 'required|numeric',
+            'release_date' => 'required|numeric|between:-3000,3000',
             'includes' => 'required',
             'photosNew.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -351,10 +351,4 @@ class ProductController extends Controller
         $photo->save();
         return back();
     }
-
-    private function changeProductMainPhoto(Product $product, ProductPhoto $photo)
-    {
-
-    }
 }
-

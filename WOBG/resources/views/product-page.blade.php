@@ -32,7 +32,7 @@
             <div class="row">
                 <!--    Fotky-->
                 <div class="col-lg-4 order-2 order-lg-1 text-lg-start text-center">
-                    <a href="{{asset($product->mainPhoto->path)}}" data-lightbox="mygallery"
+                    <a id="lightbox-first" href="{{asset($product->mainPhoto->path)}}" data-lightbox="mygallery"
                        data-title="product {{$product->name}} main image">
                         <img src="{{asset($product->mainPhoto->path)}}" class="img-fluid main-product-img"
                              alt="product {{$product->name}} main image">
@@ -44,7 +44,7 @@
                             @if($photo == $product->mainPhoto)
                                 @continue
                             @endif
-                            <div class="@if($loop->index < 3) col d-flex justify-content-center @else d-none @endif">
+                            <div class="@if($loop->index <= 3) col d-flex justify-content-center @else d-none @endif">
                                 @include("components.product-page-image", [
                                      "class" => "img-fluid",
                                      "alt" => "$product->name image $loop->index",
@@ -52,7 +52,7 @@
                                  ])
                             </div>
                         @endforeach
-                        @if(count($product->photos) > 3)
+                        @if(count($product->photos) > 4)
                             <div class="col text-center">
                                 <button class="btn dark-link openGallery">
                                     Open Gallery
@@ -206,7 +206,7 @@
                 addProductToCart({{$product->id}}, quantity);
             });
             $('.openGallery').click(function () {
-                $('#lightbox-4').trigger('click');
+                $('#lightbox-first').trigger('click');
             });
         });
     </script>

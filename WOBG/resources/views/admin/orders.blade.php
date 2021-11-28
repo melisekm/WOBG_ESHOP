@@ -13,6 +13,7 @@
                         <tr>
                             <th>Order ID</th>
                             <th>Customer</th>
+                            <th>Customer Mail</th>
                             <th>Total</th>
                             <th>Date</th>
                             <th>Action</th>
@@ -24,6 +25,7 @@
                                 <td>{{ $order->id }}</td>
                                 <td>@if($order->user){{ $order->user->first_name }} {{$order->user->surname}}@else
                                         Guest @endif</td>
+                                <td>{{ $order->email }}</td>
                                 <td>@money($order->total)</td>
                                 <td>{{ $order->created_at }}</td>
                                 <td>
