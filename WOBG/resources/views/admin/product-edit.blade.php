@@ -27,7 +27,7 @@
                     @method('PATCH')
                     <div class="form-group">
                         <label for="name">Name*</label>
-                        <input type="text" name="name" id="name" class="form-control" value="{{ $product->name }}">
+                        <input type="text" name="name" id="name" class="form-control" value="{{ $product->name }}" required>
                     </div>
                     <div class="form-group">
                         <label for="description">Description*</label>
@@ -37,13 +37,49 @@
                     <div class="form-group">
                         <label for="publisher">Publisher*</label>
                         <input type="text" name="publisher" id="publisher" class="form-control"
-                               value="{{ old('publisher', $product->publisher) }}">
+                               value="{{ old('publisher', $product->publisher) }}" required>
                     </div>
                     <div class="form-group mb-2">
                         <label for="price">Price*</label>
                         <input type="number" name="price" id="price" min=".01" step=".01" class="form-control"
-                               value="{{ $product->price }}">
+                               value="{{ $product->price }}" required>
                     </div>
+                    <div class="form-group mb-2">
+                        <label for="min_age">Minimum age*</label>
+                        <input type="number" name="min_age" id="min_age" min="0" max="18" step="1" class="form-control"
+                               value="{{ $product->min_age}}" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="min_players">Minimum players*</label>
+                        <input type="number" name="min_players" id="min_players" min="1" max="10" step="1" class="form-control"
+                               value="{{ $product->min_players }}" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="max_players">Maximum players*</label>
+                        <input type="number" name="max_players" id="max_players" min="1" max="10" step="1" class="form-control"
+                               value="{{ $product->max_players }}" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="min_play_time">Play time*</label>
+                        <input type="number" name="min_play_time" id="min_play_time" min="0" max="120" step="5" class="form-control"
+                               value="{{ $product->min_play_time }}" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="release_date">Release date*</label>
+                        <input type="number" name="release_date" id="release_date" min="0" step="1" class="form-control"
+                               value="{{ $product->release_date }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Language*</label>
+                        <input type="text" name="language" id="language" class="form-control" value="{{ $product->language }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="includes">Includes*</label>
+                        <textarea name="includes" id="includes" cols="30" rows="10"
+                                  class="form-control">{{ $product->includes }}</textarea>
+                    </div>
+
                     <h3>Photos</h3>
                     <div class="row">
                         @foreach($product->photos as $photo)

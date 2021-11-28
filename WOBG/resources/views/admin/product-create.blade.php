@@ -29,12 +29,47 @@
                     </div>
                     <div class="form-group">
                         <label for="publisher">Publisher*</label>
-                        <input required type="text" name="publisher" id="publisher" class="form-control" value="{{ old('publisher') }}">
+                        <input required type="text" name="publisher" id="publisher" class="form-control" value="{{ old('publisher') }}" required>
                     </div>
                     <div class="form-group mb-2">
                         <label for="price">Price*</label>
                         <input required type="number" name="price" id="price" min=".01" step=".01" class="form-control"
-                               value="{{ old('price') }}">
+                               value="{{ old('price') }}" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="min_age">Minimum age*</label>
+                        <input type="number" name="min_age" id="min_age" min="0" max="18" step="1" class="form-control"
+                               value="{{ old('min_age')}}" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="min_players">Minimum players*</label>
+                        <input type="number" name="min_players" id="min_players" min="0" max="10" step="1" class="form-control"
+                               value="{{ old('min_players') }}" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="max_players">Maximum players*</label>
+                        <input type="number" name="max_players" id="max_players" min="0" max="10" step="1" class="form-control"
+                               value="{{ old('max_players') }}" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="min_play_time">Play time*</label>
+                        <input type="number" name="min_play_time" id="min_play_time" min="0" max="120" step="5" class="form-control"
+                               value="{{ old('min_play_time') }}" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="release_date">Release date*</label>
+                        <input type="number" name="release_date" id="release_date" min="0" max="3000" step="1" class="form-control"
+                               value="{{ old('release_date') }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Language*</label>
+                        <input type="text" name="language" id="language" class="form-control" value="{{ old('language') }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="includes">Includes*</label>
+                        <textarea name="includes" id="includes" cols="30" rows="10"
+                                  class="form-control">{{ old('includes') }}</textarea>
                     </div>
                     <h3>Photos</h3>
 

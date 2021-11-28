@@ -142,6 +142,13 @@ class ProductController extends Controller
             'category' => 'required',
             'subcategory' => 'required',
             'publisher' => 'required|max:255',
+            'min_age' => 'required|numeric|min:0|max:100',
+            'min_players' => 'required|numeric|min:1|max:10',
+            'max_players' => 'required|numeric|min:1|max:10',
+            'min_play_time' => 'required|numeric|min:0|max:120',
+            'language' => 'required|max:255',
+            'release_date' => 'required|numeric',
+            'includes' => 'required',
             'mainPhoto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'photosNew.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -151,13 +158,13 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->description = $request->description;
         $product->publisher = $request->publisher;
-        $product->min_age = rand(0, 18);
-        $product->min_play_time = rand(20, 120);
-        $product->min_players = rand(2, 4);
-        $product->max_players = rand(4, 10);
-        $product->release_date = rand(2005, 2021);
-        $product->includes = "One board\nManual in Polish\nManual in English\nManual in German";
-        $product->language = "English";
+        $product->min_age = $request->min_age;
+        $product->min_play_time = $request->min_play_time;
+        $product->min_players = $request->min_players;
+        $product->max_players = $request->max_players;
+        $product->release_date = $request->release_date;
+        $product->includes = $request->includes;
+        $product->language = $request->language;
         $product->category()->associate(ProductCategory::find($request->category));
         $product->subcategory()->associate(ProductSubcategory::find($request->subcategory));
 
@@ -219,6 +226,13 @@ class ProductController extends Controller
             'category' => 'required',
             'subcategory' => 'required',
             'publisher' => 'required|max:255',
+            'min_age' => 'required|numeric|min:0|max:100',
+            'min_players' => 'required|numeric|min:1|max:10',
+            'max_players' => 'required|numeric|min:1|max:10',
+            'min_play_time' => 'required|numeric|min:0|max:120',
+            'language' => 'required|max:255',
+            'release_date' => 'required|numeric',
+            'includes' => 'required',
             'photosNew.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -231,6 +245,14 @@ class ProductController extends Controller
             "description" => $request->description,
             "price" => $request->price,
             "publisher" => $request->publisher,
+            "min_age" => $request->min_age,
+            "min_play_time" => $request->min_play_time,
+            "min_players" => $request->min_players,
+            "max_players" => $request->max_players,
+            "release_date" => $request->release_date,
+            "includes" => $request->includes,
+            "language" => $request->language,
+
         ]);
         $product->save();
 
