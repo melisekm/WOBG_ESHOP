@@ -76,10 +76,9 @@
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            <a href="javascript:void(0)" onclick="window.location.href = url.href"
-                               class="btn btn-blue border-0">
+                            <button onclick="window.location.href = url.href" class="btn btn-blue border-0">
                                 <i class="fa fa-check"></i> Apply filters
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>

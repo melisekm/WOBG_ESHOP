@@ -11,7 +11,6 @@
             <div class="modal-body">
                 <div class="container">
                     <div class="row ">
-
                         <div class="mb-3">
                             <label for="pass3" class="modal-label">Current password</label>
                             <input type="password" id="pass3" class="form-control">
@@ -27,16 +26,17 @@
                             <label for="pass2" class="modal-label">Confirm new password</label>
                             <input type="password" id="pass2" class="form-control">
                         </div>
-
                     </div>
-
+                    <p class="text-danger">
+                        This feature is temporarily disabled.
+                    </p>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                     Cancel
                 </button>
-                <a class="btn btn-blue" data-bs-dismiss="modal">Save </a>
+                <button disabled class="btn btn-blue" data-bs-dismiss="modal">Save</button>
             </div>
         </div>
     </div>

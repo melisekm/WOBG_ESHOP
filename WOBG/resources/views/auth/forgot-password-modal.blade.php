@@ -13,13 +13,11 @@
                         <p class="modal-p"> We will send you an email to reset your
                             password. </p>
                         <div class="mb-3">
-                            <label for="pwResetEmail" aria-describedby="forgotPasswordBlock"
-                                   class="modal-label">Email</label>
-                            <input type="email" id="pwResetEmail" class="form-control"
-                                   name="email" required disabled>
-                            <div id="forgotPasswordBlock" class="form-text">
+                            <label for="pwResetEmail" class="modal-label">Email</label>
+                            <input type="email" id="pwResetEmail" class="form-control" name="email" required disabled>
+                            <p class="text-danger mt-2">
                                 This feature is temporarily disabled.
-                            </div>
+                            </p>
                         </div>
                     </div>
                 </div>
