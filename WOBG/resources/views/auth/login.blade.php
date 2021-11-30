@@ -44,8 +44,10 @@
                                 <label class="form-check-label" for="remember_me"> Remember me </label>
                             </div>
 
-                            <a class="white-link" href="#" data-bs-toggle="modal"
-                               data-bs-target="#forgotPasswordModal">Forgot your password?</a>
+                            <a class="white-link" href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">
+                                Forgot your password?
+                            </a>
+
                             <div class="row">
                                 <div class="col mt-3 text-center">
                                     <button class="btn btn-confirm btn-blue"> Sign In</button>

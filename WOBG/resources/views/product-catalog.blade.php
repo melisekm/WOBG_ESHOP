@@ -11,9 +11,9 @@
     <main class="container">
         <div class="row mb-5 mt-3">
             <!--    Filters-->
-            @include("layout.partials.product-catalog.filters")
+            @include("product-catalog.filters")
             <!--    Catalog-->
-            @include("layout.partials.product-catalog.catalog")
+            @include("product-catalog.catalog")
         </div>
     </main>
 @endsection
