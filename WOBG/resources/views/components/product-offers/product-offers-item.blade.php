@@ -4,7 +4,7 @@
             @include("components.image", [
                 "class" => "img-fluid",
                 "alt" => "popular game image $product->name",
-                "path" => $product->mainPhoto->path
+                "path" => $product->mainPhoto->name
             ])
         </div>
         <p class="text-truncate fs-4 mt-3">{{$product->name}}</p>

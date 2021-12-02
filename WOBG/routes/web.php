@@ -94,9 +94,6 @@ Route::patch('/products/{product}', [ProductController::class, 'update'])
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])
     ->middleware(['auth', 'can:viewAdmin,App\Models\Product'])
     ->name('products.destroy');
-Route::get("/products/setphoto/{product}/{photo}", [ProductController::class, 'setMainProductPhoto'])
-    ->middleware(['auth', 'can:viewAdmin,App\Models\Product'])
-    ->name('products.setMainPhoto');
 
 //Profile
 Route::get('/profile', [UserController::class, 'index'])

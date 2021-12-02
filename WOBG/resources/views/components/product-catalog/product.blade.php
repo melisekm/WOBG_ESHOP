@@ -6,7 +6,7 @@
                     @include("components.image", [
                         "class" => "img-fluid",
                         "alt" => "product image $product->name",
-                        "path" => $product->mainPhoto->path
+                        "path" => $product->mainPhoto->name
                     ])
                 </a>
             </div>

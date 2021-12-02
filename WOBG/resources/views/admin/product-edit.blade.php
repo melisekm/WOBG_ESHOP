@@ -86,27 +86,24 @@
                     <div class="row">
                         @foreach($product->photos as $photo)
                             <div class="col-2 text-center mb-2">
-                                <div class="row text-center">
-                                    <div class="col">
-                                        @if($photo == $product->mainPhoto)
-                                            <span class="badge bg-success">Main</span>
-                                        @else
-                                            <a href="{{ route('products.setMainPhoto', [$product->id, $photo->id]) }}"
-                                               class="btn btn-sm btn-primary">Set as main</a>
-                                        @endif
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <div class="form-group">
                                         <div class="ratio ratio-1x1">
-                                            <img src="{{ asset($photo->path)}}" alt="Photo {{$loop->index+1}}"
-                                                 class="img-thumbnail">
+                                            @include("components.image", [
+                                                 "path" => $photo->name,
+                                                 "class" => "img-thumbnail",
+                                                 "alt"=>'Photo' . ($loop->index+1)
+                                            ])
                                         </div>
                                         <input type="hidden" name="photos[]" value="{{ $photo->id }}">
                                         @if($photo != $product->mainPhoto)
                                             <button type="button" class="btn btn-danger btn-sm mt-2"
                                                     onclick="$(this).parent().parent().parent().remove()">Delete
                                             </button>
+                                        @else
+                                            @if($photo == $product->mainPhoto)
+                                                <span class="badge bg-success">Main</span>
+                                            @endif
                                         @endif
                                     </div>
                                 </div>

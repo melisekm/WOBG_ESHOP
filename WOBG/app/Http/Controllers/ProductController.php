@@ -134,7 +134,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'price' => 'required|numeric|min:0.01|regex:/^[0-9]+[\.\,]?[0-9]{0,2}$/',
+            'price' => 'required|numeric|min:0.01|max:100000000|regex:/^[0-9]+[\.\,]?[0-9]{0,2}$/',
             'description' => 'required',
             'category' => 'required',
             'subcategory' => 'required',
@@ -146,7 +146,7 @@ class ProductController extends Controller
             'language' => 'required|max:255',
             'release_date' => 'required|numeric',
             'includes' => 'required',
-            'mainPhoto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'mainPhoto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'photosNew.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -169,16 +169,10 @@ class ProductController extends Controller
 
         $this->addPhotosToProduct($request->file('photosNew'), $product);
 
-
-        if ($request->hasFile("mainPhoto")) {
-            $photo = $request->file("mainPhoto");
-            $public_path = "img\\games\\" . md5($photo->getClientOriginalName()) . "." . $photo->getClientOriginalExtension();
-            $this->createInterventionPhoto($public_path, $photo);
-        } else {
-            $public_path = "img\\missing_img.png";
-        }
-        $filename = $product->id . "_main";
-        $this->savePhotoInDB($public_path, $filename, $product);
+        $photo = $request->file("mainPhoto");
+        $name = $product->id . "main_" .
+            md5(time() . $photo->getClientOriginalName()) . "." . $photo->getClientOriginalExtension();
+        $this->createPhoto($photo, $name, $product);
 
         $request->session()->flash('success', 'Product created successfully!');
         return redirect()->route('admin.products');
@@ -215,7 +209,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'price' => 'required|numeric|min:0.01|regex:/^[0-9]+[\.\,]?[0-9]{0,2}$/',
+            'price' => 'required|numeric|min:0.01|max:100000000|regex:/^[0-9]+[\.\,]?[0-9]{0,2}$/',
             'description' => 'required',
             'category' => 'required',
             'subcategory' => 'required',
@@ -282,37 +276,6 @@ class ProductController extends Controller
         return back();
     }
 
-    private function hardDeletePhoto($photo)
-    {
-        $photoPath = public_path($photo->path);
-        if ($photoPath === public_path('img\\missing_img.png')) {
-            return;
-        }
-        if (file_exists($photoPath)) {
-            unlink($photoPath);
-        }
-    }
-
-    private function createInterventionPhoto($public_path, $photo)
-    {
-        $image_width = getimagesize($photo->getRealPath())[0];
-        $width = $image_width > 900 ? 900 : $image_width;
-        $location_full = public_path($public_path);
-        Image::make($photo->getRealPath())->resize($width, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($location_full);
-    }
-
-    private function savePhotoInDB($public_path, $filename, $product)
-    {
-        $photoDB = new ProductPhoto();
-        $photoDB->path = $public_path;
-        $photoDB->name = $filename;
-        $photoDB->product()->associate($product);
-        $photoDB->save();
-    }
-
-
     public function getProductByQuery(Request $request)
     {
         $query = $request->query('query');
@@ -321,26 +284,39 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
+    private function hardDeletePhoto($photo)
+    {
+        $photoPath = public_path(config('app.image_path') . $photo->name);
+        if (file_exists($photoPath)) {
+            unlink($photoPath);
+        }
+    }
+
+
     private function addPhotosToProduct($photos, $product)
     {
         if ($photos) {
             foreach ($photos as $photo) {
-                $filename = md5($photo->getClientOriginalName()) . '.' . $photo->getClientOriginalExtension();
-                $public_path = "img\\games\\" . $filename;
-                $this->createInterventionPhoto($public_path, $photo);
-                $this->savePhotoInDB($public_path, $filename, $product);
+                $name = md5(time() . $photo->getClientOriginalName()) . "." . $photo->getClientOriginalExtension();
+                $this->createPhoto($photo, $name, $product);
             }
         }
     }
 
-    public function setMainProductPhoto(Product $product, ProductPhoto $photo)
+    private function createPhoto($photo, $name, $product)
     {
-        $originalMainPhoto = $product->mainPhoto()->get()[0];
-        $newPhotoNameTemp = $photo->name;
-        $photo->name = $product->id . '_' . "main";
-        $originalMainPhoto->name = $newPhotoNameTemp;
-        $originalMainPhoto->save();
-        $photo->save();
-        return back();
+        $image_width = getimagesize($photo->getRealPath())[0];
+        $image = Image::make($photo->getRealPath());
+        if ($image_width > 900) {
+            $image->resize(900, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+        }
+        $image->save(public_path(config('app.image_path') . $name));
+
+        $photoDB = new ProductPhoto();
+        $photoDB->name = $name;
+        $photoDB->product()->associate($product);
+        $photoDB->save();
     }
 }

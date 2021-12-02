@@ -32,10 +32,13 @@
             <div class="row">
                 <!--    Fotky-->
                 <div class="col-lg-4 order-2 order-lg-1 text-lg-start text-center">
-                    <a id="lightbox-first" href="{{asset($product->mainPhoto->path)}}" data-lightbox="mygallery"
-                       data-title="product {{$product->name}} main image">
-                        <img src="{{asset($product->mainPhoto->path)}}" class="img-fluid main-product-img"
-                             alt="product {{$product->name}} main image">
+                    <a id="lightbox-first" href="{{asset(config('app.image_path').$product->mainPhoto->name)}}"
+                       data-lightbox="mygallery" data-title="product {{$product->name}} main image">
+                        @include("components.image", [
+                            "path" => $product->mainPhoto->name,
+                            "alt" => "product $product->name main image",
+                            "class" => "img-fluid main-product-img"
+                        ])
                     </a>
 
                     <!--        Po kliknuti sa otvori na full-->
@@ -48,7 +51,7 @@
                                 @include("components.product-page-image", [
                                      "class" => "img-fluid",
                                      "alt" => "$product->name image $loop->index",
-                                     "path" => $photo->path
+                                     "path" => $photo->name
                                  ])
                             </div>
                         @endforeach
@@ -112,7 +115,7 @@
                                                     @include("components.image", [
                                                             "class" => "img-fluid product-img",
                                                             "alt" => "product $product->name image",
-                                                            "path" => $product->mainPhoto->path
+                                                            "path" => $product->mainPhoto->name
                                                     ])
                                                 </div>
                                                 <div class="col-md">{{$product->name}}</div>
@@ -170,11 +173,10 @@
 
         </section>
         <!--    Related prodcuts-->
-        @component("components.product-offers.product-offers", [
+        @include("components.product-offers.product-offers", [
             "products" => $relatedProducts,
             "title" => "Related Products",
             "row_class" => "row row-cols-2 row-cols-lg-4 mb-4"])
-        @endcomponent
         <div class="text-center mb-3">
             <a href="{{route("products.index")}}" class="btn btn-blue fs-4">Show more</a>
         </div>

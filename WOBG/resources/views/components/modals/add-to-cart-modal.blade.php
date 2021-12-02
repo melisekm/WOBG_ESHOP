@@ -16,7 +16,7 @@
                             @include("components.image", [
                                     "class" => "img-fluid product-img",
                                     "alt" => "product $product->name image",
-                                    "path" => $product->mainPhoto->path
+                                    "path" => $product->mainPhoto->name
                             ])
                         </div>
                         <div class="col-md">{{$product->name}}</div>
