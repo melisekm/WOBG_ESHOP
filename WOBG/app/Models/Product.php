@@ -53,24 +53,12 @@ class Product extends Model
 
     public function photos()
     {
-        return $this->hasMany(ProductPhoto::class);
-
-//        return $this->hasMany(ProductPhoto::class);
+        return $this->hasMany(ProductPhoto::class)->orderBy('id');
     }
 
     public function mainPhoto()
     {
         return $this->hasOne(ProductPhoto::class)->where('name', "ilike", "%" . "main" . "%");
-    }
-
-//    public function productPagePhotos()
-//    {
-//        return $this->hasMany(ProductPhoto::class)->whereIn("name", ["main_900", "back_900", "play_900"]);
-//    }
-
-    public function mainPhotos()
-    {
-        return $this->hasMany(ProductPhoto::class)->where('name', "ilike", "%" . "main" . "%");
     }
 
     public function users()

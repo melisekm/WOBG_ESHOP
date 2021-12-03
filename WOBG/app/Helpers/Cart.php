@@ -40,16 +40,24 @@ class Cart
     }
 
     // po prihlaseni alebo registracii, nacita do kosika produkty
-    // ak sa prihlasil a nemal produkty v kosiku, nakopiruje do DB cart zo sessionu
-    // tuto sa moze spravit merge
+    // ak sa prihlasil a nemal produkty v kosiku, nakopiruje do sessonu cart z DB(ak tam nejaky bol)
+    // ak mal pred prihlasenim mal produkty v kosiku, tak ich mergne s tymi co mal v DB
     public function loadCartOnLogin()
     {
         $user = auth()->user();
         $existingCart = $user->getProductsInCartWithQuantity();
+        $cart = session()->get('cart', []);
         if (count($existingCart) > 0) {
-            $cart = $existingCart;
+            // merge existingCart from DB with cart from session
+            foreach ($cart as $productId => $details) {
+                if(!array_key_exists($productId, $existingCart)) {
+                    $user->products()->attach($productId, ['quantity' => $details['quantity']]);
+                } else {
+                    $user->products()->updateExistingPivot($productId, ['quantity' => $details['quantity']]);
+                }
+            }
+            $cart = array_merge($existingCart, $cart);
         } else {
-            $cart = session()->get('cart', []);
             foreach ($cart as $productId => $details) {
                 $user->products()->attach($productId, ['quantity' => $details["quantity"]]);
             }
@@ -75,7 +83,7 @@ class Cart
     // taktiez spocita celkovu cenu vsetkych produktov v kosiku
     public function getProducts($cart): array
     {
-        $products = Product::with("mainPhotos")->findMany(array_keys($cart), ['id', 'name', 'price']);
+        $products = Product::with("mainPhoto")->findMany(array_keys($cart), ['id', 'name', 'price']);
         $totalPrice = 0;
         foreach ($products as $product) {
             $product->quantity = $cart[$product->id]["quantity"];

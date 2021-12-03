@@ -167,12 +167,13 @@ class ProductController extends Controller
 
         $product->save();
 
-        $this->addPhotosToProduct($request->file('photosNew'), $product);
-
         $photo = $request->file("mainPhoto");
         $name = $product->id . "main_" .
             md5(time() . $photo->getClientOriginalName()) . "." . $photo->getClientOriginalExtension();
         $this->createPhoto($photo, $name, $product);
+
+        $this->addPhotosToProduct($request->file('photosNew'), $product);
+
 
         $request->session()->flash('success', 'Product created successfully!');
         return redirect()->route('admin.products');
