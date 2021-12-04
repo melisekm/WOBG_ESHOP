@@ -9,5 +9,9 @@
 - php artisan key:generate
 - php artisan serve
 
+### Admin account
+- login: admin@gmail.com
+- password: 12345678
+
 ## Description
 -
