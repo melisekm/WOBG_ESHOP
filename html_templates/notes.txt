@@ -1,5 +1,0 @@
-Medziväzobná tabuľka medzi User a Product bude naviac obsahovať quantity.
-Medziväzobná tabuľka medzi Order a Product bude naviac obsahovať quantity a price.
-
-Fotky carouselu na landing page prevzaté z https://unsplash.com/
-Logá prevzaté z https://www.freepik.com/ a https://www.flaticon.com/
