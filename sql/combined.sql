@@ -192,3 +192,8 @@ INSERT INTO public.product_photos (id, created_at, updated_at, name, product_id)
 VALUES (DEFAULT, '2021-11-14 03:10:09', '2021-11-14 03:10:10', '2play.jpg', 2);
 INSERT INTO public.product_photos (id, created_at, updated_at, name, product_id)
 VALUES (DEFAULT, '2021-11-14 03:10:10', '2021-11-14 03:10:11', '2back.jpg', 2);
+
+
+insert into public.users (id, first_name, email, email_verified_at, password, remember_token, created_at, updated_at, surname, city, street, country, postal_code, phone_number) values (1, 'Administrator', 'admin@gmail.com', null, '$2y$10$YldX9jvdBZIWsv0n3ezNDOaPP6yQRPaN0n4Ls4NUg4kJPAih8oz76', null, '2021-11-26 17:57:13', '2021-11-27 19:00:32', 'ADMIN', 'AdminCity', 'Adminská 4', 'Slovakia', '123456798', '+42196312');
+
+insert into public.role_user (id, created_at, updated_at, user_id, role_id) values (1, '2021-11-26 18:58:10', '2021-11-26 18:58:11', 1, 1);
