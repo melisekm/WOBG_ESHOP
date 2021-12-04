@@ -32,13 +32,5 @@ class AppServiceProvider extends ServiceProvider
             return "<?php echo '$' . number_format($amount, 2); ?>";
         });
         Paginator::useBootstrap();
-
-//        DB::listen(function ($query) {
-//            Log::info(str_repeat('-', 80));
-//            Log::info($query->sql);
-//            Log::info($query->bindings);
-//            Log::info($query->time);
-//
-//        });
     }
 }
