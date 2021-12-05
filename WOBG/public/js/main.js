@@ -71,6 +71,13 @@ inputBox.addEventListener('search', () => {
     searchWrapper.classList.remove("active");
 });
 
+$("#searchGroup").on('keydown', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        e.preventDefault();
+        window.location.href = `/products?search=${inputBox.value.trim()}`;
+    }
+});
+
 const addProductToCart = (id, amount) => {
     $.post(`/cart/${id}/${amount}`).done((data) => {
         $("#cartCount").html(data.length);

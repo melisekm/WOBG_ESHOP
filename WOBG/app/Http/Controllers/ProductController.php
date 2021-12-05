@@ -7,6 +7,7 @@ use App\Models\ProductCategory;
 use App\Models\ProductPhoto;
 use App\Models\ProductSubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
@@ -274,6 +275,8 @@ class ProductController extends Controller
         $product->photos()->delete();
         $product->delete();
         $request->session()->flash('success', 'Product deleted successfully!');
+        Cache::forget('popular_games');
+        Cache::forget('new_games');
         return back();
     }
 
